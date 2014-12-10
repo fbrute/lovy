@@ -1,0 +1,16 @@
+{
+    "contents" : "mixr.test <- function () {\n        \n        library(RUnit)\n        #library(testthat)\n        \n        testsuite.mixr <- defineTestSuite(\"mixr\", \n                                          dirs = file.path(paste(getwd(),\n                                                                 \"/mixr\",sep=\"\")),\n                                          testFileRegexp = \"^runit.+\\\\.R\", \n                                          testFuncRegexp = \"^test.+\", \n                                          rngKind = \"Marsaglia-Multicarry\", \n                                          rngNormalKind = \"Kinderman-Ramage\")\n        \n        source('~/Documents/Trafin/lovy/mixr/mixr.R')\n        \n        \n        testResult <- runTestSuite(testsuite.mixr)\n        \n        print(testResult)\n        \n}",
+    "created" : 1413899808809.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3504788229",
+    "id" : "C95B517B",
+    "lastKnownWriteTime" : 1413907709,
+    "path" : "~/Documents/Trafin/lovy/mixr/tests.R",
+    "project_path" : "mixr/tests.R",
+    "properties" : {
+    },
+    "source_on_save" : true,
+    "type" : "r_source"
+}

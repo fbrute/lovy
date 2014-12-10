@@ -1,0 +1,16 @@
+{
+    "contents" : "#context(\"Checking mixr mean calculation\")\n\n\ntest_that(\"month to get the mean from is numeric\",\n{\n        mean = meanForAMonth(1)\n        expect_that(mean > 0, is_true())        \n}\n)\n\ntest.meanForAMonth <- function(month = 1) {\n        checkTrue( month %in% 1:12)\n        \n        \n        \n}",
+    "created" : 1413908738369.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2859693162",
+    "id" : "4D22B644",
+    "lastKnownWriteTime" : 1413979649,
+    "path" : "~/Documents/Trafin/lovy/mixr/tests.mixr.R",
+    "project_path" : "mixr/tests.mixr.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

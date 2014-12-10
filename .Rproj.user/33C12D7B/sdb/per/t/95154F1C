@@ -1,0 +1,16 @@
+{
+    "contents" : "main <- function () {}\n\n.setUp <- function () {\n        library(RMySQL)\n        \n        con = dbConnect(dbDriver(\"MySQL\"), user=\"dbmeteodb\", \n                        password=\"dbmeteodb\",\n                        dbname=\"dbmeteodbtest\",\n                        host=\"localhost\")\n        \n\n        \n}\ntest.getData <-function (){\n        #con = getCon()\n        data <- getData(con, 2012, 1)\n        expect_that(data, is_a(\"data.frame\"))\n        expect_that(format(data$date[1],\"%m\"), equals(1))\n        #dbDisconnect(con)\n}\n\ntest.meanForAMonth <- function() {\n        mean = meanForAMonth(13)\n        expect_that(mean, is_a(\"numeric\"))\n        expect_that(mean > 0, is_true())\n        print()\n        \n}\n\n# .tearDown <- function () {\n#         dbDisconnect(con)       \n# }\n",
+    "created" : 1413899874877.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "796760046",
+    "id" : "95154F1C",
+    "lastKnownWriteTime" : 1413979537,
+    "path" : "~/Documents/Trafin/lovy/mixr/runitmixr.R",
+    "project_path" : "mixr/runitmixr.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

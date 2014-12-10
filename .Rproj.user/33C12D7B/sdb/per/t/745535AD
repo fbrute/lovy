@@ -1,0 +1,16 @@
+{
+    "contents" : "\n\nmeanForAMonth <- function (month=1) {\n        0        \n}\n\ngetCon <- function () {\n        library(RMySQL)\n        \n        con = dbConnect(dbDriver(\"MySQL\"), user=\"dbmeteodb\", \n                        password=\"dbmeteodb\",\n                        dbname=\"dbmeteodb\",\n                        host=\"localhost\")\n}\n\ngetData <- function (con, year, month) {\n        sqlstr = paste(\"select avg(mixr) as meanmixr from sounding1 where year(date)=\",\n                        year,  \"and month(date) =\", month ,\"group by date\")\n        \n        query <- dbSendQuery(con,  sqlstr)\n        \n        \n        data <- fetch(query, n=-1);\n        \n        dbClearResult(query)\n        \n        data\n\n}",
+    "created" : 1413895558845.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1742380396",
+    "id" : "745535AD",
+    "lastKnownWriteTime" : 1413915238,
+    "path" : "~/Documents/Trafin/lovy/mixr/mixr.R",
+    "project_path" : "mixr/mixr.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
