@@ -1,0 +1,14 @@
+#Traitement du fichier csv, avec les champs séparés par des virgules
+# des données pm10, ouvertes sous excel ou libreoffice et exportées
+
+#Séquence VIM pour reformatter la date et l'heure au format YYYY/MM/DD HH:MM:SS
+1,%s/\(\d\d\)\/\(\d\d\)\/\(\d\d\d\d\)\s\(\d\d:\d\d\)/\3\/\2\/\1\ \4\:00
+
+#variante avec un point virgule séparant la date de l'heure au lieu d'un espace ci-dessus.
+1,%s/\(\d\d\)\/\(\d\d\)\/\(\d\d\d\d\);\(\d\d:\d\d\)/\3\/\2\/\1\ \4\:00
+
+# Remplacer les ‘,’ par des points. 
+
+# lancer mysql, avec l'option local-infile active : mysql -u dbmeteodb -p --local-infile=1
+Lancer la commande : 
+> load data local infile 'pm10_2015.csv' into table pm10_2015 fields terminated by ';';

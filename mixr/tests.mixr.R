@@ -1,6 +1,8 @@
 #context("Checking mixr mean calculation")
 
 
+source("mixr.R")
+
 test_that("month to get the mean from is numeric",
 {
         mean = meanForAMonth(1)

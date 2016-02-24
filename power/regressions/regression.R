@@ -1,5 +1,5 @@
 mainreg = function (){
-        dbg = 1
+        dbg = 0
         
         library(RMySQL)
         library(ggplot2)
