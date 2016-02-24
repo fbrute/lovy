@@ -2,7 +2,7 @@ library(RMySQL)
 
 library(shiny)
 
-dbg <- 0
+dbg <- F
 
 shinyServer(function (input, output) {
         
@@ -133,11 +133,13 @@ shinyServer(function (input, output) {
                                                          data1$pressure[i])
                                 if (triangle) {
                                         # side a of triangle, parallel to x axis
-                                        a <- abs(temps[i] - data1$temp[i])
+                                        if (dbg) browser()
+                                        a <- abs(temps[i] - calcVirtualTemp(data1$temp[i], data1$mixr[i]))
+                                        if (dbg) browser()
                                         
                                         # side b of triangle along the sounding curve
                                         b <- calcDistance(temps[i-1], data1$pressure[i-1],
-                                                          data1$temp[i], data1$pressure[i])
+                                                          calcVirtualTemp(data1$temp[i], data1$mixr[i]), data1$pressure[i])
                                         # side c of triangle along the adiabatic curve
                                         c <- calcDistance(temps[i-1], data1$pressure[i-1],
                                                           temps[i], data1$pressure[i])
@@ -153,9 +155,9 @@ shinyServer(function (input, output) {
                                         a <- abs(temps[i] - data1$temp[i])
                                         # size b, along the sounding curve
                                         b <- calcDistance(temps[i-1], data1$pressure[i-1],
-                                                          data1$temp[i], data1$pressure[i])
+                                                          calcVirtualTemp(data1$temp[i], data1$mixr[i]), data1$pressure[i])
                                         # side c,  at bottom of trapeze
-                                        c <- abs(data1$temp[i-1] - temps[i-1])
+                                        c <- abs(calcVirtualTemp(data1$temp[i-1], data1$mixr[i-1]) - temps[i-1])
                                         # side d, along the adiabatic curve
                                         d <- calcDistance(temps[i-1], data1$pressure[i-1],
                                                           temps[i], data1$pressure[i])
@@ -200,6 +202,12 @@ shinyServer(function (input, output) {
 
                 T2 - 273.15
         }
+        
+        calcVirtualTemp <- function (T, r) { 
+                rg = r / 1000  # Convert g/kg air sec to gr/gr)
+                Tv = (1 + 0.608*rg) * T
+                Tv
+                }
         
         getData <- function(datatype=""){
                 # Init string to know if it is valid at the end of the function
