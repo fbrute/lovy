@@ -29,11 +29,26 @@ SwathModis <- setClass(
     ),
     #Make a function that can test if data is consistent
     validity = function (object) {
-        return TRUE   
+        return(TRUE)
     },
     contains = c("Swath")
 )
 
+##############  Constructor ##########################
+# validity , thru validObject, has to be called explicitly when constructor exists
+setMethod(f="initialize",
+          signature="SwathModis",
+          def=function(.Object,date='2012-06-01', north=20,south=10,east=-15,west=-61)
+          {
+              print("Setting the julian day")
+              library(lubridate)
+              date1 = as.Date(date)
+              .Object@julianDay = yday(date1)
+              #validObject(.Object) # you must explicitly call the 
+              # inspector
+              return(.Object)
+          }
+)
 
 
 ##############  Aot Retrieval ##########################
@@ -48,6 +63,22 @@ setMethod(f="GetAot",
           signature="SwathModis",
           definition=function(swathModis)
           {
+              return(swathModis@aot)
+          }
+)
+
+setGeneric(name="SetAot",
+           def=function(swathModis)
+           {
+               standardGeneric("SetAot")
+           }
+)
+
+setMethod(f="SetAot",
+          signature="SwathModis",
+          definition=function(swathModis)
+          {
+              
               return(swathModis@aot)
           }
 )
@@ -76,3 +107,4 @@ setMethod(f="show",
                   ", South: ", object@south, ", Aot: ", object@aot ,"\n")
           }
 )
+
