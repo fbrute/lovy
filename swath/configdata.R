@@ -16,7 +16,7 @@ ConfigData <- setClass(
     representation(
         satOrigin = 'character',
         algo = 'character',
-        aotLength = 'character',
+        aotLength = 'numeric',
         path = 'character',
         missingDates = 'numeric'
     )
@@ -29,22 +29,39 @@ setMethod(f="initialize",
           def=function(.Object, satOrigin = 'TERRA', algo ='O',  aotLength=870)
           {
           if (satOrigin == 'TERRA') {
-              path= "/Users/france-norbrute/Documents/trafin/fouyol/recherche/data/modis/MOD04_L2/csv"
+              path= "/Users/france-norbrute/Documents/trafin/fouyol/recherche/data/modis/MOD04_L2/swathmodis/csv"
               missingDates = c( 54, 132, 151, 158, 183, 222, 279, 286, 314)
           }
           
           if (satOrigin == 'AQUA') {
-              path= "/Users/france-norbrute/Documents/trafin/fouyol/recherche/data/modis/MYD04_L2/csv"
+              path= "/Users/france-norbrute/Documents/trafin/fouyol/recherche/data/modis/MYD04_L2/swathmodis/csv"
               missing_dates = c( 310, 316, 317) 
           }
+              
           path = paste(path,aotLength,sep='')
+          .Object@satOrigin = satOrigin
           .Object@path = path
           .Object@missingDates = missingDates
+          .Object@aotLength = aotLength
           .Object@algo = algo
           return(.Object)
           }
 )
+##############  SatOrigin ##########################
+setGeneric(name="GetSatOrigin",
+           def=function(ConfigData)
+           {
+               standardGeneric("GetSatOrigin")
+           }
+)
 
+setMethod(f="GetSatOrigin",
+          signature="ConfigData",
+          definition=function(ConfigData)
+          {
+              return(ConfigData@satOrigin)
+          }
+)
 
 ##############  Aot Retrieval ##########################
 setGeneric(name="GetPath",
@@ -62,44 +79,46 @@ setMethod(f="GetPath",
           }
 )
 
-setGeneric(name="SetAot",
+
+##############  AotLength ##########################
+setGeneric(name="GetAotLength",
            def=function(ConfigData)
            {
-               standardGeneric("SetAot")
+               standardGeneric("GetAotLength")
            }
 )
 
-setMethod(f="SetAot",
+setMethod(f="GetAotLength",
+          signature="ConfigData",
+          definition=function(ConfigData)
+          {
+              return(ConfigData@aotLength)
+          }
+)
+
+setGeneric(name="SetAotLength",
+           def=function(ConfigData)
+           {
+               standardGeneric("SetAotLength")
+           }
+)
+
+setMethod(f="SetAotLength",
           signature="ConfigData",
           definition=function(ConfigData)
           {
               
-              return(ConfigData@aot)
-          }
-)
-##############  Julian Day Retrieval ##########################
-setGeneric(name="GetJulianDay",
-           def=function(ConfigData)
-           {
-               standardGeneric("GetJulianDay")
-           }
-)
-
-setMethod(f="GetJulianDay",
-          signature="ConfigData",
-          definition=function(ConfigData)
-          {
-              return(ConfigData@julianDay)
+              return(ConfigData@aotLength)
           }
 )
 ##############  Show ##########################
 
 setMethod(f="show",
-          signature="Swath",
+          signature="ConfigData",
           def=function(object)
           {
-              cat("The coordinates are West: ",object@west,", North: ",object@north,", East: ", object@east,
-                  ", South: ", object@south, ", Aot: ", object@aot ,"\n")
+              cat("aot length:",object@aotLength,
+                  ", path:" , object@path)
           }
 )
 

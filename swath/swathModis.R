@@ -7,8 +7,10 @@ setwd ("/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/swath")
 
 source('swath.R')
 
-modeDb = 'PROD'
 source('utils.R')
+modeDb = 'PROD'
+source('swath.R')
+source('configdata.R')
 
 SwathModis <- setClass(
     # Set the name of the class
@@ -18,14 +20,17 @@ SwathModis <- setClass(
     representation(
         date = 'character',
         aot='numeric',
-        julianDay = 'numeric'
+        julianDay = 'numeric',
+        configData = 'ConfigData'
+        
     ),
     
     #set the defaults values for the slots (optional)
     prototype = list(
         date='2012-06-01',
         julianDay=-1,
-        aot=-1
+        aot=-1,
+        configData = new('ConfigData')
     ),
     #Make a function that can test if data is consistent
     validity = function (object) {
@@ -40,10 +45,13 @@ setMethod(f="initialize",
           signature="SwathModis",
           def=function(.Object,date='2012-06-01', north=20,south=10,east=-15,west=-61)
           {
-              print("Setting the julian day")
               library(lubridate)
               date1 = as.Date(date)
               .Object@julianDay = yday(date1)
+              .Object@north = north
+              .Object@south = south
+              .Object@east = east
+              .Object@west = west
               #validObject(.Object) # you must explicitly call the 
               # inspector
               return(.Object)
@@ -67,19 +75,68 @@ setMethod(f="GetAot",
           }
 )
 
-setGeneric(name="SetAot",
+setGeneric(name="InitAot",
            def=function(swathModis)
            {
-               standardGeneric("SetAot")
+               standardGeneric("InitAot")
            }
 )
 
-setMethod(f="SetAot",
+setMethod(f="InitAot",
           signature="SwathModis",
           definition=function(swathModis)
           {
+               
+              julian_day= GetJulianDay(swathModis)
+              satOrigin = GetSatOrigin(GetConfigData(swathModis))
+              data_path = GetPath(GetConfigData(swathModis))
               
-              return(swathModis@aot)
+              fixnum=6
+              
+              LONGITUDE = "Longitude"
+              LATITUDE  = "Latitude"
+              EODAO = "Effective_Optical_Depth_Average_Ocean"
+              
+              savepath = getwd()
+              setwd(data_path)
+              #browser()
+              tryCatch({
+                  latitude  = unlist( get_df_from_csv ( get_csv_filename(data_path, LATITUDE,  julian_day) ) )
+              }, warning = function(war) {
+                  print(war)
+                 return(-2)
+              }, error = function(err) {
+                  print(err)
+                  return(-3)
+              }, finally = {
+                  if (!exists("latitude")) {
+                      return(swathModis) 
+                  }
+              }
+              )
+              
+              longitude = unlist( get_df_from_csv ( get_csv_filename(data_path, LONGITUDE, julian_day) ) )
+              eodao     = unlist( get_df_from_csv ( get_csv_filename(data_path, EODAO,     julian_day) ) )
+              
+              idxlat  = which(latitude > GetSouth(swathModis) & latitude < GetNorth(swathModis))
+              idxlong  = which (longitude > GetWest(swathModis) & longitude < GetEast(swathModis))
+              
+              idxswath = intersect(idxlat, idxlong)
+              
+              latitude = latitude[idxswath]
+              latitude = round(latitude,4)
+              
+              longitude = longitude[idxswath]
+              longitude = round(longitude,4)
+              
+              eodao = eodao[idxswath]/1000
+              eodao = signif(eodao,fixnum)
+              
+              setwd(savepath)
+              
+              swathModis@aot = round(getMean(eodao), 3)
+              return(swathModis)
+              
           }
 )
 ##############  Julian Day Retrieval ##########################
@@ -95,6 +152,22 @@ setMethod(f="GetJulianDay",
           definition=function(swathModis)
           {
               return(swathModis@julianDay)
+          }
+)
+
+##############  configData ##########################
+setGeneric(name="GetConfigData",
+           def=function(swathModis)
+           {
+               standardGeneric("GetConfigData")
+           }
+)
+
+setMethod(f="GetConfigData",
+          signature="SwathModis",
+          definition=function(swathModis)
+          {
+              return(swathModis@configData)
           }
 )
 ##############  Show ##########################

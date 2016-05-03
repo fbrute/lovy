@@ -227,3 +227,28 @@ readinteger <- function(prompt = "Enter a integer")
 createPrimaryKey  = function () {
     return('AAAAA') 
 }
+
+getMean <- function (vect) {
+    #browser()
+    #vect = as.numeric(unname(unlist(df.vector)))
+    size = length(vect)
+    clean_data = na.omit(vect)
+    nmean_aot = mean(clean_data)
+}
+
+get_csv_filename = function (data_path, sds_name, julian_day) {
+    
+    setwd(data_path)
+    files = list.files()
+    search_pattern = paste( sds_name , "_" , sprintf( "%03d", julian_day) ,"*.csv", sep ="")
+    files = files[grep(glob2rx(search_pattern), files)]
+    file_number = 1 
+    if (length(files) > 1) { file_number = length(files) }
+    
+    return(files[file_number])
+}
+
+get_df_from_csv = function (filename, na.strings = "-9.999000000000000000e+03") {
+    
+    return(read.csv(filename, header = FALSE, na.strings = na.strings))
+}
