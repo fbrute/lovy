@@ -236,6 +236,14 @@ getMean <- function (vect) {
     nmean_aot = mean(clean_data)
 }
 
+get_csv_filenames = function (data_path, sds_name, julian_day) {
+    
+    setwd(data_path)
+    files = list.files()
+    search_pattern = paste( sds_name , "_" , sprintf( "%03d", julian_day) ,"*.csv", sep ="")
+    files = files[grep(glob2rx(search_pattern), files)]
+}
+
 get_csv_filename = function (data_path, sds_name, julian_day) {
     
     setwd(data_path)
@@ -243,12 +251,113 @@ get_csv_filename = function (data_path, sds_name, julian_day) {
     search_pattern = paste( sds_name , "_" , sprintf( "%03d", julian_day) ,"*.csv", sep ="")
     files = files[grep(glob2rx(search_pattern), files)]
     file_number = 1 
-    if (length(files) > 1) { file_number = length(files) }
+    if (length(files) > 1) { file_number = length(files) - 4}
     
     return(files[file_number])
+}
+
+removeDuplicates <- function(ar1, ar2) {
+    ar1 = rnorm(100, 8, 3)
+    ar2 = rnorm(100, 5, 3)
+    
+    min1 = min(ar1)
+    max1 = max(ar1)
+    
+    min2 = min(ar2)
+    max2= max(ar2)
+    
+    intersect(ar1,ar2)
+}
+
+get_df_from_multiple_csv = function (filenames, na.strings = "-9.999000000000000000e+03") {
+    df.results = read.csv(filenames[1], header = FALSE, na.strings = na.strings)
+    if (length(filenames)  > 1)  {
+        for (i in 2:length(filenames)) {
+            filename = filenames[i]
+            df.current = read.csv(filename, header = FALSE, na.strings = na.strings)
+            df.results = data.frame(df.results, df.current)
+        }   
+    }
+    
+    df.results
+}
+
+
+getDataframeFromMultipleCsv = function (filenames, sdsName, na.strings = "-9.999000000000000000e+03") {
+    vectorResult = unlist(read.csv(filenames[1], header = FALSE, na.strings = na.strings))
+    if (length(filenames)  > 1)  {
+        for (i in 2:length(filenames)) {
+            filename = filenames[i]
+            vectorToAdd = unlist(read.csv(filename, header = FALSE, na.strings = na.strings))
+            
+            if (sdsName == 'Latitude' || sdsName == 'Longitude')
+            {
+                vectorResult = mergeVectorsWithoutDuplicates(vectorResult, vectorToAdd)
+            } else
+            {
+                vectorResult = c(vectorResult, vectorToAdd)
+            }
+        }   
+    }
+    vectorResult    
+}
+
+
+mergeVectorsWithoutDuplicates <- function (vec1, vec2) {
+    min1 = min(vec1)
+    max1 = max(vec1)
+    
+    min2 = min(vec2)
+    max2 = max(vec2)
+    
+    # if (max2 > min1 & max2 <= max1 & min2 > min1  & min2 < max1) 
+    # {
+    #     
+    # }
+    
+    if (max2 >= max1 & min1  >= min2) 
+    {
+        vec2[vec2 >= min1 & vec2 <= max1] = NA
+        return(c(vec1,vec2))
+    } 
+    
+    if (max2 > min1 & max2 <= max1) {
+        vec2[vec2 >= min1 & vec2 <= max2] = NA
+        return(c(vec1,vec2))
+    }
+    
+    if (min2 > min1 & min2 < max1) {
+        vec2[vec2 >= min2 & vec2 <= max1] = NA
+        return(c(vec1,vec2))
+    }
+    return(c(vec1,vec2))
 }
 
 get_df_from_csv = function (filename, na.strings = "-9.999000000000000000e+03") {
     
     return(read.csv(filename, header = FALSE, na.strings = na.strings))
 }
+
+getMysqlData <- function(queryString=""){
+    #   View(queryString)
+    con = dbConnect(dbDriver("MySQL"), user="dbmeteodb", 
+                    password="dbmeteodb",
+                    dbname="dbmeteodb",
+                    host="localhost")
+    
+    # send the query
+    #                 if (dbg) browser()
+    #                 tryCatch(queryResultsData <- dbSendQuery(con, queryString),
+    #                          finally = dbDisconnect(con))
+    queryResultsData <- dbSendQuery(con, queryString)
+    
+    
+    #get the data
+    data <- fetch(queryResultsData, n=-1)
+    # freeing resources
+    dbClearResult(queryResultsData) 
+    dbDisconnect(con)
+    View(data)  
+    data
+}
+

@@ -56,8 +56,13 @@ describe("swathmodisModis.R", {
             expect_equal(GetAot(swathmodis), 0.513 )
         })
         
-        it("expects to object to be printed with accuracy", {
-            expect_output(print(swathmodis), "The coordinates are West:  -62 , North:  16.75 , East:  -61 , South:  15.75 , Aot:  0.513" )
+        swathmodis <- new ('SwathModis',date="2012-06-02", west=-61,north=21,east=-15,south=11)
+        swathmodis <- MaxAot(swathmodis)
+        
+        it("expects to compute the aot", {
+            expect_equal(GetMaxAot(swathmodis), 0.392 )
         })
+        
+        
     })
 })

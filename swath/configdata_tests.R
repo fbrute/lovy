@@ -25,11 +25,12 @@ describe("configdata.R", {
         
         it("expects to find the path to the hdf data", {
             expect_equal(GetPath(configdata), 
-                '/Users/france-norbrute/Documents/trafin/fouyol/recherche/data/modis/MOD04_L2/csv870' )
+                '/Users/france-norbrute/Documents/trafin/fouyol/recherche/data/modis/MOD04_L2/swathmodis/csv870' )
         })
         
         it("expects to object to be printed with accuracy", {
-            expect_output(print(configdata), "aot length: 870 , path: /Users/france-norbrute/Documents/trafin/fouyol/recherche/data/modis/MOD04_L2/csv870" )
+            expect_output(print(configdata), 
+                "aot length: 870 , path: /Users/france-norbrute/Documents/trafin/fouyol/recherche/data/modis/MOD04_L2/swathmodis/csv870" )
         })
     })
 })

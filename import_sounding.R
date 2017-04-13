@@ -8,48 +8,25 @@ dbg <- F
 sqltest <- FALSE
 
 mainByYear <- function() {
+        if (dbg) browser()
         library(XML)
-#         fileurls <- c("~/Documents/Trafin/aptf/2012/soundings//station raizet janvier 2012.htm",
-#                       "~/Documents/Trafin/aptf/2012/soundings//station raizet fevrier 2012.htm",
-#                       "~/Documents/Trafin/aptf/2012/soundings//station raizet mars 2012.htm",
-#                       "~/Documents/Trafin/aptf/2012/soundings//station raizet avril 2012.htm",
-#                       "~/Documents/Trafin/aptf/2012/soundings//station raizet mai 2012.htm",
-#                       "~/Documents/Trafin/aptf/2012/soundings//station raizet juin 2012.htm",
-#                       "~/Documents/Trafin/aptf/2012/soundings//station raizet juillet 2012.htm",
-#                       "~/Documents/Trafin/aptf/2012/soundings//station raizet septembre 2012.htm",
-#                       "~/Documents/Trafin/aptf/2012/soundings//station raizet octobre 2012.htm",
-#                       "~/Documents/Trafin/aptf/2012/soundings//station raizet novembre 2012.htm",
-#                       "~/Documents/Trafin/aptf/2012/soundings//station raizet decembre 2012.htm")
+        if (dbg) browser()
         
-        fileurls <- c(#"~/Documents/Trafin/lovy/soundings/jan 2008.htm",
-                      #"~/Documents/Trafin/lovy/soundings/mar 2008.htm",
-                      #"~/Documents/Trafin/lovy/soundings/mai 2008.htm",
-                      #"~/Documents/Trafin/lovy/soundings/juillet 2008.htm",
-                      #"~/Documents/Trafin/lovy/soundings/aout 2008.htm",
-                      #"~/Documents/Trafin/lovy/soundings/oct 2008.htm",
-                      #"~/Documents/Trafin/lovy/soundings/dec 2008.htm",
-                      #"~/Documents/Trafin/lovy/soundings/jan 2009.htm",
-                      #"~/Documents/Trafin/lovy/soundings/mars 2009.htm",
-                      #"~/Documents/Trafin/lovy/soundings/mai 2009.htm",
-                      #"~/Documents/Trafin/lovy/soundings/juillet 2009.htm",
-                      #"~/Documents/Trafin/lovy/soundings/aout 2009.htm",
-                      #"~/Documents/Trafin/lovy/soundings/oct 2009.htm",
-                      #"~/Documents/Trafin/lovy/soundings/decembre 2009.htm",
-                      #"~/Documents/Trafin/lovy/soundings/jan 2010.htm",
-                      #"~/Documents/Trafin/lovy/soundings/mars 2010.htm",
-                      #"~/Documents/Trafin/lovy/soundings/mai 2010.htm",
-                      #"~/Documents/Trafin/lovy/soundings/juillet 2010.htm",
-                      #"~/Documents/Trafin/lovy/soundings/aout 2010.htm",
-                      #"~/Documents/Trafin/lovy/soundings/oct 2010.htm",
-                      #"~/Documents/Trafin/lovy/soundings/Decembre 2010.htm",
-                      #"~/Documents/Trafin/lovy/soundings/Jan 2011.htm",
-                      #"~/Documents/Trafin/lovy/soundings/mars 2011.htm",
-                      #"~/Documents/Trafin/lovy/soundings/mai 2011.htm",
-                      #"~/Documents/Trafin/lovy/soundings/juillet 2011.htm",
-                      #"~/Documents/Trafin/lovy/soundings/aout 2011.htm",
-                      #"~/Documents/Trafin/lovy/soundings/oct 2011.htm",
-                      #"~/Documents/Trafin/lovy/soundings/dec 2011.htm"
+        fileurls <- c("/data/soundings/2011/janvier.html",
+                      "/data/soundings/2011/fevrier.html",
+                      "/data/soundings/2011/mars.html",
+                      "/data/soundings/2011/avril.html",
+                      "/data/soundings/2011/mai.html",
+                      "/data/soundings/2011/juin.html",
+                      "/data/soundings/2011/juillet.html",
+                      "/data/soundings/2011/aout.html",
+                      "/data/soundings/2011/septembre.html",
+                      "/data/soundings/2011/octobre.html",
+                      "/data/soundings/2011/novembre.html",
+                      "/data/soundings/2011/decembre.html"
                       )
+        if (dbg) browser()
+        
         for (i in 1:length(fileurls)) {
                 mainByMonth(fileurls[i])
         }
@@ -69,6 +46,9 @@ mainByMonth <- function(fileurl) {
         #htmlcode = read
 #         library(XML)
 #         fileurl <- "~/Documents/Trafin/aptf/2012/soundings//station raizet aout 2012.htm"
+        
+        if (dbg) browser()
+    
         if (!file.exists(fileurl)) return
         
         doc <- htmlTreeParse(fileurl, useInternal=TRUE)
@@ -79,10 +59,10 @@ mainByMonth <- function(fileurl) {
         headstrings <- xpathSApply(doc,"//h2", xmlValue)
         datastrings <- xpathSApply(doc,"//pre", xmlValue)
         #<
-        if (!sqltest) {con = dbConnect(dbDriver("MySQL"), user="dbmeteodb", 
-                password="dbmeteodb",
-                dbname="dbmeteodb",
-                host="localhost")}
+        # if (!sqltest) {con = dbConnect(dbDriver("MySQL"), user="dbmeteodb", 
+        #         password="dbmeteodb",
+        #         dbname="dbmeteodb",
+        #         host="localhost")}
         
         if (dbg) browser()
         
@@ -92,115 +72,117 @@ mainByMonth <- function(fileurl) {
                 headstring <- xpathSApply(doc,"//h2", xmlValue)[i]
                 datastring <- xpathSApply(doc,"//pre", xmlValue)[2*i-1]
                 
-                tryCatch(
-                        importData(headstring, datastring, con), 
-                        finally = dbDisconnect(con)
-                        )
+                # tryCatch(
+                #         importData(headstring, datastring), 
+                #         finally = dbDisconnect(con)
+                #         )
+                
+                importData(headstring, datastring)
         }  
         
-        dbDisconnect(con)
+        # dbDisconnect(con)
 }
 
-mainByDay <- function() {
-dbg <- 0
-
-# con = url("")
-# htmlcode = readLines(con)
-# close(con)
+# mainByDay <- function() {
+# dbg <- 0
 # 
-# htmlcode
+# # con = url("")
+# # htmlcode = readLines(con)
+# # close(con)
+# # 
+# # htmlcode
+# 
+# #htmlcode = read
+# library(XML)
+# fileurl <- "~/Documents/Trafin/aptf/2012/soundings//station raizet aout 2012.htm"
+# 
+# doc <- htmlTreeParse(fileurl, useInternal=TRUE)
+# 
+# rootnode <- xmlRoot(doc)
+# # h2 contains head of one sounding, including date of course ;-))
+# # we can get 2 soundings a day (00Z and 12Z)
+# xpathSApply(doc,"//h2", xmlValue)[1]
+# 
+# # pre contains the data (odd values) or the context (even values) of the soundings
+# xpathSApply(doc,"//pre", xmlValue)[1]
+# datastring <- xpathSApply(doc,"//pre", xmlValue)[1]
+# headstring <- xpathSApply(doc,"//h2", xmlValue)[1]
+# dateofsounding <- getDate(headstring)
+# timeofsounding <- getTime(headstring)
+# data1 <- getData(datastring, dateofsounding, timeofsounding)
+# #data1 <- data1[order(data1$pressure, decreasing = TRUE),]
+# with(data1, plot(temp,pressure, type= "l", 
+#                  xlim= range(temp), 
+#                  ylim= rev(range(pressure))))
+# 
+# with(data1, plot(mixr,pressure,type = "l",
+#      xlim= range(mixr), 
+#      ylim= rev(range(pressure))))
+# View(data1)
+# View(data1$pressure)
+# data1
+# }
 
-#htmlcode = read
-library(XML)
-fileurl <- "~/Documents/Trafin/aptf/2012/soundings//station raizet aout 2012.htm"
-
-doc <- htmlTreeParse(fileurl, useInternal=TRUE)
-
-rootnode <- xmlRoot(doc)
-# h2 contains head of one sounding, including date of course ;-))
-# we can get 2 soundings a day (00Z and 12Z)
-xpathSApply(doc,"//h2", xmlValue)[1]
-
-# pre contains the data (odd values) or the context (even values) of the soundings
-xpathSApply(doc,"//pre", xmlValue)[1]
-datastring <- xpathSApply(doc,"//pre", xmlValue)[1]
-headstring <- xpathSApply(doc,"//h2", xmlValue)[1]
-dateofsounding <- getDate(headstring)
-timeofsounding <- getTime(headstring)
-data1 <- getData(datastring, dateofsounding, timeofsounding)
-#data1 <- data1[order(data1$pressure, decreasing = TRUE),]
-with(data1, plot(temp,pressure, type= "l", 
-                 xlim= range(temp), 
-                 ylim= rev(range(pressure))))
-
-with(data1, plot(mixr,pressure,type = "l",
-     xlim= range(mixr), 
-     ylim= rev(range(pressure))))
-View(data1)
-View(data1$pressure)
-data1
-}
-
-getSoundingData <- function() {
-        
-        # con = url("")
-        # htmlcode = readLines(con)
-        # close(con)
-        # 
-        # htmlcode
-        
-        #htmlcode = read
-        library(XML)
-        fileurl <- "~/Documents/Trafin/aptf/2012/soundings//station raizet aout 2012.htm"
-        
-        doc <- htmlTreeParse(fileurl, useInternal=TRUE)
-        
-        rootnode <- xmlRoot(doc)
-        # h2 contains head of one sounding, including date of course ;-))
-        # we can get 2 soundings a day (00Z and 12Z)
-        xpathSApply(doc,"//h2", xmlValue)[1]
-        
-        # pre contains the data (odd values) or the context (even values) of the soundings
-        xpathSApply(doc,"//pre", xmlValue)[1]
-        datastring <- xpathSApply(doc,"//pre", xmlValue)[1]
-        
-        # get a list of strings representing each an observation
-        strings <- strsplit(datastring, "\n")
-        
-        # data begins at line 5 since we need to skip 4 lines of header with names of columns
-        # each line is an observation at a different pressure
-        x1 <- as.numeric(unlist(strsplit(unlist(strings)[5]," ")))
-        
-        # remove NAs
-        x1 <- x1[!is.na(x1)]
-        
-        x2 <- as.numeric(unlist(strsplit(unlist(strings)[6]," ")))
-        
-        # remove NAs
-        x2 <- x2[!is.na(x2)]
-        
-        matrix1 <- rbind(x1,x2)
-        # get date of sounding
-        stringContainingDate <- xpathSApply(doc,"//h2", xmlValue)[1]
-        posDate <- regexpr("[0-9]{2} [a-yA-Y]* [0-9]{4}$",stringContainingDate)
-        strDate <- substr(stringContainingDate, posDate[1],
-                          posDate[1] + attr(posDate,"match.length") -1)
-        
-        # save local time
-        lct <- Sys.getlocale("LC_TIME")
-        
-        as.Date(strDate,"%d %b %Y")
-        
-        dateofsounding <- getDate(xpathSApply(doc,"//h2", xmlValue)[1])
-        # restore local time
-        Sys.setlocale("LC_TIME",lct)
-        
-        timeofsounding <- getTime(xpathSApply(doc,"//h2", xmlValue)[1])
-        browser()
-        getData(datastring)
-        
-        
-}
+# getSoundingData <- function() {
+#         
+#         # con = url("")
+#         # htmlcode = readLines(con)
+#         # close(con)
+#         # 
+#         # htmlcode
+#         
+#         #htmlcode = read
+#         library(XML)
+#         fileurl <- "~/Documents/Trafin/aptf/2012/soundings//station raizet aout 2012.htm"
+#         
+#         doc <- htmlTreeParse(fileurl, useInternal=TRUE)
+#         
+#         rootnode <- xmlRoot(doc)
+#         # h2 contains head of one sounding, including date of course ;-))
+#         # we can get 2 soundings a day (00Z and 12Z)
+#         xpathSApply(doc,"//h2", xmlValue)[1]
+#         
+#         # pre contains the data (odd values) or the context (even values) of the soundings
+#         xpathSApply(doc,"//pre", xmlValue)[1]
+#         datastring <- xpathSApply(doc,"//pre", xmlValue)[1]
+#         
+#         # get a list of strings representing each an observation
+#         strings <- strsplit(datastring, "\n")
+#         
+#         # data begins at line 5 since we need to skip 4 lines of header with names of columns
+#         # each line is an observation at a different pressure
+#         x1 <- as.numeric(unlist(strsplit(unlist(strings)[5]," ")))
+#         
+#         # remove NAs
+#         x1 <- x1[!is.na(x1)]
+#         
+#         x2 <- as.numeric(unlist(strsplit(unlist(strings)[6]," ")))
+#         
+#         # remove NAs
+#         x2 <- x2[!is.na(x2)]
+#         
+#         matrix1 <- rbind(x1,x2)
+#         # get date of sounding
+#         stringContainingDate <- xpathSApply(doc,"//h2", xmlValue)[1]
+#         posDate <- regexpr("[0-9]{2} [a-yA-Y]* [0-9]{4}$",stringContainingDate)
+#         strDate <- substr(stringContainingDate, posDate[1],
+#                           posDate[1] + attr(posDate,"match.length") -1)
+#         
+#         # save local time
+#         lct <- Sys.getlocale("LC_TIME")
+#         
+#         as.Date(strDate,"%d %b %Y")
+#         
+#         dateofsounding <- getDate(xpathSApply(doc,"//h2", xmlValue)[1])
+#         # restore local time
+#         Sys.setlocale("LC_TIME",lct)
+#         
+#         timeofsounding <- getTime(xpathSApply(doc,"//h2", xmlValue)[1])
+#         browser()
+#         getData(datastring)
+#         
+#         
+# }
 
 getDate  <- function(text) {
         # example in text : 01 Aug 2012
@@ -265,7 +247,7 @@ getData <- function(datastrings, dateofsounding, timeofsounding) {
                 # we save the number of lines retained
         }
         # transform data into a matrix
-        datasounding <-matrix(datasounding,nrow = nrowsofdata,ncol = 11, , byrow = TRUE)
+        datasounding <-matrix(datasounding,nrow = nrowsofdata,ncol = 11, byrow = TRUE)
         datasounding <- data.frame(datasounding, row.names = 1:nrowsofdata )
         colnames(datasounding) <- c("pressure","heigt","temp","dwpt",
                                      "relhumidity","mixr","drct","snkt","thta",
@@ -275,8 +257,12 @@ getData <- function(datastrings, dateofsounding, timeofsounding) {
         datasounding
 }
 
-importData <- function(headstring, datastrings, con) {
+#importData <- function(headstring, datastrings, con) {
+importData <- function(headstring, datastrings) {
+    
+
         # get a list of strings representing each an observation
+        if (dbg) browser()
         strings <- strsplit(datastrings, "\n")
         dateofsounding <- getDate(headstring)
         timeofsounding <- getTime(headstring)
@@ -297,7 +283,7 @@ importData <- function(headstring, datastrings, con) {
                 if (length(rowdata) == 11){
                         # send row to database
                         injectRow2Db(rowdata, station_number, station_name,
-                                     dateofsounding, timeofsounding, con)
+                                     dateofsounding, timeofsounding)
                 }
         }
 }
@@ -313,12 +299,12 @@ sqlpaste <- function(strings){
 }
 
 injectRow2Db <- function(data, station_number, 
-                         station_name, dateofsounding, timeofsounding, con) {
-#         library(RMySQL)
-#         con = dbConnect(dbDriver("MySQL"), user="dbmeteodb", 
-#                         password="dbmeteodb",
-#                         dbname="dbmeteodb",
-#                         host="localhost")
+                         station_name, dateofsounding, timeofsounding) {
+         library(RMySQL)
+         con = dbConnect(dbDriver("MySQL"), user="dbmeteodb", 
+                         password="dbmeteodb",
+                         dbname="dbmeteodb",
+                         host="localhost")
         
 
 
@@ -344,10 +330,15 @@ injectRow2Db <- function(data, station_number,
                         data[11],
                         ")"    
         )
-        #browser()
-#         tryCatch(dbSendQuery(con,
-#                     sqlstr), finally = dbDisconnect(con))
-        dbSendQuery(con, sqlstr)
+        
+        print(sqlstr)
+        
+        tryCatch(
+             dbSendQuery(con, sqlstr), 
+             finally = dbDisconnect(con)
+        )
+        
+        #dbSendQuery(con, sqlstr)
   
         #dbDisconnect(con)
         #browser()

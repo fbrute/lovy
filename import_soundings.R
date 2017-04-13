@@ -265,7 +265,7 @@ getData <- function(datastrings, dateofsounding, timeofsounding) {
                 # we save the number of lines retained
         }
         # transform data into a matrix
-        datasounding <-matrix(datasounding,nrow = nrowsofdata,ncol = 11, , byrow = TRUE)
+        datasounding <-matrix(datasounding,nrow = nrowsofdata,ncol = 11, byrow = TRUE)
         datasounding <- data.frame(datasounding, row.names = 1:nrowsofdata )
         colnames(datasounding) <- c("pressure","heigt","temp","dwpt",
                                      "relhumidity","mixr","drct","snkt","thta",

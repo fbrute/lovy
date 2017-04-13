@@ -20,6 +20,7 @@ SwathModis <- setClass(
     representation(
         date = 'character',
         aot='numeric',
+        maxAot='numeric',
         julianDay = 'numeric',
         configData = 'ConfigData'
         
@@ -30,6 +31,7 @@ SwathModis <- setClass(
         date='2012-06-01',
         julianDay=-1,
         aot=-1,
+        maxAot=-1,
         configData = new('ConfigData')
     ),
     #Make a function that can test if data is consistent
@@ -74,7 +76,7 @@ setMethod(f="GetAot",
               return(swathModis@aot)
           }
 )
-
+##############  InitAot ##########################
 setGeneric(name="InitAot",
            def=function(swathModis)
            {
@@ -128,13 +130,98 @@ setMethod(f="InitAot",
               
               longitude = longitude[idxswath]
               longitude = round(longitude,4)
-              
               eodao = eodao[idxswath]/1000
               eodao = signif(eodao,fixnum)
               
               setwd(savepath)
               
               swathModis@aot = round(getMean(eodao), 3)
+              return(swathModis)
+              
+          }
+)
+##############  GetMaxAot ##########################
+
+
+setGeneric(name="GetMaxAot",
+           def=function(swathModis)
+           {
+               standardGeneric("GetMaxAot")
+           }
+)
+
+setMethod(f="GetMaxAot",
+          signature="SwathModis",
+          definition=function(swathModis)
+          {
+              return(swathModis@maxAot)
+          }
+)
+
+##############  MaxAot ##########################
+setGeneric(name="MaxAot",
+           def=function(swathModis)
+           {
+               standardGeneric("MaxAot")
+           }
+)
+
+setMethod(f="MaxAot",
+          signature="SwathModis",
+          definition=function(swathModis)
+          {
+              
+              julian_day= GetJulianDay(swathModis)
+              satOrigin = GetSatOrigin(GetConfigData(swathModis))
+              data_path = GetPath(GetConfigData(swathModis))
+              
+              fixnum=6
+              
+              LONGITUDE = "Longitude"
+              LATITUDE  = "Latitude"
+              EODAO = "Effective_Optical_Depth_Average_Ocean"
+              savepath = getwd()
+              setwd(data_path)
+              #browser()
+              tryCatch({
+                  latitude = get_df_from_csv ( get_csv_filenames(data_path, LONGITUDE, julian_day), LATITUDE ) 
+              }, warning = function(war) {
+                  print(war)
+                  return(-2)
+              }, error = function(err) {
+                  print(err)
+                  return(-3)
+              }, finally = {
+                  if (!exists("latitude")) {
+                      return(swathModis) 
+                  }
+              }
+              )
+              longitude = getDataframeFromMultipleCsv ( get_csv_filenames(data_path, LONGITUDE, julian_day) ,LONGITUDE) 
+              eodao     = getDataframeFromMultipleCsv ( get_csv_filenames(data_path, EODAO, julian_day) , EODAO) 
+              
+              idxlat  = which(latitude > GetSouth(swathModis) & latitude < GetNorth(swathModis))
+              idxlong  = which (longitude > GetWest(swathModis) & longitude < GetEast(swathModis))
+              
+              idxswath = intersect(idxlat, idxlong)
+              
+              latitude = latitude[idxswath]
+              latitude = round(latitude,4)
+              
+              longitude = longitude[idxswath]
+              longitude = round(longitude,4)
+              
+              eodao = eodao[idxswath]/1000
+              eodao = signif(eodao,fixnum)
+              
+              setwd(savepath)
+              
+              # quantile doesn't like NaN 
+              eodao = na.omit(eodao)
+              eodao_percentile_75 = quantile(eodao, 0.75)
+              eodao_percentile_95 = quantile(eodao, 0.95)
+              eodao_within_75_and_95 = eodao[eodao >= eodao_percentile_75 & eodao <= eodao_percentile_95]
+              swathModis@maxAot = round(getMean(eodao_within_75_and_95), 3)
               return(swathModis)
               
           }

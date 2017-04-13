@@ -34,50 +34,55 @@ shinyServer(function (input, output) {
                 powers <- as.numeric(unlist(lapply(dfs, function(elt) sum(elt$surfadiab))))
                 
                 df.powers <- data.frame(levels(datelevels), powers)
-                df.powers2 <- data.frame(levels(datelevels), powers) 
+                #df.powers2 <- data.frame(levels(datelevels), powers) 
                 
                 colnames(df.powers) <- c("date", "power")
-                colnames(df.powers2) <- c("date", "power")
+                #colnames(df.powers2) <- c("date", "power")
                 
-                save(soundingdata, file="soundingdata.RData")
-                save(df.powers, file="df.powers.RData")
+                #save(soundingdata, file="soundingdata.RData")
+                #save(df.powers, file="df.powers.RData")
+                isalyear = substr(input$daterange[1], start = 1, stop=4)
+                isaltime = substr(input$time, start = 1, stop=2)
+                write.csv(df.powers, file=paste0("isal",isalyear,isaltime,"Z", ".csv"), row.names = F)
                 
-                View(soundingdata)  
+                #View(soundingdata)  
                 
-                library(ggplot2)
-                g <- ggplot(soundingdata, aes(temp, pressure))
-                p <- g + geom_point()
-                
-                #if (dbg) browser()    
-                
-                fw <- p + facet_wrap(~ date, ncol = 5, scales = "free")  + scale_y_reverse() + geom_path() 
-                #     fw <- p + facet_wrap(~ date, ncol = 5) 
-                #     fw <- p + facet_wrap(~ date, ncol = 5)  + xlim(10,20) + ylim(900,700) 
-                
-                
-                #                 if (dbg) browser()
-                
-                p2 <- fw +  geom_point(aes(tempadiab,pressure), color="red") + geom_path() + geom_line(aes(tempadiab,pressure), color="red")
-                
-                #library(plyr)
-                
-                #df.powers <- ddply(subset(soundingdata), .(date), function(area) sum(area))
-                
-                #library(sqldf)
-                
-                
-                
-                #if (dbg) browser()
-                
-                ppower <- p2 + geom_text(data = df.powers, aes(x = 10, y = 750, label = power), inherit.aes = FALSE, parse = T)
-                print(ppower)
-                #if (dbg) browser()
-                
-                fname <- paste(as.character(input$daterange[1]),
-                               "_",
-                               as.character(input$daterange[2]),
-                               ".pdf",
-                               sep="")
+                if (input$display) {
+                    library(ggplot2)
+                    
+                    g <- ggplot(soundingdata, aes(temp, pressure))
+                    p <- g + geom_point()
+                    
+                    #if (dbg) browser()    
+                    
+                    fw <- p + facet_wrap(~ date, ncol = 5, scales = "free")  + scale_y_reverse() + geom_path() 
+                    #     fw <- p + facet_wrap(~ date, ncol = 5) 
+                    #     fw <- p + facet_wrap(~ date, ncol = 5)  + xlim(10,20) + ylim(900,700) 
+                    
+                    
+                    #                 if (dbg) browser()
+                    
+                    p2 <- fw +  geom_point(aes(tempadiab,pressure), color="red") + geom_path() + geom_line(aes(tempadiab,pressure), color="red")
+                    
+                    #library(plyr)
+                    
+                    #df.powers <- ddply(subset(soundingdata), .(date), function(area) sum(area))
+                    
+                    #library(sqldf)
+                    
+                    
+                    
+                    #if (dbg) browser()
+                    
+                    ppower <- p2 + geom_text(data = df.powers, aes(x = 10, y = 750, label = power), inherit.aes = FALSE, parse = T)
+                    print(ppower)
+                    #if (dbg) browser()
+                    
+                    fname <- paste(as.character(input$daterange[1]),
+                                   "_",
+                                   as.character(input$daterange[2]),
+                                   ".pdf",
+                                   sep="")
 
                 #ggsave(ppower, file=fname,scale=1.9)
                         
@@ -94,6 +99,8 @@ shinyServer(function (input, output) {
                 #     with(soundingyeardata, plot(mixr,pressure,type = "l",
                 #                      xlim= range(mixr), 
                 #                      ylim= rev(range(pressure))), main = "Pressure and Mixed Ratio")
+                    
+                } # if (input$display)
                 
         })
         
@@ -215,12 +222,14 @@ shinyServer(function (input, output) {
                 #                 if (dbg) browser()
                 
                 if (datatype == "sounding")
+                    print(paste0("datestart=", input$daterange[1]))
+                    print(paste0("datestop=", input$daterange[2]))
                         QueryString <- paste( 
-                                "select date, time , pressure, height, mixr, temp", 
+                                "select date, time , pressure, height, mixr, temp, thtv", 
                                 "from sounding1",
                                 "where date between", "'", input$daterange[1], "'" ,
                                 "and" , "'", input$daterange[2], "'" ,
-                                "and time = '12:00:00'",
+                                "and time =", "'", input$time,  "'",
                                 "and pressure between", input$lowerpressure ,"and", input$higherpressure,
                                 "order by date, pressure desc;"
                         )
@@ -248,7 +257,7 @@ shinyServer(function (input, output) {
                 # freeing resources
                 dbClearResult(queryResultsData) 
                 dbDisconnect(con)
-                View(data)  
+                #View(data)  
                 data
         }
         
