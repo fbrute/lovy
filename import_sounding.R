@@ -1,17 +1,38 @@
 library(DBI)
 library(RMySQL)
-
-# Signal Debug mode
-dbg <- F
+library(XML)
 
 # Signal sql strings test, no connection to database established
 sqltest <- FALSE
 
+dbg <- F
+
+getFileUrls <- function(years,months,rootPath) {
+
+    outer( paste(rootPath, years,sep = "/"), paste0(months,".html"),
+           FUN = function(...) paste(...,sep="/"))
+}
+
+mainAllYearsImport <- function(dbg = F) {
+    years <- as.character(c(2005:2012,2015))
+    months <- c("janvier","fevrier","mars","avril","mai","juin","juillet","aout","septembre",
+                "octobre","novembre","decembre")
+    rootPath <- "/data/soundings"   
+    fileUrls <- getFileUrls(years,months,rootPath)
+    
+    lapply(fileUrls, mainByMonth)
+}
+
+mainByFile <- function() {
+    fileUrl <- file.choose()
+    if (file.exists(fileUrl)) {
+        mainByMonth(fileUrl)    
+    }
+}
 mainByYear <- function() {
         if (dbg) browser()
         library(XML)
         if (dbg) browser()
-        
         fileurls <- c("/data/soundings/2011/janvier.html",
                       "/data/soundings/2011/fevrier.html",
                       "/data/soundings/2011/mars.html",
@@ -49,6 +70,8 @@ mainByMonth <- function(fileurl) {
         
         if (dbg) browser()
     
+        print(paste("file beeing explored",fileurl, sep=":"))
+        
         if (!file.exists(fileurl)) return
         
         doc <- htmlTreeParse(fileurl, useInternal=TRUE)
@@ -71,13 +94,14 @@ mainByMonth <- function(fileurl) {
                 # of the soundings
                 headstring <- xpathSApply(doc,"//h2", xmlValue)[i]
                 datastring <- xpathSApply(doc,"//pre", xmlValue)[2*i-1]
+                contextstring <- xpathSApply(doc,"//pre", xmlValue)[2*i]
                 
                 # tryCatch(
                 #         importData(headstring, datastring), 
                 #         finally = dbDisconnect(con)
                 #         )
                 
-                importData(headstring, datastring)
+                importData(headstring, datastring, contextstring)
         }  
         
         # dbDisconnect(con)
@@ -212,6 +236,26 @@ getStationNumber  <- function(text) {
         str <- substr(text, 1, 5)
 }
 
+getCape  <- function(text) {
+    if (dbg) browser()
+    header = "CAPE using virtual temperature: "
+    regCape <- regexpr(paste0(header, "([0-9.]+)"),text)
+    posCape <- regCape[1]   + nchar(header)
+    #lenCape <- attr(regCape, "match.length") - nchar(header) -1 # -1 because of final /n
+    lenCape <- attr(regCape, "match.length") - nchar(header)
+    strCape <- substr(text, posCape, posCape + lenCape - 1)
+    nErrCape <- -9999999.99
+    nCape <-   as.numeric((strCape))
+    if (is.na(nCape)) {
+        nErrCape
+    }
+    else {
+        if (dbg) browser()
+        print(nCape)
+        nCape
+    }
+}
+
 getStationName  <- function(text) {
         # example in text : at 12Z 01 Aug 2012
         # get time of sounding : 12 
@@ -258,7 +302,7 @@ getData <- function(datastrings, dateofsounding, timeofsounding) {
 }
 
 #importData <- function(headstring, datastrings, con) {
-importData <- function(headstring, datastrings) {
+importData <- function(headstring, datastrings, contextstring) {
     
 
         # get a list of strings representing each an observation
@@ -268,6 +312,8 @@ importData <- function(headstring, datastrings) {
         timeofsounding <- getTime(headstring)
         station_number <- getStationNumber(headstring)
         station_name <- getStationName(headstring)
+        cape_index <- getCape(contextstring)
+        print(paste("importData() :: cape_index", cape_index, sep=":"))
         #matrixdata <- matrix(nrow=1, ncol=11)
         # data begins at line 5 since we need to skip 4 lines of header with names of columns
         nallrowsofdata <- length(unlist(strings))
@@ -283,7 +329,7 @@ importData <- function(headstring, datastrings) {
                 if (length(rowdata) == 11){
                         # send row to database
                         injectRow2Db(rowdata, station_number, station_name,
-                                     dateofsounding, timeofsounding)
+                                     dateofsounding, timeofsounding, cape_index)
                 }
         }
 }
@@ -299,7 +345,7 @@ sqlpaste <- function(strings){
 }
 
 injectRow2Db <- function(data, station_number, 
-                         station_name, dateofsounding, timeofsounding) {
+                         station_name, dateofsounding, timeofsounding, cape_index) {
          library(RMySQL)
          con = dbConnect(dbDriver("MySQL"), user="dbmeteodb", 
                          password="dbmeteodb",
@@ -307,9 +353,12 @@ injectRow2Db <- function(data, station_number,
                          host="localhost")
         
 
+        print(paste("injectRow2Db() :: cape_index", cape_index, sep=":"))
+        
+        if (dbg) browser()
 
         sqlstr <- paste("insert into sounding1", 
-                        "(station_number, station_name ,date,time, pressure,",
+                        "(station_number, station_name ,date,time,cape,pressure,",
                         "height,temp, dwpt,",
                         "relhumidity, mixr, drct, snkt, thta, thte, thtv)",
                         "values(",
@@ -317,6 +366,7 @@ injectRow2Db <- function(data, station_number,
                         quote(station_name),",",
                         quote(dateofsounding),",",
                         quote(timeofsounding),",", 
+                        cape_index,",", 
                         data[1],",",
                         data[2],",",
                         data[3],",",
@@ -333,6 +383,7 @@ injectRow2Db <- function(data, station_number,
         
         print(sqlstr)
         
+        if (dbg) browser()
         tryCatch(
              dbSendQuery(con, sqlstr), 
              finally = dbDisconnect(con)
