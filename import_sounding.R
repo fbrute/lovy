@@ -14,7 +14,8 @@ getFileUrls <- function(years,months,rootPath) {
 }
 
 mainAllYearsImport <- function(dbg = F) {
-    years <- as.character(c(2005:2012,2015))
+    #years <- as.character(c(2005:2012,2015))
+    years <- as.character(c(2005:2015))
     months <- c("janvier","fevrier","mars","avril","mai","juin","juillet","aout","septembre",
                 "octobre","novembre","decembre")
     rootPath <- "/data/soundings"   
@@ -33,18 +34,18 @@ mainByYear <- function() {
         if (dbg) browser()
         library(XML)
         if (dbg) browser()
-        fileurls <- c("/data/soundings/2011/janvier.html",
-                      "/data/soundings/2011/fevrier.html",
-                      "/data/soundings/2011/mars.html",
-                      "/data/soundings/2011/avril.html",
-                      "/data/soundings/2011/mai.html",
-                      "/data/soundings/2011/juin.html",
-                      "/data/soundings/2011/juillet.html",
-                      "/data/soundings/2011/aout.html",
-                      "/data/soundings/2011/septembre.html",
-                      "/data/soundings/2011/octobre.html",
-                      "/data/soundings/2011/novembre.html",
-                      "/data/soundings/2011/decembre.html"
+        #fileurls <- c("/data/soundings/2014/janvier.html",
+        #              "/data/soundings/2014/fevrier.html",
+        #              "/data/soundings/2014/mars.html",
+        #              "/data/soundings/2014/avril.html",
+        fileurls <- c("/data/soundings/2014/mai.html",
+                      "/data/soundings/2014/juin.html",
+                      "/data/soundings/2014/juillet.html",
+                      "/data/soundings/2014/aout.html",
+                      "/data/soundings/2014/septembre.html",
+                      "/data/soundings/2014/octobre.html",
+                      "/data/soundings/2014/novembre.html",
+                      "/data/soundings/2014/decembre.html"
                       )
         if (dbg) browser()
         
@@ -236,25 +237,91 @@ getStationNumber  <- function(text) {
         str <- substr(text, 1, 5)
 }
 
-getCape  <- function(text) {
-    if (dbg) browser()
-    header = "CAPE using virtual temperature: "
-    regCape <- regexpr(paste0(header, "([0-9.]+)"),text)
-    posCape <- regCape[1]   + nchar(header)
-    #lenCape <- attr(regCape, "match.length") - nchar(header) -1 # -1 because of final /n
-    lenCape <- attr(regCape, "match.length") - nchar(header)
-    strCape <- substr(text, posCape, posCape + lenCape - 1)
-    nErrCape <- -9999999.99
-    nCape <-   as.numeric((strCape))
-    if (is.na(nCape)) {
-        nErrCape
-    }
-    else {
-        if (dbg) browser()
-        print(nCape)
-        nCape
-    }
+headerFactory  <- function(header, nErrValue = -9999999.99) {
+    #if (dbg) browser()
+    function(text) {
+        regValue <- regexpr(paste0(header, "(-?[0-9.]+)"),text)
+        posValue <- regValue[1]   + nchar(header)
+        #lenCape <- attr(regCape, "match.length") - nchar(header) -1 # -1 because of final /n
+        lenValue <- attr(regValue, "match.length") - nchar(header)
+        strValue <- substr(text, posValue, posValue + lenValue - 1)
+        nValue <-   as.numeric((strValue))
+        if (is.na(nValue)) {
+            nErrValue
+        }
+        else {
+            if (dbg) browser()
+            if(dbg) print(nValue)
+            nValue
+        }       
+    } 
+
 }
+
+getCape <- headerFactory("Convective Available Potential Energy: ", -9999999.99)
+getVirtualCape <- headerFactory("CAPE using virtual temperature: ", -9999999.99)
+
+getConv_inhib  <- headerFactory("Convective Inhibition: ", 9999999.99)
+getCins <- headerFactory("CINS using virtual temperature: ", 9999999.99)
+    
+# getConv_inhib  <- function(text) {
+#     #if (dbg) browser()
+#     header = "Convective Inhibition: "
+#     regCins <- regexpr(paste0(header, "(-?[0-9.]+)"),text)
+#     posCins <- regCins[1]   + nchar(header)
+#     #lenCape <- attr(regCape, "match.length") - nchar(header) -1 # -1 because of final /n
+#     lenCins <- attr(regCins, "match.length") - nchar(header)
+#     strCins <- substr(text, posCins, posCins + lenCins - 1)
+#     nErrCins <- 9999999.99
+#     nCins <-   as.numeric((strCins))
+#     if (is.na(nCins)) {
+#         nErrCins
+#     }
+#     else {
+#         if (dbg) browser()
+#         if(dbg) print(nCins)
+#         nCins
+#     }
+# }
+
+# getVirtualCins  <- function(text) {
+#     #if (dbg) browser()
+#     header = "CINS using virtual temperature: "
+#     regCins <- regexpr(paste0(header, "(-?[0-9.]+)"),text)
+#     posCins <- regCins[1]   + nchar(header)
+#     #lenCape <- attr(regCape, "match.length") - nchar(header) -1 # -1 because of final /n
+#     lenCins <- attr(regCins, "match.length") - nchar(header)
+#     strCins <- substr(text, posCins, posCins + lenCins - 1)
+#     nErrCins <- 9999999.99
+#     nCins <-   as.numeric((strCins))
+#     if (is.na(nCins)) {
+#         nErrCins
+#     }
+#     else {
+#         if (dbg) browser()
+#         if(dbg) print(nCins)
+#         nCins
+#     }
+# }
+# getVirtualCape  <- function(text) {
+#     #if (dbg) browser()
+#     header = "CAPE using virtual temperature: "
+#     regCape <- regexpr(paste0(header, "([0-9.]+)"),text)
+#     posCape <- regCape[1]   + nchar(header)
+#     #lenCape <- attr(regCape, "match.length") - nchar(header) -1 # -1 because of final /n
+#     lenCape <- attr(regCape, "match.length") - nchar(header)
+#     strCape <- substr(text, posCape, posCape + lenCape - 1)
+#     nErrCape <- -9999999.99
+#     nCape <-   as.numeric((strCape))
+#     if (is.na(nCape)) {
+#         nErrCape
+#     }
+#     else {
+#         #if (dbg) browser()
+#         #print(nCape)
+#         nCape
+#     }
+# }
 
 getStationName  <- function(text) {
         # example in text : at 12Z 01 Aug 2012
@@ -312,8 +379,11 @@ importData <- function(headstring, datastrings, contextstring) {
         timeofsounding <- getTime(headstring)
         station_number <- getStationNumber(headstring)
         station_name <- getStationName(headstring)
-        cape_index <- getCape(contextstring)
-        print(paste("importData() :: cape_index", cape_index, sep=":"))
+        cape <- getCape(contextstring)
+        cape_virt <- getVirtualCape(contextstring)
+        conv_inhib <- getConv_inhib(contextstring)
+        cins <- getCins(contextstring)
+        #print(paste("importData() :: cape_index", cape_index, sep=":"))
         #matrixdata <- matrix(nrow=1, ncol=11)
         # data begins at line 5 since we need to skip 4 lines of header with names of columns
         nallrowsofdata <- length(unlist(strings))
@@ -329,7 +399,7 @@ importData <- function(headstring, datastrings, contextstring) {
                 if (length(rowdata) == 11){
                         # send row to database
                         injectRow2Db(rowdata, station_number, station_name,
-                                     dateofsounding, timeofsounding, cape_index)
+                                     dateofsounding, timeofsounding, cape, cape_virt, conv_inhib, cins)
                 }
         }
 }
@@ -345,7 +415,7 @@ sqlpaste <- function(strings){
 }
 
 injectRow2Db <- function(data, station_number, 
-                         station_name, dateofsounding, timeofsounding, cape_index) {
+                         station_name, dateofsounding, timeofsounding, cape, cape_virt, conv_inhib, cins) {
          library(RMySQL)
          con = dbConnect(dbDriver("MySQL"), user="dbmeteodb", 
                          password="dbmeteodb",
@@ -353,12 +423,12 @@ injectRow2Db <- function(data, station_number,
                          host="localhost")
         
 
-        print(paste("injectRow2Db() :: cape_index", cape_index, sep=":"))
+        #print(paste("injectRow2Db() :: cape_index", cape_index, sep=":"))
         
         if (dbg) browser()
 
         sqlstr <- paste("insert into sounding1", 
-                        "(station_number, station_name ,date,time,cape,pressure,",
+                        "(station_number, station_name ,date,time,cape,cape_virt,conv_inhib,cins,pressure,",
                         "height,temp, dwpt,",
                         "relhumidity, mixr, drct, snkt, thta, thte, thtv)",
                         "values(",
@@ -366,7 +436,10 @@ injectRow2Db <- function(data, station_number,
                         quote(station_name),",",
                         quote(dateofsounding),",",
                         quote(timeofsounding),",", 
-                        cape_index,",", 
+                        cape,",", 
+                        cape_virt,",", 
+                        conv_inhib,",", 
+                        cins,",", 
                         data[1],",",
                         data[2],",",
                         data[3],",",

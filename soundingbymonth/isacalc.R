@@ -2,8 +2,8 @@ library(RMySQL)
 dbg <- F
 
 mainIsalcalcAllYears <- function () {
-    years <- as.character(c(2005:2012,2015))
-    times = c("00:00:00","12:00:00")
+    years <- as.character(c(2013,2014))
+    times = c("12:00:00")
     lowerpressure = 700
     higherpressure = 850
 
