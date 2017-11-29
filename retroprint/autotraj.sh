@@ -16,9 +16,9 @@
   smo=10
   shr=12
      
-  olat=16.5
-  olon=-61.0
-  olvl=10.0
+  olat=16.24
+  olon=-61.53
+  olvl=3000.0
         
   run=-240 
   ztop=10000.0
@@ -39,9 +39,9 @@
 #----------------------------------------------------------
 # basic simulation loop
 
-  #for sda in 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 \
-      #16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31; do
-  for sda in 01 02;do
+  for sda in 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 \
+      16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31; do
+  #for sda in 01 02;do
 
 #----------------------------------------------------------
 # set up control file for dispersion/concentration simulation
@@ -75,7 +75,8 @@
 
   if [ -f tdump ];then rm tdump; fi
   ${MDL}/exec/hyts_std    
-  ${MDL}/exec/trajplot tdump -a5 -idefault_tplot
+  #${MDL}/exec/trajplot tdump -a5 -l24 -v1 -idefault_tplot
+  ${MDL}/exec/trajplot tdump -a5 -l24 -v1
 
   ymd=${syr}${smo}${sda} 
   gis_name_root=gis_shape${ymd}
