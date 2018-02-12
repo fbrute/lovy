@@ -5,7 +5,7 @@ library(XML)
 # Signal sql strings test, no connection to database established
 sqltest <- FALSE
 
-dbg <- F
+dbg <- T
 
 getFileUrls <- function(years,months,rootPath) {
 
@@ -18,7 +18,8 @@ mainAllYearsImport <- function(dbg = F) {
     years <- as.character(c(2005:2015))
     months <- c("janvier","fevrier","mars","avril","mai","juin","juillet","aout","septembre",
                 "octobre","novembre","decembre")
-    rootPath <- "/data/soundings"   
+    #rootPath <- "/data/soundings"   
+    rootPath <- "/data/soundings/cape_san_juan"   
     fileUrls <- getFileUrls(years,months,rootPath)
     
     lapply(fileUrls, mainByMonth)
@@ -38,6 +39,10 @@ mainByYear <- function() {
         #              "/data/soundings/2014/fevrier.html",
         #              "/data/soundings/2014/mars.html",
         #              "/data/soundings/2014/avril.html",
+        
+        fileurls <- Sys.glob("*.html")
+        
+        if (dbg) browser()
         fileurls <- c("/data/soundings/2014/mai.html",
                       "/data/soundings/2014/juin.html",
                       "/data/soundings/2014/juillet.html",
@@ -69,7 +74,7 @@ mainByMonth <- function(fileurl) {
 #         library(XML)
 #         fileurl <- "~/Documents/Trafin/aptf/2012/soundings//station raizet aout 2012.htm"
         
-        if (dbg) browser()
+        #if (dbg) browser()
     
         print(paste("file beeing explored",fileurl, sep=":"))
         

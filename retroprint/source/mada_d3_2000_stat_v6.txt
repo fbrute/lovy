@@ -1,0 +1,52 @@
+***********mada @ 2000*************
+ndjf
+>nwap count = 40
+>swap count =  12
+>neap count = 73
+>ind count = 33
+ma
+>nwap count = 30
+>swap count =  23
+>neap count = 33
+>ind count = 84
+mjja
+>nwap count = 471
+>swap count =  72
+>neap count = 120
+>ind count = 124
+so
+>nwap count = 91
+>swap count =  8
+>neap count = 42
+>ind count = 45
+total de trajectoires traitées =1301
+total de trajectoires dans le dossier =1301
+total d3dates=1301
+************************
+************************
+gate name  = nwap
+>north limit = 35
+>south limit = 10
+>west limit = -20
+>east limit = -16
+
+gate name  = swap
+>north limit = 10
+>south limit = 0
+>west limit = -20
+>east limit = -16
+
+gate name  = neap
+>north limit = 35
+>south limit = 20
+>west limit = -50
+>east limit = -20
+
+gate name  = ind
+>north limit = 35
+>south limit = 20
+>west limit = 80
+>east limit = 100
+
+************************
+************************

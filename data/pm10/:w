@@ -1,0 +1,18 @@
+#!/usr/bin/env 
+# France-Nor Brute January 2018
+#
+# Used to prepare data from pm10 gwadair excel files,  before being imported by mysqlimport 
+#
+# Check firt if date format is correct at midnight while checking in excel
+
+# Get dates to ymd format, and add 0 seconds to time
+s_([0-9]+)/([0-9]+)/([0-9]+) ([0-9]+):([0-9]+)_\3-\2-\1 \4:\5:00_
+
+# set the missing values;
+s/; (;;;;)/-999.9//
+
+# get rid of extras ;
+s/; ;;;;//
+
+# transform decimal separator ',' to '.'
+s/,/./

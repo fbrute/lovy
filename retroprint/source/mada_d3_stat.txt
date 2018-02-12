@@ -1,0 +1,19 @@
+***********mada*************
+ndjf
+ndjf nwap count = 48
+ndjf swap count =  14
+ndjf neap count = 96
+ma
+ma nwap count = 28
+ma swap count =  25
+ma neap count = 117
+mjja
+mjja nwap count = 377
+mjja swap count =  84
+mjja neap count = 326
+so
+so nwap count = 92
+so swap count =  2
+so neap count = 92
+total de trajectoires =1301
+total d3dates=1301

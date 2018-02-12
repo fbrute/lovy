@@ -1,4 +1,4 @@
-#!/bin/ksh
+#!/usr/bin/env ksh
 
 # check to know if a year is bissectile
 function isbissectile {
@@ -21,17 +21,19 @@ function isbissectile {
 # set default directory structure if not passed through
 
   MDL="/Users/france-norbrute/Documents/trafin/fouyol/recherche/Hysplit4"
-  METROOT="/Volumes/TOSHIBA EXT 4/hysplit 4/HYSPLIT DONNEES"
+  METROOT="/Volumes/MODIS/trafin/fouyol/recherche/data/HYSPLIT DONNEES"
+  #METROOT="/Volumes/TOSHIBA EXT 4/hysplit 4/HYSPLIT DONNEES"
   #METROOT=${MDL}/working
-  OUT="."
+  #OUT="."
   #MET=${MDL}/working
+  OUT=${MDL}/working
   cd $OUT
 
 #--------------------------------------------------------------
 # set model simulation variables    
 
-  for syr in 2006 2007 2008 2009 2010 2011 2012 2013 2015 2016; do
-  #for syr in 2015; do
+  #for syr in 2006 2007 2008 2009 2010 2011 2012 2013 2015 2016; do
+  for syr in 2014; do
 
       #bisyear=0    # to keep track of bissectile years
       #echo please input year
@@ -67,7 +69,7 @@ function isbissectile {
       # iterate thru the months
       set -A months jan feb mar apr may jun jul aug sep oct nov dec
       for nmonth in  0 1 2 3 4 5 6 7 8 9 10 11; do
-      #for nmonth in  9 ; do
+      #for nmonth in  0 ; do
 
           # special case of january
           if [ $nmonth -eq 0 ] ; then
@@ -81,7 +83,9 @@ function isbissectile {
           # where to get meteo files
           nprevyear=`eval printf "%02d" $nprevyear`
           METPREV=${METROOT}/20${nprevyear}
+          #METPREV=${METROOT}
           MET=${METROOT}/20${syr}
+          #MET=${METROOT}
 
           cmonth=${months[$nmonth]}
           cprevmonth=${months[$nprevmonth]}
@@ -149,7 +153,7 @@ function isbissectile {
              
           olat=16.24
           olon=-61.53
-          olvl=3000.0
+          olvl=1500
                 
           run=-240 
           ztop=10000.0
@@ -160,7 +164,7 @@ function isbissectile {
 
           print nmetfiles=${nmetfiles}
 
-          result_path=${MDL}/retros/20${syr}/${smo}
+          result_path=${MDL}/karu_retros_${olvl}/20${syr}/${smo}
 
           print result_path=${result_path}
 
@@ -171,8 +175,9 @@ function isbissectile {
         # basic simulation loop for a month
 
           sda=1
+          #while [ sda -le 12 ] ; do 
+
           while [ sda -le $ndays ] ; do 
-          #while [ sda -le 1 ] ; do 
 
           #for sda in 01 02;do
           sdaf=`eval printf "%02d" $sda`
@@ -212,28 +217,32 @@ function isbissectile {
 
               #----------------------------------------------------------
               # run the concentration simulation
+              
+                            # test if results files are already computed
+              if [ ! -f ${result_path/plot${ymd}.ps} ]; then
 
-              if [ -f tdump ];then rm tdump; fi
-              ${MDL}/exec/hyts_std    
-              #${MDL}/exec/trajplot tdump -a5 -l24 -v1 -idefault_tplot
+                  if [ -f tdump ];then rm tdump; fi
+                  ${MDL}/exec/hyts_std    
+                  #${MDL}/exec/trajplot tdump -a5 -l24 -v1 -idefault_tplot
 
-              # opiton -l24 to get a point every 24 hours
+                  # opiton -l24 to get a point every 24 hours
 
-              # option -a5 to generate qgis_shape files
-              ${MDL}/exec/trajplot tdump -a5 -l24 -v1
+                  # option -a5 to generate qgis_shape files
+                  ${MDL}/exec/trajplot tdump -a5 -l24 -v1
 
-              ymd=${syr}${smo}${sdaf} 
-              gis_name_root=gis_shape${ymd}
+                  ymd=${syr}${smo}${sdaf} 
+                  gis_name_root=gis_shape${ymd}
 
-              mv trajplot.ps plot${ymd}.ps
+                  mv trajplot.ps plot${ymd}.ps
 
-              # we use the option lines to generate the gis lines
-              ${MDL}/exec/ascii2shp ${gis_name_root} lines < GIS_traj_ps_01.txt 
+                  # we use the option lines to generate the gis lines
+                  ${MDL}/exec/ascii2shp ${gis_name_root} lines < GIS_traj_ps_01.txt 
 
-              # we need the results in a different folder for each month
-              mv  plot${ymd}.ps             ${result_path}/
-              mv  ${gis_name_root}.*        ${result_path}/
-              mv  CONTROL                   ${result_path}/CONTROL${ymd}
+                  # we need the results in a different folder for each month
+                  mv  plot${ymd}.ps             ${result_path}/
+                  mv  ${gis_name_root}.*        ${result_path}/
+                  mv  CONTROL                   ${result_path}/CONTROL${ymd}
+                fi
 
 
               # mv tdump tdump_${smo}_${sda}

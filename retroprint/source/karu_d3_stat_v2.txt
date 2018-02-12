@@ -1,0 +1,23 @@
+***********karu*************
+nwap: north=35, south=10, west=-20, east=-16 (iles canaries)
+swap: north=10, south=0,  west=-20, east=-16 (iles canaries)
+
+
+ndjf
+ndjf nwap count = 55
+ndjf swap count =  9
+ndjf neap count = 73
+ma
+ma nwap count = 31
+ma swap count =  10
+ma neap count = 101
+mjja
+mjja nwap count = 345
+mjja swap count =  60
+mjja neap count = 268
+so
+so nwap count = 85
+so swap count =  3
+so neap count = 48
+total de trajectoires =1088
+total d3dates=1088

@@ -1,0 +1,23 @@
+***********karu*************
+nwap: north=30, south=10, west=-20, east=-15 
+swap: north=10, south=0,  west=-20, east=-15
+
+
+ndjf
+ndjf nwap count = 51
+ndjf swap count =  9
+ndjf neap count = 77
+ma
+ma nwap count = 32
+ma swap count =  10
+ma neap count = 100
+mjja
+mjja nwap count = 344
+mjja swap count =  63
+mjja neap count = 266
+so
+so nwap count = 88
+so swap count =  2
+so neap count = 46
+total de trajectoires =1088
+total d3dates=1088
