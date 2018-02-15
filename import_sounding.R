@@ -5,7 +5,7 @@ library(XML)
 # Signal sql strings test, no connection to database established
 sqltest <- FALSE
 
-dbg <- T
+dbg <- F
 
 getFileUrls <- function(years,months,rootPath) {
 
@@ -20,7 +20,9 @@ mainAllYearsImport <- function(dbg = F) {
                 "octobre","novembre","decembre")
     #rootPath <- "/data/soundings"   
     rootPath <- "/data/soundings/cape_san_juan"   
-    fileUrls <- getFileUrls(years,months,rootPath)
+    setwd(rootPath)
+    #fileUrls <- getFileUrls(years,months,rootPath)
+    fileUrls <- Sys.glob("*.html")
     
     lapply(fileUrls, mainByMonth)
 }
@@ -432,7 +434,7 @@ injectRow2Db <- function(data, station_number,
         
         if (dbg) browser()
 
-        sqlstr <- paste("insert into sounding1", 
+        sqlstr <- paste("insert into sounding2k18", 
                         "(station_number, station_name ,date,time,cape,cape_virt,conv_inhib,cins,pressure,",
                         "height,temp, dwpt,",
                         "relhumidity, mixr, drct, snkt, thta, thte, thtv)",
