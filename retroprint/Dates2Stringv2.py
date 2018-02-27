@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+# Dates need to be yyyy-mm-dd
+
 import sys, os, functools, operator
 
 def main(argv):

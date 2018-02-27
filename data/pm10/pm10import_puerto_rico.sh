@@ -3,8 +3,16 @@
 
 #awk -F "," '$23 ~ /^"Fajardo"/ { print $23,$14,$12,$11}' hourly_81102_2012.csv
 
-# last version
+# last version, import données horaires
 awk -F "," '$23 ~ /^"Catano"/ { print $23,$12,$11,$14}' hourly_81102_2005.csv > pm10_catano.csv
+
+# extraction des données journalières de pm10
+awk -F "," '$26 ~ /^"Ponce"/ { print $12,$17}' 
+
+
+
+sed 's/"//g' pm10_catano.csv > pm10_catano_ok.csv
+
 
 mysql -u dbmeteodb --password=dbmeteodb dbmeteodb -e "drop table pm10_catano; create table pm10_catano  (date date not null, hour int(2) not null, constraint pk_pm10 primary key(date,hour), pm10 decimal(4) not null)"
 

@@ -1,0 +1,65 @@
+[0m[[0mdebug[0m] [0m[naha] [0m
+[0m[[0mdebug[0m] [0m[naha] Initial source changes: [0m
+[0m[[0mdebug[0m] [0m[naha] 	removed:Set()[0m
+[0m[[0mdebug[0m] [0m[naha] 	added: Set(/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/getsoundings/src/main/scala/SoundingFile.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] 	modified: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] Invalidated products: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] External API changes: API Changes: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] Modified binary dependencies: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] Initial directly invalidated sources: Set(/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/getsoundings/src/main/scala/SoundingFile.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] [0m
+[0m[[0mdebug[0m] [0m[naha] Sources indirectly invalidated by:[0m
+[0m[[0mdebug[0m] [0m[naha] 	product: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] 	binary dep: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] 	external source: Set()[0m
+[0m[[0mdebug[0m] [0mAll initially invalidated sources: Set(/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/getsoundings/src/main/scala/SoundingFile.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] Initial set of included nodes: Set(/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/getsoundings/src/main/scala/SoundingFile.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] Recompiling all 1 sources: invalidated sources (1) exceeded 50.0% of all sources[0m
+[0m[[0minfo[0m] [0mCompiling 1 Scala source to /Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/getsoundings/target/scala-2.10/classes...[0m
+[0m[[0mdebug[0m] [0mGetting org.scala-sbt:compiler-interface:0.13.17:component from component compiler for Scala 2.10.6[0m
+[0m[[0minfo[0m] [0m'compiler-interface' not yet compiled for Scala 2.10.6. Compiling...[0m
+[0m[[0mdebug[0m] [0mPlain interface to Scala compiler 2.10.6  with arguments: [0m
+[0m[[0mdebug[0m] [0m	-nowarn[0m
+[0m[[0mdebug[0m] [0m	-d[0m
+[0m[[0mdebug[0m] [0m	/var/folders/fc/hr344njn2mjgr8d23sdyk5_00000gp/T/sbt_91ab51e5[0m
+[0m[[0mdebug[0m] [0m	-bootclasspath[0m
+[0m[[0mdebug[0m] [0m	/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/classes:/Users/france-norbrute/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.6.jar[0m
+[0m[[0mdebug[0m] [0m	-classpath[0m
+[0m[[0mdebug[0m] [0m	/Users/france-norbrute/.sbt/boot/scala-2.10.7/org.scala-sbt/sbt/0.13.17/xsbti/interface-0.13.17.jar:/var/folders/fc/hr344njn2mjgr8d23sdyk5_00000gp/T/sbt_b4737f46/srcs/org.scala-sbt/compiler-interface/compiler-interface-0.13.17-sources.jar:/Users/france-norbrute/.ivy2/cache/org.scala-lang/scala-compiler/jars/scala-compiler-2.10.6.jar:/Users/france-norbrute/.ivy2/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.10.6.jar:/Users/france-norbrute/.ivy2/cache/org.scala-lang/jline/jars/jline-2.10.6.jar:/Users/france-norbrute/.ivy2/cache/org.fusesource.jansi/jansi/jars/jansi-1.4.jar[0m
+[0m[[0mdebug[0m] [0m	/var/folders/fc/hr344njn2mjgr8d23sdyk5_00000gp/T/sbt_efc6469/xsbt/API.scala[0m
+[0m[[0mdebug[0m] [0m	/var/folders/fc/hr344njn2mjgr8d23sdyk5_00000gp/T/sbt_efc6469/xsbt/Analyzer.scala[0m
+[0m[[0mdebug[0m] [0m	/var/folders/fc/hr344njn2mjgr8d23sdyk5_00000gp/T/sbt_efc6469/xsbt/Command.scala[0m
+[0m[[0mdebug[0m] [0m	/var/folders/fc/hr344njn2mjgr8d23sdyk5_00000gp/T/sbt_efc6469/xsbt/Compat.scala[0m
+[0m[[0mdebug[0m] [0m	/var/folders/fc/hr344njn2mjgr8d23sdyk5_00000gp/T/sbt_efc6469/xsbt/CompilerInterface.scala[0m
+[0m[[0mdebug[0m] [0m	/var/folders/fc/hr344njn2mjgr8d23sdyk5_00000gp/T/sbt_efc6469/xsbt/ConsoleInterface.scala[0m
+[0m[[0mdebug[0m] [0m	/var/folders/fc/hr344njn2mjgr8d23sdyk5_00000gp/T/sbt_efc6469/xsbt/DelegatingReporter.scala[0m
+[0m[[0mdebug[0m] [0m	/var/folders/fc/hr344njn2mjgr8d23sdyk5_00000gp/T/sbt_efc6469/xsbt/Dependency.scala[0m
+[0m[[0mdebug[0m] [0m	/var/folders/fc/hr344njn2mjgr8d23sdyk5_00000gp/T/sbt_efc6469/xsbt/ExtractAPI.scala[0m
+[0m[[0mdebug[0m] [0m	/var/folders/fc/hr344njn2mjgr8d23sdyk5_00000gp/T/sbt_efc6469/xsbt/ExtractUsedNames.scala[0m
+[0m[[0mdebug[0m] [0m	/var/folders/fc/hr344njn2mjgr8d23sdyk5_00000gp/T/sbt_efc6469/xsbt/GlobalHelpers.scala[0m
+[0m[[0mdebug[0m] [0m	/var/folders/fc/hr344njn2mjgr8d23sdyk5_00000gp/T/sbt_efc6469/xsbt/LocateClassFile.scala[0m
+[0m[[0mdebug[0m] [0m	/var/folders/fc/hr344njn2mjgr8d23sdyk5_00000gp/T/sbt_efc6469/xsbt/Log.scala[0m
+[0m[[0mdebug[0m] [0m	/var/folders/fc/hr344njn2mjgr8d23sdyk5_00000gp/T/sbt_efc6469/xsbt/Message.scala[0m
+[0m[[0mdebug[0m] [0m	/var/folders/fc/hr344njn2mjgr8d23sdyk5_00000gp/T/sbt_efc6469/xsbt/ScaladocInterface.scala[0m
+[0m[[0minfo[0m] [0m  Compilation completed in 15.931 s[0m
+[0m[[0mdebug[0m] [0mGetting org.scala-sbt:compiler-interface:0.13.17:component from component compiler for Scala 2.10.6[0m
+[0m[[0mdebug[0m] [0mRunning cached compiler 518ce3cb, interfacing (CompilerInterface) with Scala compiler version 2.10.6[0m
+[0m[[0mdebug[0m] [0mCalling Scala compiler with arguments  (CompilerInterface):[0m
+[0m[[0mdebug[0m] [0m	-bootclasspath[0m
+[0m[[0mdebug[0m] [0m	/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/classes:/Users/france-norbrute/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.6.jar[0m
+[0m[[0mdebug[0m] [0m	-classpath[0m
+[0m[[0mdebug[0m] [0m	/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/getsoundings/target/scala-2.10/classes[0m
+[0m[[0mdebug[0m] [0mScala compilation took 23.243176967 s[0m
+[0m[[0mdebug[0m] [0m[naha] Invalidating /Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/getsoundings/src/main/scala/SoundingFile.scala...[0m
+[0m[[0mdebug[0m] [0m[naha] Invalidating (transitively) by inheritance from /Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/getsoundings/src/main/scala/SoundingFile.scala...[0m
+[0m[[0mdebug[0m] [0m[naha] Initial set of included nodes: Set(/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/getsoundings/src/main/scala/SoundingFile.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] Invalidated by transitive inheritance dependency: Set(/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/getsoundings/src/main/scala/SoundingFile.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] The /Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/getsoundings/src/main/scala/SoundingFile.scala source file has the following regular definitions changed:[0m
+[0m[[0mdebug[0m] [0m[naha] 	notify, SoundingFile, wait, $asInstanceOf, equals, asInstanceOf, synchronized, $isInstanceOf, file1, mkUrl, notifyAll, isInstanceOf, <init>, ==, clone, url1, toString, !=, getClass, ne, eq, ##, finalize, hashCode.[0m
+[0m[[0mdebug[0m] [0m[naha] All member reference dependencies will be considered within this context.[0m
+[0m[[0mdebug[0m] [0m[naha] New invalidations:[0m
+[0m[[0mdebug[0m] [0m[naha] 	Set()[0m
+[0m[[0mdebug[0m] [0m[naha] Initial set of included nodes: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] Previously invalidated, but (transitively) depend on new invalidations:[0m
+[0m[[0mdebug[0m] [0m[naha] 	Set()[0m
+[0m[[0mdebug[0m] [0m[naha] All newly invalidated sources after taking into account (previously) recompiled sources:Set()[0m

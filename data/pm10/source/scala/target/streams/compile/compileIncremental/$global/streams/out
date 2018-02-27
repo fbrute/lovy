@@ -1,0 +1,50 @@
+[0m[[0mdebug[0m] [0m[naha] [0m
+[0m[[0mdebug[0m] [0m[naha] Initial source changes: [0m
+[0m[[0mdebug[0m] [0m[naha] 	removed:Set()[0m
+[0m[[0mdebug[0m] [0m[naha] 	added: Set(/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/echoargs.scala, /Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/readfile.scala, /Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/summer.scala, /Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/hello.scala, /Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/ChecksumAccumulator.scala, /Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/pa.scala, /Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/countchars1.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] 	modified: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] Invalidated products: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] External API changes: API Changes: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] Modified binary dependencies: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] Initial directly invalidated sources: Set(/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/echoargs.scala, /Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/readfile.scala, /Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/summer.scala, /Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/hello.scala, /Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/ChecksumAccumulator.scala, /Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/pa.scala, /Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/countchars1.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] [0m
+[0m[[0mdebug[0m] [0m[naha] Sources indirectly invalidated by:[0m
+[0m[[0mdebug[0m] [0m[naha] 	product: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] 	binary dep: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] 	external source: Set()[0m
+[0m[[0mdebug[0m] [0mAll initially invalidated sources: Set(/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/echoargs.scala, /Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/readfile.scala, /Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/summer.scala, /Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/hello.scala, /Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/ChecksumAccumulator.scala, /Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/pa.scala, /Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/countchars1.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] Initial set of included nodes: Set(/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/echoargs.scala, /Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/readfile.scala, /Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/summer.scala, /Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/hello.scala, /Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/ChecksumAccumulator.scala, /Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/pa.scala, /Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/countchars1.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] Recompiling all 7 sources: invalidated sources (7) exceeded 50.0% of all sources[0m
+[0m[[0minfo[0m] [0mCompiling 7 Scala sources to /Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/target/scala-2.10/classes...[0m
+[0m[[0mdebug[0m] [0mGetting org.scala-sbt:compiler-interface:0.13.15:component from component compiler for Scala 2.10.6[0m
+[0m[[0mdebug[0m] [0mGetting org.scala-sbt:compiler-interface:0.13.15:component from component compiler for Scala 2.10.6[0m
+[0m[[0mdebug[0m] [0mRunning cached compiler 674acc1d, interfacing (CompilerInterface) with Scala compiler version 2.10.6[0m
+[0m[[0mdebug[0m] [0mCalling Scala compiler with arguments  (CompilerInterface):[0m
+[0m[[0mdebug[0m] [0m	-bootclasspath[0m
+[0m[[0mdebug[0m] [0m	/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/classes:/Users/france-norbrute/.sbt/boot/scala-2.10.6/lib/scala-library.jar[0m
+[0m[[0mdebug[0m] [0m	-classpath[0m
+[0m[[0mdebug[0m] [0m	/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/target/scala-2.10/classes[0m
+[0m[[31merror[0m] [0m/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/countchars1.scala:4: expected class or object definition[0m
+[0m[[31merror[0m] [0mif (args.length > 0) {[0m
+[0m[[31merror[0m] [0m^[0m
+[0m[[31merror[0m] [0m/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/echoargs.scala:2: expected class or object definition[0m
+[0m[[31merror[0m] [0mprintln("Hello World! " + args(0) + "!")[0m
+[0m[[31merror[0m] [0m^[0m
+[0m[[31merror[0m] [0m/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/echoargs.scala:4: expected class or object definition[0m
+[0m[[31merror[0m] [0mvar i = 0[0m
+[0m[[31merror[0m] [0m^[0m
+[0m[[31merror[0m] [0m/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/echoargs.scala:5: expected class or object definition[0m
+[0m[[31merror[0m] [0mwhile (i < args.length) {[0m
+[0m[[31merror[0m] [0m^[0m
+[0m[[31merror[0m] [0m/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/hello.scala:2: expected class or object definition[0m
+[0m[[31merror[0m] [0mprintln("Hello World! " + args(0))[0m
+[0m[[31merror[0m] [0m^[0m
+[0m[[31merror[0m] [0m/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/pa.scala:1: expected class or object definition[0m
+[0m[[31merror[0m] [0margs.foreach {println}[0m
+[0m[[31merror[0m] [0m^[0m
+[0m[[31merror[0m] [0m/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/data/pm10/source/scala/readfile.scala:4: expected class or object definition[0m
+[0m[[31merror[0m] [0mif (args.length > 0) {[0m
+[0m[[31merror[0m] [0m^[0m
+[0m[[31merror[0m] [0m7 errors found[0m
+[0m[[0mdebug[0m] [0mCompilation failed (CompilerInterface)[0m
+[0m[[31merror[0m] [0m(compile:[31mcompileIncremental[0m) Compilation failed[0m

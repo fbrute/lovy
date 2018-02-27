@@ -60,22 +60,33 @@ function isbissectile {
   where=${1:0:4}
   print where=$where
 
-  if ! [[ $where = 'karu' || $where = 'mada' ]]; then
-    echo Please check the name of the file wich should contain karu or mada at the beginning 
+  if ! [[ $where = 'karu' || $where = 'mada' || 'puerto_rico' || 'barbade' ]]; then
+    echo Please check the name of the file wich should contain karu or mada  or puerto_rico or barbade at the beginning 
     exit
   else
+
+    if [[ $where = 'puerto_rico' ]]; then
+      olat=18.38
+      olon=-65.62
+    fi
+
     if [[ $where = 'karu' ]]; then
       olat=16.24
       olon=-61.53
     fi
+
     if [[ $where = 'mada' ]]; then
-      #echo Please fix script with olat and olon variables for mada
-      #exit
       olat=14.64
       olon=-61.02
-      #olat=16.24
-      #olon=-61.53
     fi
+
+ 
+     if [[ $where = 'barbade' ]]; then
+      olat=13.15
+      olon=-59.42
+    fi
+
+
 
   fi
 
