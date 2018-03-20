@@ -1,0 +1,52 @@
+***********puer @ 1500*************
+ndjf
+>nwap count = 0
+>swap count =  0
+>neap count = 0
+>ind count = 0
+ma
+>nwap count = 0
+>swap count =  0
+>neap count = 0
+>ind count = 0
+mjja
+>nwap count = 0
+>swap count =  0
+>neap count = 0
+>ind count = 0
+so
+>nwap count = 0
+>swap count =  0
+>neap count = 0
+>ind count = 0
+total de trajectoires traitées =0
+total de trajectoires dans le dossier =0
+total d3dates=953
+************************
+************************
+gate name  = nwap
+>north limit = 35
+>south limit = 10
+>west limit = -20
+>east limit = -16
+
+gate name  = swap
+>north limit = 10
+>south limit = 0
+>west limit = -20
+>east limit = -16
+
+gate name  = neap
+>north limit = 35
+>south limit = 20
+>west limit = -50
+>east limit = -20
+
+gate name  = ind
+>north limit = 35
+>south limit = 20
+>west limit = 80
+>east limit = 100
+
+************************
+************************

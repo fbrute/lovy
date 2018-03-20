@@ -31,6 +31,12 @@ class SoundingFile {
     browser.get(url).toString()
   }
 
+  def saveDataToFile(data : String) =
+    val file = new File(canonicalFilename)
+    val bw = new BufferedWriter(new FileWriter(file))
+    bw.write(text)
+    bw.close()
+
   def maxDayofMonth(year : Int, month : Int) : Int = {
     val cal = Calendar.getInstance
     cal.set(Calendar.YEAR, year)
@@ -60,7 +66,7 @@ object SoundingFile extends App{
 
   //println(data)
 
-  val years = 2005 to 2016
+  val years = 2006 to 2016
   val months = 1 to 12
   val from_day = 1
   val time = 12

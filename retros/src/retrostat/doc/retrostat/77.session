@@ -1,0 +1,15 @@
+window_sizes 1350 763 337 1007 647 64
+cleanlooks_style
+diagrams
+  active  classdiagram_ref 128205 // TrajectoryClassifier
+    805 517 100 A4 0 0
+end
+show_stereotypes
+selected attribute_ref 142541 // d3folder
+open
+  class_ref 128205 // TrajectoryClassifier
+  class_ref 134861 // TrajectoryStatD3
+  class_ref 134989 // TrajectoryStat
+  class_ref 141517 // TrajectoryFolder
+end
+end
