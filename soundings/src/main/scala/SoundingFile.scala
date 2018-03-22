@@ -1,6 +1,7 @@
 import net.ruippeixotog.scalascraper.browser.JsoupBrowser
 import java.text.SimpleDateFormat
 import java.util.Calendar
+import java.io._
 
 class SoundingFile {
   private val region = "na"
@@ -34,8 +35,8 @@ class SoundingFile {
   def saveDataToFile(data : String, canonicalFilename: String) = {
     val file = new File(canonicalFilename)
     val bw = new BufferedWriter(new FileWriter(file))
-    bw.write(text)
-    bw.close()
+    bw.write(data)
+    bw.close
   }
 
   def maxDayofMonth(year : Int, month : Int) : Int = {
@@ -49,7 +50,7 @@ class SoundingFile {
   }
 }
 
-object SoundingFile extends App{
+object SoundingFile {
 
   val file1 = new SoundingFile
   val url1 = file1.mkUrl("na", "TEXT",2005,1,1,12,31,12,78954)
@@ -76,7 +77,7 @@ object SoundingFile extends App{
   for (year <- years) {
     for (month <- months) {
       val url = file1.mkUrl("na", "TEXT",year,month,1,12,file1.maxDayofMonth(year,month),12,78954)
-      file1.saveDataToFile( file1.getData(url) ,s"$year_$month_barbados.html")
+      file1.saveDataToFile( file1.getData(url) ,s"${year}_{$month}_barbados.html")
     }
   }
 }

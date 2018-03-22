@@ -8,11 +8,11 @@ class Gate
         @height = @north - @south
         @width = @east - @west
 
-        @routes = [:neap, :swap, :nwap, :ind]
+        @routes = [:neap, :swap, :nwap, :sa, :north, :ind]
 
         raise "the gate should have a name!!!" if @name == nil 
         
-        raise "the names are restricted to :neap, :swap :nwap, or :ind!!!" if !@routes.include? @name
+        raise "the names are restricted to :neap, :swap,  :nwap, , :sa, :north or :ind!!!" if !@routes.include? @name
 
         raise "bad north limit for the gate!!!" if @north < -90 || @north > 90
         

@@ -22,22 +22,23 @@ object concat_aot_ae_sounding {
     stations.map(station => dir + station + "_" + action + suffix)
   }
 
-  def parameters(stations : String*, actions : Strings*) =  {
+  //def parameters(stations : String*, actions : Strings*) =  {
 
-  }
+  //}
 
 
-  def main( args : Array[String] ) = {
-    println(sqls(stations, "aot_ae", ".sql"))
-    println(outputs(stations, "aot_ae", ".txt"))
-    for(sql <- sqls) {
-      for(output <- outputs) {
+  //def main( args : Array[String] ) = {
+    //println(sqls(stations, "aot_ae", ".sql"))
+    //println(outputs(stations, "aot_ae", ".txt"))
+    //for(sql <- sqls) {
+      //for(output <- outputs) {
     //"""mysql -u dbmeteodb -p dbmeteodb < ../sql/puerto_rico_aot_ae_sounding.sql > ../data/puerto_rico_aot_ae_sounding.txt""" !!
     //val results = "ls -ls" !
     //for(result : String <- results) println(result)
 
     //"mysql -u dbmeteodb --password=dbmeteodb dbmeteodb < ../sql/guadeloupe_aot_ae_sounding.sql  > ../data/guadeloupe_aot_ae_sounding.txt" !!
-      }
-    }
-  }
+      //}
+    //}
+  //}
+  //}
 }

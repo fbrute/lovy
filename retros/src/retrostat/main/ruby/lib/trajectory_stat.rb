@@ -18,10 +18,10 @@ class TrajectoryStat
         
         @seasons = Array.new
         
-        @ndjf = {neap: 0, nwap: 0, swap: 0, ind: 0, name:  :ndjf , months: [11,12,1,2] } 
-        @ma   = {neap: 0, nwap: 0, swap: 0, ind: 0, name:  :ma   , months: [3,4] } 
-        @mjja = {neap: 0, nwap: 0, swap: 0, ind: 0, name:  :mjja , months: [5,6,7,8] } 
-        @so   = {neap: 0, nwap: 0, swap: 0, ind: 0, name:  :so   , months: [9,10] } 
+        @ndjf = {neap: 0, nwap: 0, swap: 0, ind: 0, sa: 0, north: 0, name:  :ndjf , months: [11,12,1,2] } 
+        @ma   = {neap: 0, nwap: 0, swap: 0, ind: 0, sa: 0, north: 0, name:  :ma   , months: [3,4] } 
+        @mjja = {neap: 0, nwap: 0, swap: 0, ind: 0, sa: 0, north: 0, name:  :mjja , months: [5,6,7,8] } 
+        @so   = {neap: 0, nwap: 0, swap: 0, ind: 0, sa: 0, north: 0, name:  :so   , months: [9,10] } 
 
         [@ndjf, @ma, @mjja, @so].each {|season| @seasons << season }
 
@@ -94,6 +94,7 @@ class TrajectoryStat
         remaining_files =  count_retros remaining_files, [@neap]
         remaining_files =  count_retros remaining_files, [@sa]
         remaining_files =  count_retros remaining_files, [@north]
+        remaining_files =  count_retros remaining_files, [@ind]
     end
 
     

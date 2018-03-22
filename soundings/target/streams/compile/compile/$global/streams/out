@@ -1,41 +1,10 @@
-[0m[[0m[31merror[0m] [0m[0m/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/soundings/src/main/scala/SoundingFile.scala:1:8: not found: object net[0m
-[0m[[0m[31merror[0m] [0m[0mimport net.ruippeixotog.scalascraper.browser.JsoupBrowser[0m
-[0m[[0m[31merror[0m] [0m[0m       ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/soundings/src/main/scala/SoundingFile.scala:17:25: not found: value JsoupBrowser[0m
-[0m[[0m[31merror[0m] [0m[0m  private val browser = JsoupBrowser()[0m
-[0m[[0m[31merror[0m] [0m[0m                        ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/soundings/src/main/scala/SoundingFile.scala:35:20: not found: type File[0m
-[0m[[0m[31merror[0m] [0m[0m    val file = new File(canonicalFilename)[0m
-[0m[[0m[31merror[0m] [0m[0m                   ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/soundings/src/main/scala/SoundingFile.scala:36:18: not found: type BufferedWriter[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/soundings/src/main/scala/execute_sqls.scala:7:17: not found: type File[0m
+[0m[[0m[31merror[0m] [0m[0m val file = new File("ruse.sh")[0m
+[0m[[0m[31merror[0m] [0m[0m                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/soundings/src/main/scala/execute_sqls.scala:8:18: not found: type BufferedWriter[0m
 [0m[[0m[31merror[0m] [0m[0m    val bw = new BufferedWriter(new FileWriter(file))[0m
 [0m[[0m[31merror[0m] [0m[0m                 ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/soundings/src/main/scala/SoundingFile.scala:36:37: not found: type FileWriter[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/soundings/src/main/scala/execute_sqls.scala:8:37: not found: type FileWriter[0m
 [0m[[0m[31merror[0m] [0m[0m    val bw = new BufferedWriter(new FileWriter(file))[0m
 [0m[[0m[31merror[0m] [0m[0m                                    ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/soundings/src/main/scala/SoundingFile.scala:64:17: not found: value JsoupBrowser[0m
-[0m[[0m[31merror[0m] [0m[0m  val browser = JsoupBrowser()[0m
-[0m[[0m[31merror[0m] [0m[0m                ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/soundings/src/main/scala/SoundingFile.scala:79:52: not found: value year_[0m
-[0m[[0m[31merror[0m] [0m[0m      file1.saveDataToFile( file1.getData(url) ,s"$year_$month_barbados.html")[0m
-[0m[[0m[31merror[0m] [0m[0m                                                   ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/soundings/src/main/scala/SoundingFile.scala:79:58: not found: value month_barbados[0m
-[0m[[0m[31merror[0m] [0m[0m      file1.saveDataToFile( file1.getData(url) ,s"$year_$month_barbados.html")[0m
-[0m[[0m[31merror[0m] [0m[0m                                                         ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/soundings/src/main/scala/sounding_aot_ae.scala:25:48: not found: type Strings[0m
-[0m[[0m[31merror[0m] [0m[0m  def parameters(stations : String*, actions : Strings*) =  {[0m
-[0m[[0m[31merror[0m] [0m[0m                                               ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/soundings/src/main/scala/sounding_aot_ae.scala:25:18: *-parameter must come last[0m
-[0m[[0m[31merror[0m] [0m[0m  def parameters(stations : String*, actions : Strings*) =  {[0m
-[0m[[0m[31merror[0m] [0m[0m                 ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/soundings/src/main/scala/sounding_aot_ae.scala:33:16: missing argument list for method sqls in object concat_aot_ae_sounding[0m
-[0m[[0m[31merror[0m] [0m[0mUnapplied methods are only converted to functions when a function type is expected.[0m
-[0m[[0m[31merror[0m] [0m[0mYou can make this conversion explicit by writing `sqls _` or `sqls(_,_,_)` instead of `sqls`.[0m
-[0m[[0m[31merror[0m] [0m[0m    for(sql <- sqls) {[0m
-[0m[[0m[31merror[0m] [0m[0m               ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/soundings/src/main/scala/sounding_aot_ae.scala:34:21: missing argument list for method outputs in object concat_aot_ae_sounding[0m
-[0m[[0m[31merror[0m] [0m[0mUnapplied methods are only converted to functions when a function type is expected.[0m
-[0m[[0m[31merror[0m] [0m[0mYou can make this conversion explicit by writing `outputs _` or `outputs(_,_,_)` instead of `outputs`.[0m
-[0m[[0m[31merror[0m] [0m[0m      for(output <- outputs) {[0m
-[0m[[0m[31merror[0m] [0m[0m                    ^[0m
-[0m[[0m[31merror[0m] [0m[0m12 errors found[0m
+[0m[[0m[31merror[0m] [0m[0mthree errors found[0m

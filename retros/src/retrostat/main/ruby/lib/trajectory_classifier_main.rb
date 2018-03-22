@@ -5,13 +5,13 @@ def contains_trajectories? folder
     !Dir.glob("#{folder}/**/*/tdump*").empty?
 end
 
-def getD3dates folder
-    d3dates = Dir.glob("#{folder}/*").select { |file| File.directory? file } . select { |file|.contains? 'd3' }
-    if d3dates.any? match 
-end
+#def getD3dates folder
+#    d3dates = Dir.glob("#{folder}/*").select { |file| File.directory? file } . select { |file| file.contains? 'd3' }
+#    if d3dates.any? match 
+#end
 
 def traj_folders folder
-    Dir.glob("#{folder}/*").select { |file| File.directory? file } . reject { |file|.contains? 'd3' }
+    Dir.glob("#{folder}/**/*/tdump*").select { |file| File.directory? file } . reject { |file| file.contains? 'd3' }
 end
 
 def name folder
@@ -26,8 +26,6 @@ def level folder
     end
 end
 
-def d3date
-
 raise "No folder provided!!!" if !ARGV[0]
 folder = ARGV[0]
 
@@ -39,21 +37,19 @@ raise "Folder does not exists!!!" if !Dir.exists?(folder)
 #raise "Folder name should contain karu or mada, puer or barb, please check!!!" if !name(folder)
 raise "Folder does not contain any trajectories, please check!!!" if !contains_trajectories?(folder)
 
-raise "File containing dates does not exists!!!" if !File.exists?(file)
+#raise "File containing dates does not exists!!!" if !File.exists?(file)
 
+#traj_folders(folder).each do |traj_folder| 
 
-exit
-
-
-traj_folders.each do |traj_folder| 
-
-    d3datesfile = File.expand_path traj_folder.file
+    d3datesfile = File.expand_path file
 
     # Ensure that dates or unique
     d3dates = IO.readlines(d3datesfile).each {|date| date.chomp!}.uniq
 
     tstat = TrajectoryStatD3.new folder, d3dates
-    tstat.count
+    #tstat = TrajectoryStat.new folder
+    #tstat.count
+    tstat.count_by_seasons_v3
 
     ntotal = 0
 
@@ -74,11 +70,15 @@ traj_folders.each do |traj_folder|
             output_file.write ">neap count = #{tstat[:neap]}\n"
 
             ntotal +=  tstat[:sa]
-            output_file.write ">neap count = #{tstat[:sa]}\n"
+            output_file.write ">sa count = #{tstat[:sa]}\n"
 
             ntotal +=  tstat[:north]
             #puts ">ind count = #{tstat[:ind]}"
-            output_file.write ">ind count = #{tstat[:north]}\n"
+            output_file.write ">north count = #{tstat[:north]}\n"
+
+            ntotal +=  tstat[:ind]
+            #puts ">ind count = #{tstat[:ind]}"
+            output_file.write ">ind count = #{tstat[:ind]}\n"
         end 
 
         output_file.write "total de trajectoires traitées =#{ntotal}\n"
@@ -98,7 +98,7 @@ traj_folders.each do |traj_folder|
         output_file.write "************************\n"
         output_file.write "************************"
     end 
-end 
+#end 
 
     
     
