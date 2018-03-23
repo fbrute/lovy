@@ -12,11 +12,11 @@ import tephi
 print(os.getcwd())
 
 #karu_d3_filename = os.path.join(tephi.DATA_DIR, 'karu_d3_temps.txt')
-karu_jnp_filename = os.path.join('../sql/tephi', 'guadeloupe_jnp_mjja_tephi_data.txt')
-karu_jp_filename =  os.path.join('../sql/tephi', 'guadeloupe_jp_mjja_tephi_data.txt')
+karu_jnp_filename = os.path.join('../sql/tephi', 'guadeloupe_jnp_ma_tephi_data.txt')
+karu_jp_filename =  os.path.join('../sql/tephi', 'guadeloupe_jp_ma_tephi_data.txt')
 
-pr_jp_filename = os.path.join('../sql/tephi', 'puerto_rico_jp_mjja_tephi_data.txt')
-pr_jnp_filename = os.path.join('../sql/tephi', 'puerto_rico_jnp_mjja_tephi_data.txt')
+pr_jp_filename = os.path.join('../sql/tephi', 'puerto_rico_jp_ma_tephi_data.txt')
+pr_jnp_filename = os.path.join('../sql/tephi', 'puerto_rico_jnp_ma_tephi_data.txt')
 
 dunion_filename = os.path.join('../data', 'sal_dunion.csv')
 
@@ -37,14 +37,14 @@ pr_jnp_temps = zip(pr_jnp_data.pressure, pr_jnp_data.temp)
 
 tpg = tephi.Tephigram()
 
-tpg.plot(karu_jp_temps, label='Guadeloupe JP MJJA temperature', color='red', linewidth=2,linestyle='-', marker='s')
+tpg.plot(karu_jp_temps, label='Guadeloupe JP MA temperature', color='red', linewidth=2,linestyle='-', marker='s')
 
-tpg.plot(karu_jnp_temps, label='Guadeloupe JNP MJJA temperature', color='magenta', linewidth=2,linestyle='--', marker='s')
+tpg.plot(karu_jnp_temps, label='Guadeloupe JNP MA temperature', color='magenta', linewidth=2,linestyle='--', marker='s')
 
-tpg.plot(pr_jp_temps, label='Porto-Rico JP MJJA temperature', color='blue', linewidth=2,linestyle='-', marker='s')
+tpg.plot(pr_jp_temps, label='Porto-Rico JP MA temperature', color='blue', linewidth=2,linestyle='-', marker='s')
 
-tpg.plot(pr_jnp_temps, label='Porto-Rico JNP MJJA temperature', color='cyan', linewidth=2,linestyle='--', marker='s')
+tpg.plot(pr_jnp_temps, label='Porto-Rico JNP MA temperature', color='cyan', linewidth=2,linestyle='--', marker='s')
 
 tpg.plot(sal_temps, label='SAL Dunion temperature', color='black', linewidth=2, linestyle='-', marker='o')
 
-plt.savefig('seasons_mjja_jp_jnp_guad_pr_temp.jpg')
+plt.savefig('seasons_ma_jp_jnp_guad_pr_temp.jpg')

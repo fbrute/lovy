@@ -15,7 +15,7 @@ karu_filename = os.path.join('../sql/tephi', 'guadeloupe_tephi_data.txt')
 pr_filename = os.path.join('../sql/tephi', 'puerto_rico_tephi_data.txt')
 dunion_filename = os.path.join('../data', 'sal_dunion.csv')
 
-columns = ('pressure', 'temp', 'dewpoint', 'rh')
+columns = ('pressure', 'temp', 'mixr', 'rh')
 
 karu_data ,  sal_data, pr_data = tephi.loadtxt(karu_filename, dunion_filename, pr_filename, column_titles = columns)
 
