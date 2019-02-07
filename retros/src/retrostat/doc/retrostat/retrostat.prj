@@ -281,6 +281,18 @@ ${docstring}${members}
 	mysql_decl ""
 	MysqlColumn
       end
+
+      operation 134733 "countBySeasons"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${)}:
+${docstring}${body}
+"
+	
+      end
     end
 
     class 141517 "TrajectoryFolder"

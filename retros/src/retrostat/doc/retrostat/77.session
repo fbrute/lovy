@@ -5,7 +5,7 @@ diagrams
     805 517 100 A4 0 0
 end
 show_stereotypes
-selected attribute_ref 142541 // d3folder
+selected operation_ref 134733 // countBySeasons
 open
   class_ref 128205 // TrajectoryClassifier
   class_ref 134861 // TrajectoryStatD3
