@@ -1,8 +1,10 @@
 require_relative 'trajectory_stat'
 require_relative 'getPm10FromDate'
+require 'fileutils'
 
 class TrajectoryStatD3Pm10sDates < TrajectoryStat
     include GetPm10
+    include FileUtils
 
     def initialize folder, dates, pm10sFile 
         super(folder)
@@ -56,6 +58,10 @@ class TrajectoryStatD3Pm10sDates < TrajectoryStat
         [@ndjf, @ma, @mjja, @so].each {|season| @seasons << season }
     end
 
+    def date6(file)
+        date = file.match(/(\d{2}\d{2}\d{2})/)[0]
+    end
+
     def count_retros files, gates, pm10s
         #puts "length of files to be treated = #{files.length}"
         # to keep track of treated dates
@@ -78,6 +84,16 @@ class TrajectoryStatD3Pm10sDates < TrajectoryStat
                         season[path][:total] +=1
                         season[path][:dates] << date
                         season[path][:pm10s] << pm10 
+                        target_directory = File.join season[:name].to_s, path.to_s 
+                        if !File.directory? target_directory 
+                            FileUtils.mkdir_p target_directory 
+                        end
+                        %q(shp prj shx dbf).split.each do |extension|
+                            sourcefile = File.join(date.slice(0..3), + 'gis_shape' + date6(file) + '.' + extension)
+                            destfile = 'gis_shape' + date6(file) + '.' + extension
+                            puts sourcefile
+                            FileUtils.cp sourcefile , File.join(target_directory,destfile)
+                        end
                         next
                     else
                         # keep track of treated dates
