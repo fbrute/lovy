@@ -31,6 +31,7 @@ class TrajectoryStat
         #
         #No need to flatten the folder
         @files = Dir.glob("**/*/tdump*")
+        puts "@files.length = #{@files.length}"
         
     end
 

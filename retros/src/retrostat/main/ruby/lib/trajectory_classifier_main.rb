@@ -46,7 +46,7 @@ raise "Folder does not contain any trajectories, please check!!!" if !contains_t
     # Ensure that dates or unique
     d3dates = IO.readlines(d3datesfile).each {|date| date.chomp!}.uniq
 
-    tstat = TrajectoryStatD3.new folder, d3dates
+    tstat = TrajectoryStatD3Pm10sDates.new folder, d3dates
     #tstat = TrajectoryStat.new folder
     #tstat.count
     tstat.count_by_seasons_v3
