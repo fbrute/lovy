@@ -6,11 +6,11 @@ class TrajectoryStatD3Pm10sDates < TrajectoryStat
     include GetPm10
     include FileUtils
 
-    def initialize folder, dates, pm10sFile 
+    def initialize folder, pm10sFile , threshold
         super(folder)
-        puts "dates.length = #{dates.length}"
-        @files.reject! {|file| not dates.include? date(file) }
+
         @pm10s = pm10sFile
+        @threshold = threshold
 
         @seasons = Array.new
         
@@ -73,9 +73,13 @@ class TrajectoryStatD3Pm10sDates < TrajectoryStat
             month = month file
             date = date file
             pm10 = pm10s[GetPm10.toDate date] 
+
+            next if pm10.nil?
+            next if pm10 < @threshold
             
-            puts "date = #{date}"
-            puts "pm10 = #{pm10}"
+            #puts "date = #{date}"
+            #puts "pm10 = #{pm10}"
+
 
             @seasons.each do |season|
                 if season[:months].include? month
@@ -91,7 +95,7 @@ class TrajectoryStatD3Pm10sDates < TrajectoryStat
                         %q(shp prj shx dbf).split.each do |extension|
                             sourcefile = File.join(date.slice(0..3), + 'gis_shape' + date6(file) + '.' + extension)
                             destfile = 'gis_shape' + date6(file) + '.' + extension
-                            puts sourcefile
+                            #puts sourcefile
                             FileUtils.cp sourcefile , File.join(target_directory,destfile)
                         end
                         next
@@ -110,7 +114,7 @@ class TrajectoryStatD3Pm10sDates < TrajectoryStat
     def count_by_seasons_pm10s_dates
         # Version of counting with pm10s and dates
         # get pm10s values as a hash with date as key
-        pm10sValues = GetPm10.getPm10s(@pm10s)
+        pm10sValues = GetPm10.getPm10s(@pm10s, @threshold)
         # First counting nwap and swap retros 
         remaining_files = count_retros @files, [@nwap, @swap], pm10sValues
         # Then count neap and leave the others to indetermined

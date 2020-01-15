@@ -18,7 +18,10 @@ module GetPm10
         end
     end
 
-    def GetPm10.getPm10s(pm10_file_path)
+    def GetPm10.getPm10s(pm10_file_path, threshold)
+
+        raise 'No PM10 threshold' if threshold.nil?
+
         #pm10_file_path = "/Volumes/MODIS/trafin/it/sauvegardes/trafin/fouyol/recherche/lovy/data/pm10/pm10karu.csv"
 
         hash_pm10_by_dates = {} 
@@ -28,6 +31,8 @@ module GetPm10
             pm10 = strpm10.to_f
             date = GetPm10.toDate strDate
             next if date.nil?
+            next if pm10.nil?
+            next if pm10 < threshold
             #puts "#{date},#{pm10}"
             hash_pm10_by_dates[date] = pm10
         end

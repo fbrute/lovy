@@ -32,6 +32,10 @@ class TrajectoryStat
         #No need to flatten the folder
         @files = Dir.glob("**/*/tdump*")
         puts "@files.length = #{@files.length}"
+        # if folder is flattened
+        @files = Dir.glob("*tdump*") if @files.length == 0
+
+        
         
     end
 

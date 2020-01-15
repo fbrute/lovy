@@ -30,29 +30,28 @@ end
 raise "No folder provided!!!" if !ARGV[0]
 folder = ARGV[0]
 
-raise "No D3 file provided!!!" if !ARGV[1]
-file = ARGV[1]
+raise "No pm10csv file provided!!!" if !ARGV[1]
+pm10_csv_file = ARGV[1]
 
-raise "No pm10csv file provided!!!" if !ARGV[2]
-pm10_csv_file = ARGV[2]
+if  !ARGV[2].nil? && ARGV[2].to_i > 0
+    threshold = ARGV[2].to_i
+else
+    threshold = 0
+end
+
 
 
 
 raise "Folder does not exists!!!" if !Dir.exists?(folder)
 #raise "Folder name should contain karu or mada, puer or barb, please check!!!" if !name(folder)
+files = Dir.glob("**/*/tdump*")
 raise "Folder does not contain any trajectories, please check!!!" if !contains_trajectories?(folder)
 
 #raise "File containing dates does not exists!!!" if !File.exists?(file)
 
 #traj_folders(folder).each do |traj_folder| 
 
-    d3datesfile = File.expand_path file
-    pm10csvfile = File.expand_path pm10_csv_file
-
-    # Ensure that dates or unique
-    d3dates = IO.readlines(d3datesfile).each {|date| date.chomp!}.uniq
-
-    tstat = TrajectoryStatD3Pm10sDates.new folder, d3dates, pm10csvfile
+    tstat = TrajectoryStatD3Pm10sDates.new folder, pm10_csv_file, threshold
     #tstat = TrajectoryStat.new folder
     #tstat.count
     tstat.count_by_seasons_pm10s_dates
@@ -76,7 +75,7 @@ raise "Folder does not contain any trajectories, please check!!!" if !contains_t
 
         output_file.write "total de trajectoires traitées =#{ntotal}\n"
         output_file.write "total de trajectoires dans le dossier =#{tstat.files.length}\n"
-        output_file.write "total d3dates=#{d3dates.length}\n"
+        #output_file.write "total d3dates=#{tstat.length}\n"
         
         output_file.write "************************\n"
         output_file.write "************************\n"
