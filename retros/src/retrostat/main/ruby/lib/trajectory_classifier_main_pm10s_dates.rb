@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 require_relative 'trajectory_stat_d3_pm10s_dates'
 require 'descriptive_statistics'
+require 'descriptive-statistics'
 
 def contains_trajectories? folder
     !Dir.glob("#{folder}/**/*/tdump*").empty?
@@ -49,49 +50,65 @@ raise "Folder does not contain any trajectories, please check!!!" if !contains_t
 
 #raise "File containing dates does not exists!!!" if !File.exists?(file)
 
-#traj_folders(folder).each do |traj_folder| 
+tstat = TrajectoryStatD3Pm10sDates.new folder, pm10_csv_file, threshold
+#tstat = TrajectoryStat.new folder
+#tstat.count
+tstat.count_by_seasons_pm10s_dates
 
-    tstat = TrajectoryStatD3Pm10sDates.new folder, pm10_csv_file, threshold
-    #tstat = TrajectoryStat.new folder
-    #tstat.count
-    tstat.count_by_seasons_pm10s_dates
+ntotal = 0
 
-    ntotal = 0
+File.open(File.basename(folder) + "_stat.txt" ,"w+") do |output_file|
+    output_file.write "***********#{name(folder)} @ #{level(folder)}*************\n"
+    [tstat.ndjf, tstat.ma, tstat.mjja, tstat.so].each do |tstat|
+        output_file.write (tstat[:name].to_s + "\n")
+        [:nwap, :swap, :neap, :sa, :north, :ind].each do |gate| 
 
-    File.open(File.basename(folder) + "_stat.txt" ,"w+") do |output_file|
-        output_file.write "***********#{name(folder)} @ #{level(folder)}*************\n"
-        [tstat.ndjf, tstat.ma, tstat.mjja, tstat.so].each do |tstat|
-            output_file.write (tstat[:name].to_s + "\n")
-            [:nwap, :swap, :neap, :sa, :north, :ind].each do |gate| 
+            ntotal +=  tstat[gate][:total]
+            #puts ">nwap count = #{tstat[:nwap]}" 
+            sup_stats = DescriptiveStatistics::Stats.new(tstat[gate][:pm10s])
 
-                ntotal +=  tstat[gate][:total]
-                #puts ">nwap count = #{tstat[:nwap]}" 
-                output_file.write "> #{gate} count = #{tstat[gate][:total]}\n" 
-                output_file.write "> #{gate} pm10mean = #{tstat[gate][:pm10s].mean}\n" 
-                output_file.write "> #{gate} std = #{tstat[gate][:pm10s].standard_deviation}\n" 
-                output_file.write "> #{gate} median = #{tstat[gate][:pm10s].median}\n" 
-            end
-        end 
-
-        output_file.write "total de trajectoires traitées =#{ntotal}\n"
-        output_file.write "total de trajectoires dans le dossier =#{tstat.files.length}\n"
-        #output_file.write "total d3dates=#{tstat.length}\n"
-        
-        output_file.write "************************\n"
-        output_file.write "************************\n"
-        tstat.gates.each do |gate|
-            output_file.write "gate name  = #{gate.name}\n"
-            output_file.write ">north limit = #{gate.north}\n"
-            output_file.write ">south limit = #{gate.south}\n"
-            output_file.write ">west limit = #{gate.west}\n"
-            output_file.write ">east limit = #{gate.east}\n"
-            output_file.write "\n"
+            output_file.write "> #{gate} count = #{tstat[gate][:total]}\n" 
+            output_file.write "> #{gate} pm10mean = #{tstat[gate][:pm10s].mean}\n" 
+            output_file.write "> #{gate} min = #{sup_stats.min}\n" 
+            output_file.write "> #{gate} max = #{sup_stats.max}\n" 
+            output_file.write "> #{gate} std = #{tstat[gate][:pm10s].standard_deviation}\n" 
+            output_file.write "> #{gate} median = #{tstat[gate][:pm10s].median}\n" 
+            output_file.write "> #{gate} skewness = #{sup_stats.skewness}\n" 
+            output_file.write "> #{gate} kurtosis = #{sup_stats.kurtosis}\n" 
         end
-        output_file.write "************************\n"
-        output_file.write "************************"
     end 
-#end 
 
+    output_file.write "total de trajectoires traitées =#{ntotal}\n"
+    output_file.write "total de trajectoires dans le dossier =#{tstat.files.length}\n"
+    #output_file.write "total d3dates=#{tstat.length}\n"
     
-    
+    output_file.write "************************\n"
+    output_file.write "************************\n"
+    tstat.gates.each do |gate|
+        output_file.write "gate name  = #{gate.name}\n"
+        output_file.write ">north limit = #{gate.north}\n"
+        output_file.write ">south limit = #{gate.south}\n"
+        output_file.write ">west limit = #{gate.west}\n"
+        output_file.write ">east limit = #{gate.east}\n"
+        output_file.write "\n"
+    end
+    output_file.write "************************\n"
+    output_file.write "************************"
+end 
+
+# Prepare data results [season, gate, date, pm10 ] to a csv file
+# To a file
+CSV.open(File.basename(folder) + "_details.csv" ,"w+") do |csv|
+    [tstat.ndjf, tstat.ma, tstat.mjja, tstat.so].each do |tstat|
+        [:nwap, :swap, :neap, :sa, :north, :ind].each do |gate| 
+            dates_pm10s = [tstat[gate][:dates], tstat[gate][:pm10s]].transpose
+            dates_pm10s.each do |date,pm10|
+                csv << [tstat[:name].to_s, gate.to_s, date, pm10]
+            end
+        end
+    end
+end
+
+
+
 
