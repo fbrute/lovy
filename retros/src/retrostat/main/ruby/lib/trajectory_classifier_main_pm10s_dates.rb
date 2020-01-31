@@ -44,7 +44,20 @@ end
 
 
 raise "Folder does not exists!!!" if !Dir.exists?(folder)
-#raise "Folder name should contain karu or mada, puer or barb, please check!!!" if !name(folder)
+raise "Folder name should contain karu or mada, puer or barb, please check!!!" if !name(folder)
+
+# remove previous bts folder stats
+['ndjf', 'ma', 'mjja', 'so'].each do |season|
+    previous_stat_folder = File.join(folder, season)
+    if File.directory? previous_stat_folder 
+        puts "removing #{previous_stat_folder}..."
+        FileUtils.rm_rf previous_stat_folder 
+    end
+end
+
+##########  exit prematurally #########
+#exit(0)
+
 files = Dir.glob("**/*/tdump*")
 raise "Folder does not contain any trajectories, please check!!!" if !contains_trajectories?(folder)
 
@@ -57,10 +70,17 @@ tstat.count_by_seasons_pm10s_dates
 
 ntotal = 0
 
-File.open(File.basename(folder) + "_stat.txt" ,"w+") do |output_file|
+def pourcentage(gate_count, season_count)
+    ((gate_count.to_f / season_count) * 100 ).round(2)
+    rescue ZeroDivisionError
+       -9 
+end
+
+File.open(File.basename(folder) + "_sup_#{threshold}" + "_stat.txt" ,"w+") do |output_file|
     output_file.write "***********#{name(folder)} @ #{level(folder)}*************\n"
     [tstat.ndjf, tstat.ma, tstat.mjja, tstat.so].each do |tstat|
-        output_file.write (tstat[:name].to_s + "\n")
+        output_file.write ("season : #{tstat[:name]}, " \
+             "count = #{tstat[:total]}" + "\n")
         [:nwap, :swap, :neap, :sa, :north, :ind].each do |gate| 
 
             ntotal +=  tstat[gate][:total]
@@ -68,13 +88,16 @@ File.open(File.basename(folder) + "_stat.txt" ,"w+") do |output_file|
             sup_stats = DescriptiveStatistics::Stats.new(tstat[gate][:pm10s])
 
             output_file.write "> #{gate} count = #{tstat[gate][:total]}\n" 
-            output_file.write "> #{gate} pm10mean = #{tstat[gate][:pm10s].mean}\n" 
-            output_file.write "> #{gate} min = #{sup_stats.min}\n" 
-            output_file.write "> #{gate} max = #{sup_stats.max}\n" 
-            output_file.write "> #{gate} std = #{tstat[gate][:pm10s].standard_deviation}\n" 
-            output_file.write "> #{gate} median = #{tstat[gate][:pm10s].median}\n" 
-            output_file.write "> #{gate} skewness = #{sup_stats.skewness}\n" 
-            output_file.write "> #{gate} kurtosis = #{sup_stats.kurtosis}\n" 
+            output_file.write "> #{gate}/#{tstat[:name]} = #{pourcentage(tstat[gate][:total], tstat[:total])}%\n" 
+            if tstat[gate][:total] > 0
+                output_file.write "> #{gate} pm10mean = #{tstat[gate][:pm10s].mean.round(2)}\n" 
+                output_file.write "> #{gate} min = #{sup_stats.min.round(2)}\n" 
+                output_file.write "> #{gate} max = #{sup_stats.max.round(2)}\n" 
+                output_file.write "> #{gate} std = #{tstat[gate][:pm10s].standard_deviation.round(2)}\n" 
+                output_file.write "> #{gate} median = #{tstat[gate][:pm10s].median.round(2)}\n" 
+                output_file.write "> #{gate} skewness = #{sup_stats.skewness.round(3)}\n" 
+                output_file.write "> #{gate} kurtosis = #{sup_stats.kurtosis.round(3)}\n" 
+            end
         end
     end 
 
@@ -98,7 +121,7 @@ end
 
 # Prepare data results [season, gate, date, pm10 ] to a csv file
 # To a file
-CSV.open(File.basename(folder) + "_details.csv" ,"w+") do |csv|
+CSV.open(File.basename(folder) +  "_sup_#{threshold}" + "_details.csv" ,"w+") do |csv|
     [tstat.ndjf, tstat.ma, tstat.mjja, tstat.so].each do |tstat|
         [:nwap, :swap, :neap, :sa, :north, :ind].each do |gate| 
             dates_pm10s = [tstat[gate][:dates], tstat[gate][:pm10s]].transpose

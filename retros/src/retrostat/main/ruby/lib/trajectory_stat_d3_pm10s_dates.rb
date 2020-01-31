@@ -26,7 +26,9 @@ class TrajectoryStatD3Pm10sDates < TrajectoryStat
                     sa:    {total: 0, dates: [], pm10s: []}, 
                     north: {total: 0, dates: [], pm10s: []}, 
                     name:  :ndjf ,
-                    months: [11,12,1,2] } 
+                    months: [11,12,1,2] ,
+                    total: 0 
+                } 
 
         @ma = {     neap:  {total: 0, dates: [], pm10s: []},
                     nwap:  {total: 0, dates: [], pm10s: []},
@@ -35,7 +37,8 @@ class TrajectoryStatD3Pm10sDates < TrajectoryStat
                     sa:    {total: 0, dates: [], pm10s: []}, 
                     north: {total: 0, dates: [], pm10s: []}, 
                     name:  :ma ,
-                    months: [3,4] } 
+                    months: [3,4],
+                    total: 0 }
         
         @mjja = {   neap:  {total: 0, dates: [], pm10s: []},
                     nwap:  {total: 0, dates: [], pm10s: []},
@@ -44,7 +47,8 @@ class TrajectoryStatD3Pm10sDates < TrajectoryStat
                     sa:    {total: 0, dates: [], pm10s: []}, 
                     north: {total: 0, dates: [], pm10s: []}, 
                     name:  :mjja ,
-                    months: [5,6,7,8] } 
+                    months: [5,6,7,8],
+                    total: 0 } 
 
         @so = {     neap:  {total: 0, dates: [], pm10s: []},
                     nwap:  {total: 0, dates: [], pm10s: []},
@@ -53,7 +57,8 @@ class TrajectoryStatD3Pm10sDates < TrajectoryStat
                     sa:    {total: 0, dates: [], pm10s: []}, 
                     north: {total: 0, dates: [], pm10s: []}, 
                     name:  :so ,
-                    months: [9,10] } 
+                    months: [9,10],
+                    total: 0 } 
 
         [@ndjf, @ma, @mjja, @so].each {|season| @seasons << season }
     end
@@ -85,6 +90,7 @@ class TrajectoryStatD3Pm10sDates < TrajectoryStat
                 if season[:months].include? month
                     path =  trajclass.path gates 
                     if gates.any? {|gate| gate.name == path} then 
+                        season[:total] += 1 
                         season[path][:total] +=1
                         season[path][:dates] << date
                         season[path][:pm10s] << pm10 
