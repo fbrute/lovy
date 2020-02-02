@@ -77,29 +77,37 @@ def pourcentage(gate_count, season_count)
 end
 
 File.open(File.basename(folder) + "_sup_#{threshold}" + "_stat.txt" ,"w+") do |output_file|
-    output_file.write "***********#{name(folder)} @ #{level(folder)}*************\n"
-    [tstat.ndjf, tstat.ma, tstat.mjja, tstat.so].each do |tstat|
-        output_file.write ("season : #{tstat[:name]}, " \
-             "count = #{tstat[:total]}" + "\n")
-        [:nwap, :swap, :neap, :sa, :north, :ind].each do |gate| 
 
-            ntotal +=  tstat[gate][:total]
-            #puts ">nwap count = #{tstat[:nwap]}" 
-            sup_stats = DescriptiveStatistics::Stats.new(tstat[gate][:pm10s])
+    CSV.open(File.basename(folder) +  "_sup_#{threshold}" + "_details.csv" ,"w+") do |csv|
+        output_file.write "***********#{name(folder)} @ #{level(folder)}*************\n"
+        [tstat.ndjf, tstat.ma, tstat.mjja, tstat.so].each do |tstat|
+            output_file.write ("season : #{tstat[:name]}, " \
+                "count = #{tstat[:total]}" + "\n")
+            [:nwap, :swap, :neap, :sa, :north, :ind].each do |gate| 
 
-            output_file.write "> #{gate} count = #{tstat[gate][:total]}\n" 
-            output_file.write "> #{gate}/#{tstat[:name]} = #{pourcentage(tstat[gate][:total], tstat[:total])}%\n" 
-            if tstat[gate][:total] > 0
-                output_file.write "> #{gate} pm10mean = #{tstat[gate][:pm10s].mean.round(2)}\n" 
-                output_file.write "> #{gate} min = #{sup_stats.min.round(2)}\n" 
-                output_file.write "> #{gate} max = #{sup_stats.max.round(2)}\n" 
-                output_file.write "> #{gate} std = #{tstat[gate][:pm10s].standard_deviation.round(2)}\n" 
-                output_file.write "> #{gate} median = #{tstat[gate][:pm10s].median.round(2)}\n" 
-                output_file.write "> #{gate} skewness = #{sup_stats.skewness.round(3)}\n" 
-                output_file.write "> #{gate} kurtosis = #{sup_stats.kurtosis.round(3)}\n" 
+                ntotal +=  tstat[gate][:total]
+                #puts ">nwap count = #{tstat[:nwap]}" 
+                sup_stats = DescriptiveStatistics::Stats.new(tstat[gate][:pm10s])
+
+                output_file.write "> #{gate} count = #{tstat[gate][:total]}\n" 
+                output_file.write "> #{gate}/#{tstat[:name]} = #{pourcentage(tstat[gate][:total], tstat[:total])}%\n" 
+                if tstat[gate][:total] > 0
+                    output_file.write "> #{gate} pm10mean = #{tstat[gate][:pm10s].mean.round(2)}\n" 
+                    output_file.write "> #{gate} min = #{sup_stats.min.round(2)}\n" 
+                    output_file.write "> #{gate} max = #{sup_stats.max.round(2)}\n" 
+                    output_file.write "> #{gate} std = #{tstat[gate][:pm10s].standard_deviation.round(2)}\n" 
+                    output_file.write "> #{gate} median = #{tstat[gate][:pm10s].median.round(2)}\n" 
+                    output_file.write "> #{gate} skewness = #{sup_stats.skewness.round(3)}\n" 
+                    output_file.write "> #{gate} kurtosis = #{sup_stats.kurtosis.round(3)}\n" 
+                end
+
+                dates_pm10s = [tstat[gate][:dates], tstat[gate][:pm10s]].transpose
+                dates_pm10s.each do |date,pm10|
+                    csv << [tstat[:name].to_s, gate.to_s, date, pm10]
+                end 
             end
         end
-    end 
+    end
 
     output_file.write "total de trajectoires traitées =#{ntotal}\n"
     output_file.write "total de trajectoires dans le dossier =#{tstat.files.length}\n"
@@ -121,17 +129,13 @@ end
 
 # Prepare data results [season, gate, date, pm10 ] to a csv file
 # To a file
-CSV.open(File.basename(folder) +  "_sup_#{threshold}" + "_details.csv" ,"w+") do |csv|
-    [tstat.ndjf, tstat.ma, tstat.mjja, tstat.so].each do |tstat|
-        [:nwap, :swap, :neap, :sa, :north, :ind].each do |gate| 
-            dates_pm10s = [tstat[gate][:dates], tstat[gate][:pm10s]].transpose
-            dates_pm10s.each do |date,pm10|
-                csv << [tstat[:name].to_s, gate.to_s, date, pm10]
-            end
-        end
-    end
-end
-
-
-
-
+# CSV.open(File.basename(folder) +  "_sup_#{threshold}" + "_details.csv" ,"w+") do |csv|
+#   [tstat.ndjf, tstat.ma, tstat.mjja, tstat.so].each do |tstat|
+#        [:nwap, :swap, :neap, :sa, :north, :ind].each do |gate| 
+#            dates_pm10s = [tstat[gate][:dates], tstat[gate][:pm10s]].transpose
+#            dates_pm10s.each do |date,pm10|
+#                csv << [tstat[:name].to_s, gate.to_s, date, pm10]
+#            end
+#        end
+#   end
+# end
