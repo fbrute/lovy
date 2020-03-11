@@ -78,7 +78,7 @@ text_format.setBuffer(buffer_settings)
 layer_settings.setFormat(text_format)
 
 layer_settings.fieldName = "Label"
-layer_settings.placement = 4
+layer_settings.placement = 2
 
 layer_settings.enabled = True
 
@@ -86,3 +86,8 @@ layer_settings = QgsVectorLayerSimpleLabeling(layer_settings)
 layer.setLabelsEnabled(True)
 layer.setLabeling(layer_settings)
 layer.triggerRepaint()
+
+from qgis.core import QgsRuleBasedLabeling, QgsTextFormat, QgsField, QgsPropertyCollection, QgsExpression
+pc = QgsPropertyCollection("dataDefinedProperties")
+pc.setProperty(9,QgsExpression("x_at(-1)"))
+pc.setProperty(10,QgsExpression("y_at(-1)"))
