@@ -12,6 +12,7 @@ class BtsColors:
   colors.append(QColor("darkBlue"))
   colors.append(QColor("magenta"))
   colors.append(QColor("darkMagenta"))
+  colors.append(QColor("darkYellow"))
 
   @staticmethod
   def initColors():

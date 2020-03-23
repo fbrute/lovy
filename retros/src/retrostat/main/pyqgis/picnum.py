@@ -167,7 +167,7 @@ class BtsLoad:
     pc.setProperty(QgsLayoutObject.PositionY, prop)
 
     prop.setField("Width")
-    prop.setStaticValue(10)
+    prop.setStaticValue(12)
     pc.setProperty(QgsLayoutObject.ItemWidth, prop)
 
     prop.setField("Height")
@@ -194,7 +194,8 @@ class BtsLoad:
     #item_gate.setReferencePoint(210,52)
 
     symbol = item_gate.symbol()
-    symbol.setColor(QColor(255,0,0,10))
+
+    symbol.setColor(config['color'])
 
     pc = QgsPropertyCollection("dataDefinedProperties")
     # position the label à the end of the trajectory (source)
@@ -239,8 +240,47 @@ class BtsLoad:
 
     layout.addLayoutItem(item_gate)
 
+  def addGatesToLayout(self, layout, config):
+    pass
+
+  def getGatePuerConfig(self):
+    config = {}
+    # extent rectangle
+    config['rect'] = QgsRectangle(-70, 0, 25, 45)
+    config['deg_to_mm'] = 2.71
+    # x0 in mm
+    #config['x0'] = 242 
+    config['x0'] = 206 
+    # y0 in mm
+    #config['y0'] = 84
+    config['y0'] = 138 
+    config['opacity'] = 10
+    return config
+
+  def getGateKaruConfig(self):
+    config = {}
+    # extent rectangle
+    config['rect'] = QgsRectangle(-65, -5, 20, 45)
+    config['deg_to_mm'] = 3.04
+    # x0 in mm
+    #config['x0'] = 242 
+    config['x0'] = 214 
+    # y0 in mm
+    #config['y0'] = 84
+    config['y0'] = 169 
+    config['opacity'] = 10
+    return config
+  
+  def getGatesConfig(self, station):
+    if station == "karu":
+      return self.getGateKaruConfig()
+    if station == "puer":
+      return self.getGatePuerConfig()
+
 
   def createMap(self,project):
+    # get config per station
+    config = self.getGatesConfig(self.getStation()) 
     #get a reference to the layout manager
     manager = project.layoutManager()
     #make a new print layout object
@@ -254,22 +294,40 @@ class BtsLoad:
     #create a map item to add
     item_map = QgsLayoutItemMap.create(layout)
     #using ndawson's answer below, do this before setting extent
-    item_map.attemptResize(QgsLayoutSize(280,200, QgsUnitTypes.LayoutMillimeters))
+    item_map.attemptResize(QgsLayoutSize(260,190, QgsUnitTypes.LayoutMillimeters))
     # create rectangle for extent
-    rect = QgsRectangle(-130, -5, 20, 45)
+    #rect = QgsRectangle(-130, -5, 20, 45)
+    rect = config['rect']
     #set an extent
     item_map.setExtent(rect)
+
+    pc = QgsPropertyCollection("dataDefinedProperties")
+    prop=QgsProperty()
+    prop.setField("X")
+    prop.setStaticValue(15)
+    pc.setProperty(QgsLayoutObject.PositionX, prop)
+
+    prop=QgsProperty()
+    prop.setField("Y")
+    prop.setStaticValue(15)
+    pc.setProperty(QgsLayoutObject.PositionY, prop)
+
+    item_map.setDataDefinedProperties(pc)
+    item_map.refreshDataDefinedProperty(QgsLayoutObject.PositionX)
+    item_map.refreshDataDefinedProperty(QgsLayoutObject.PositionY)
+    
     #add the map to the layout
     layout.addLayoutItem(item_map)    
+    #item_map.resizeItems(1)
     item_map.grid().setEnabled(True)  
     item_map.grid().setIntervalX(5)  
     item_map.grid().setIntervalY(5)  
     item_map.grid().setAnnotationEnabled(True) 
-    item_map.grid().setGridLineColor(QColor(0,255,0,30))  
+    item_map.grid().setGridLineColor(QColor(0,0,0,20))  
     item_map.grid().setGridLineWidth(0.5)
     item_map.grid().setAnnotationPrecision(0)  
     item_map.grid().setAnnotationFrameDistance(1)  
-    item_map.grid().setAnnotationFontColor(QColor(0, 0, 0)) 
+    item_map.grid().setAnnotationFontColor(QColor(0, 0, 0, 30)) 
     item_map.grid().setAnnotationDisplay(QgsLayoutItemMapGrid.HideAll, QgsLayoutItemMapGrid.Right)
     item_map.grid().setAnnotationDisplay(QgsLayoutItemMapGrid.HideAll, QgsLayoutItemMapGrid.Top)
     item_map.grid().setAnnotationPosition(QgsLayoutItemMapGrid.OutsideMapFrame, QgsLayoutItemMapGrid.Bottom)
@@ -280,16 +338,25 @@ class BtsLoad:
     
     layout.addLayoutItem(item_map)
 
-    config = {}
+    
     # transform from degrees to mm
-    config['deg_to_mm'] = 1.85
-    # x0 in mm
-    config['x0'] = 242 
-    # y0 in mm
-    config['y0'] = 84
-    config['opacity'] = 40
+    #config['deg_to_mm'] = 1.85
+    # config['deg_to_mm'] = 3.35
+    # # x0 in mm
+    # #config['x0'] = 242 
+    # config['x0'] = 216 
+    # # y0 in mm
+    # #config['y0'] = 84
+    # config['y0'] = 149 
+    # config['opacity'] = 10
 
-    [self.addGateToLayout(layout, gate, config)  for gate in Gates]
+    idx_color = 0
+    colors = [QColor("red"), QColor("green"), QColor("blue"), QColor("magenta"), QColor("darkMagenta")]
+    for gate in Gates:
+      config['color'] = colors[idx_color]
+      self.addGateToLayout(layout, gate, config)
+      idx_color = ( idx_color + 1 ) % len(colors)
+    #[self.addGateToLayout(layout, gate, config)  for gate in Gates]
     #self.addGateToLayout(layout, Gates["NWAP"], config)
 
     config['opacity'] = 100
@@ -304,9 +371,6 @@ class BtsLoad:
   def loadShpFile(self, project, shp_file_path, color):
     vlayer = self.getLayerFromPath(os.path.join(self.getBtsPathDir(), shp_file_path))
     vlayer = self.shpFileSetCrs(vlayer, self.getCrs())
-    # crs = vlayer.crs()
-    # crs.createFromId(4326)
-    # vlayer.setCrs(crs)
 
     project.addMapLayer(vlayer, True)
 
@@ -314,7 +378,6 @@ class BtsLoad:
     if vlayer.startEditing():
       vlayer.addAttribute(QgsField("picnum", QVariant.Int))
       if vlayer.changeAttributeValue(0,1,int(self.getPicnum(shp_file_path))):
-        print("ok changing attribute")
         vlayer.updateFields()
         vlayer.commitChanges()
 
@@ -370,7 +433,7 @@ def main():
   # btsLoader.loadShpFile(btsLoader.getProject(), btsLoader.getShpFilesPaths()[0], QColor("blue"))
   btsLoader.loadAllShpFiles(btsLoader.getProject(), btsLoader.getShpFilesPaths(), btsLoader.getColors(), btsLoader.getColorIdx())
   btsLoader.createMap(btsLoader.getProject())
-  #btsLoader.saveProject(btsLoader.getProject())
+  btsLoader.saveProject(btsLoader.getProject())
 
 main()
 

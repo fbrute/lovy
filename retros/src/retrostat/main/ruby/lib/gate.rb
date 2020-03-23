@@ -1,34 +1,41 @@
+# frozen_string_literal: true
+
 class Gate
-    include Enumerable 
+  include Enumerable
 
-    attr_reader :name, :north, :east, :south, :west, :heigth, :width
-    
-    def initialize(name, north,east, south, west)
-        @name, @north, @east, @south, @west = name, north, east, south, west
-        @height = @north - @south
-        @width = @east - @west
+  attr_reader :name, :north, :east, :south, :west, :heigth, :width
 
-        @routes = [:neap, :swap, :nwap, :sa, :north, :ind]
+  def initialize(name, north, east, south, west)
+    @name = name
+    @north = north
+    @east = east
+    @south = south
+    @west = west
+    @height = @north - @south
+    @width = @east - @west
 
-        raise "the gate should have a name!!!" if @name == nil 
-        
-        raise "the names are restricted to :neap, :swap,  :nwap, , :sa, :north or :ind!!!" if !@routes.include? @name
+    @routes = %i[neap swap nwap sa north ind west]
 
-        raise "bad north limit for the gate!!!" if @north < -90 || @north > 90
-        
-        raise "bad east limit for the gate!!!" if @east < -180 || @east > 180
+    raise 'the gate should have a name!!!' if @name.nil?
 
-        raise "bad south limit for the gate!!!" if @south < -90 || @south > 90
+    unless @routes.include? @name
+      raise 'the names are restricted to :neap, :swap,  :nwap, , :sa, :north or :ind!!!'
+      end
 
-        raise "bad west limit for the gate!!!" if @west < -180 || @west > 180
-        
-        raise "north limit should be higher than south's!!!" if @north <= @south
+    raise 'bad north limit for the gate!!!' if @north < -90 || @north > 90
 
-        raise "east limit should be right of west's" if @east <= @west
+    raise 'bad east limit for the gate!!!' if @east < -180 || @east > 180
 
-        raise "width should be 1 degree minimum!!!" if @width < 1
+    raise 'bad south limit for the gate!!!' if @south < -90 || @south > 90
 
-        raise "height should be 1 degree minimum!!!" if @height < 1
+    raise 'bad west limit for the gate!!!' if @west < -180 || @west > 180
 
-    end
+    raise "north limit should be higher than south's!!!" if @north <= @south
+
+    raise "east limit should be right of west's" if @east <= @west
+
+    raise 'width should be 1 degree minimum!!!' if @width < 1
+
+    raise 'height should be 1 degree minimum!!!' if @height < 1
+  end
 end

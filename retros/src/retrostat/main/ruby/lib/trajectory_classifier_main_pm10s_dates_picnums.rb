@@ -3,7 +3,7 @@
 
 require_relative 'trajectory_stat_d3_pm10s_dates_picnums'
 require 'descriptive_statistics'
-require 'descriptive-statistics'
+require 'byebug'
 
 def contains_trajectories?(folder)
   !Dir.glob("#{folder}/**/*/tdump*").empty?
@@ -82,14 +82,14 @@ File.open(File.basename(folder) + "_sup_#{threshold}" + '_stat.txt', 'w+') do |o
     [tstat.ndjf, tstat.ma, tstat.mjja, tstat.so].each do |tstat|
       output_file.write ("season : #{tstat[:name]}, " \
           "count = #{tstat[:total]}" + "\n")
-      %i[nwap swap neap sa north ind].each do |gate|
+      %i[nwap swap neap sa north west ind].each do |gate|
         ntotal +=  tstat[gate][:total]
         # puts ">nwap count = #{tstat[:nwap]}"
         sup_stats = DescriptiveStatistics::Stats.new(tstat[gate][:pm10s])
 
         output_file.write "> #{gate} count = #{tstat[gate][:total]}\n"
         output_file.write "> #{gate}/#{tstat[:name]} = #{pourcentage(tstat[gate][:total], tstat[:total])}%\n"
-        if tstat[gate][:total] > 0
+        if tstat[gate][:total] > 0 && sup_stats.empty?
           output_file.write "> #{gate} pm10mean = #{tstat[gate][:pm10s].mean.round(2)}\n"
           output_file.write "> #{gate} min = #{sup_stats.min.round(2)}\n"
           output_file.write "> #{gate} max = #{sup_stats.max.round(2)}\n"
