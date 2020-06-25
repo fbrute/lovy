@@ -2717,7 +2717,9 @@
         <constraint field="picnum" exp="" desc=""/>
       </constraintExpressions>
       <expressionfields/>
-      <attributeactions/>
+      <attributeactions>
+        <defaultAction value="{00000000-0000-0000-0000-000000000000}" key="Canvas"/>
+      </attributeactions>
       <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="0">
         <columns/>
       </attributetableconfig>
@@ -5825,6 +5827,9 @@
       <SelectionColorGreenPart type="int">255</SelectionColorGreenPart>
       <SelectionColorRedPart type="int">255</SelectionColorRedPart>
     </Gui>
+    <Layouts>
+      <lastLayoutExportDir type="QString">/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/retros/src/retrostat/data/karu/picnums</lastLayoutExportDir>
+    </Layouts>
     <Legend>
       <filterByMap type="bool">false</filterByMap>
     </Legend>
@@ -6578,6 +6583,12 @@
       </LayoutItem>
       <customproperties>
         <property value="png" key="atlasRasterFormat"/>
+        <property value="true" key="imageAntialias"/>
+        <property value="0" key="imageCropMarginBottom"/>
+        <property value="0" key="imageCropMarginLeft"/>
+        <property value="0" key="imageCropMarginRight"/>
+        <property value="0" key="imageCropMarginTop"/>
+        <property value="false" key="imageCropToContents"/>
       </customproperties>
       <Atlas enabled="0" hideCoverage="0" filterFeatures="0" pageNameExpression="" sortFeatures="0" coverageLayer="" filenamePattern="'output_'||@atlas_featurenumber"/>
     </Layout>

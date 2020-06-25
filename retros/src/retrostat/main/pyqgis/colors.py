@@ -1,18 +1,13 @@
 from PyQt5.QtGui import QColor
 
 class BtsColors:
-  colors = []
-  colors.append(QColor("black"))
-  colors.append(QColor("darkCyan"))
-  colors.append(QColor("green")) 
-  colors.append(QColor("darkGreen")) 
-  colors.append(QColor("red"))
-  colors.append(QColor("darkRed"))
-  colors.append(QColor("blue"))
-  colors.append(QColor("darkBlue"))
-  colors.append(QColor("magenta"))
-  colors.append(QColor("darkMagenta"))
-  colors.append(QColor("darkYellow"))
+  colors = {}
+  colors['north'] = QColor("darkRed")
+  colors['neap'] = QColor("darkBlue")
+  colors['nwap'] = QColor("darkGreen")
+  colors['sa'] = QColor("black")
+  colors['swap'] = QColor("magenta")
+  colors['black'] = QColor("black")
 
   @staticmethod
   def initColors():

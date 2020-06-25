@@ -101,7 +101,7 @@ class TrajectoryStatD3Pm10sDates < TrajectoryStat
           end
           'shp prj shx dbf'.split.each do |extension|
             sourcefile = File.join(date.slice(0..3), + 'gis_shape' + date6(file) + '.' + extension)
-            destfile = 'gis_shape' + date6(file) + '.' + extension
+            destfile = 'gis_shape' + date6(file) + "_#{path}_" + '.' + extension
             # puts sourcefile
             FileUtils.cp sourcefile, File.join(target_directory, destfile)
           end

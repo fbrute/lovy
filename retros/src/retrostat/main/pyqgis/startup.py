@@ -12,8 +12,9 @@ import os, sys
 
 # #canvas = qgis.utils.iface.mapCanvas()
 # # print(canvas.size())
+
 sys.path.append("Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/retros/src/retrostat/main/pyqgis")
-import picnum
+import pm10_sup_28_synth
 
 
 
