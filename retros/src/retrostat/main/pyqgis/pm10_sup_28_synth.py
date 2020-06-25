@@ -385,67 +385,91 @@ class BtsLoad:
     #add the map to the layout
     layout.addLayoutItem(item_map)    
     #item_map.resizeItems(1)
+    item_map.grid().setFramePenColor(QColor(0,0,241,46))
+    item_map.grid().setFrameFillColor1(QColor(0,0,241,46))
+    item_map.grid().setFrameFillColor2(QColor(255,255,255,46))
+
     item_map.grid().setEnabled(True)  
-    item_map.grid().setIntervalX(5)  
-    item_map.grid().setIntervalY(5)  
+    item_map.grid().setIntervalX(10)  
+    item_map.grid().setIntervalY(10)  
     item_map.grid().setAnnotationEnabled(True) 
-    item_map.grid().setGridLineColor(QColor(0,0,0,20))  
-    item_map.grid().setGridLineWidth(0.5)
+    item_map.grid().setFrameStyle(1) 
+    item_map.grid().setGridLineColor(QColor(0,0,241,40))  
+    item_map.grid().setGridLineWidth(0.66)
+    #item_map.grid().setBlendMode(1)
+
     item_map.grid().setAnnotationPrecision(0)  
     item_map.grid().setAnnotationFrameDistance(1)  
-    item_map.grid().setAnnotationFontColor(QColor(0, 0, 0, 30)) 
-    item_map.grid().setAnnotationDisplay(QgsLayoutItemMapGrid.HideAll, QgsLayoutItemMapGrid.Right)
-    item_map.grid().setAnnotationDisplay(QgsLayoutItemMapGrid.HideAll, QgsLayoutItemMapGrid.Top)
+    item_map.grid().setAnnotationFontColor(QColor(0, 0, 241, 66)) 
+
+    item_map.grid().setAnnotationDisplay(QgsLayoutItemMapGrid.ShowAll, QgsLayoutItemMapGrid.Right)
+    item_map.grid().setAnnotationPosition(QgsLayoutItemMapGrid.OutsideMapFrame, QgsLayoutItemMapGrid.Right)
+    item_map.grid().setAnnotationDirection(QgsLayoutItemMapGrid.Horizontal, QgsLayoutItemMapGrid.Right)
+
+    item_map.grid().setAnnotationDisplay(QgsLayoutItemMapGrid.ShowAll, QgsLayoutItemMapGrid.Top)
+    item_map.grid().setAnnotationPosition(QgsLayoutItemMapGrid.OutsideMapFrame, QgsLayoutItemMapGrid.Top)
+    item_map.grid().setAnnotationDirection(QgsLayoutItemMapGrid.Horizontal, QgsLayoutItemMapGrid.Top)
+
+    item_map.grid().setAnnotationDisplay(QgsLayoutItemMapGrid.ShowAll, QgsLayoutItemMapGrid.Left)
+    item_map.grid().setAnnotationPosition(QgsLayoutItemMapGrid.OutsideMapFrame, QgsLayoutItemMapGrid.Left)
+    item_map.grid().setAnnotationDirection(QgsLayoutItemMapGrid.Horizontal, QgsLayoutItemMapGrid.Left)
+
+    item_map.grid().setAnnotationDisplay(QgsLayoutItemMapGrid.ShowAll, QgsLayoutItemMapGrid.Bottom)
     item_map.grid().setAnnotationPosition(QgsLayoutItemMapGrid.OutsideMapFrame, QgsLayoutItemMapGrid.Bottom)
     item_map.grid().setAnnotationDirection(QgsLayoutItemMapGrid.Horizontal, QgsLayoutItemMapGrid.Bottom)
-    item_map.grid().setAnnotationPosition(QgsLayoutItemMapGrid.OutsideMapFrame, QgsLayoutItemMapGrid.Left)
-    item_map.grid().setAnnotationDirection(QgsLayoutItemMapGrid.Vertical, QgsLayoutItemMapGrid.Left)
+
     item_map.updateBoundingRect()
     
     layout.addLayoutItem(item_map)
+    config_for_labels = {
+      'north': {
+        'x'    : 20.134,
+        'y'    : 34.356,
+      },
+      'neap': {
+        'x'    : 109.201,
+        'y'    : 53.802,
+      },
+      'nwap': {
+        'x'    : 141.667,
+        'y'    : 83.455,
+      },
+      'sa': {
+        'x'    : 98.805,
+        'y'    : 145.067,
+      },
+      'swap': {
+        'x'    : 140.775,
+        'y'    : 121.874,
+        'color': 'darkBlue'
+      }
+    }
+    [ self.addLabelToLayout(layout, gate, config_for_labels[gate]) for gate in self.getGates()]
 
+    
+
+  def getGates(self):
+    return ['nwap','swap','neap','north', 'sa']
+
+  def addLabelToLayout(self, layout, gate, config):
     #create a layout item (a label in this case)
-    nwap_label = QgsLayoutItemLabel(layout)    
-
+    label = QgsLayoutItemLabel(layout)    
     #set what the text will be
-    nwap_label.setText(self.getLabelPm10('nwap'))
-
+    label.setText(self.getLabelPm10(gate))
     #change font style and size (optional)
-    nwap_label.setFont(QFont("Arial", 12))
-    nwap_label.setFontColor(QColor('darkgreen'))
+    label.setFont(QFont("Arial", 22))
+    label.setFontColor(self.getColor(gate))
 
     #set size of label item. this step seems a little pointless to me but it doesn't work without it
-    nwap_label.adjustSizeToText() 
+    label.adjustSizeToText() 
 
     #add map_label to your layout
-    layout.addLayoutItem(nwap_label)
+    layout.addLayoutItem(label)
 
     #another thing you probably want to do is specify where your label is on the print layout
-    nwap_label.attemptMove(QgsLayoutPoint(193, 66, QgsUnitTypes.LayoutMillimeters))
-    
-    # transform from degrees to mm
-    #config['deg_to_mm'] = 1.85
-    # config['deg_to_mm'] = 3.35
-    # # x0 in mm
-    # #config['x0'] = 242 
-    # config['x0'] = 216 
-    # # y0 in mm
-    # #config['y0'] = 84
-    # config['y0'] = 149 
-    # config['opacity'] = 10
-    
-    # idx_color = 0
-    # colors = [QColor("red"), QColor("green"), QColor("blue"), QColor("magenta"), QColor("darkMagenta")]
-    # for gate in Gates:
-    #   config['color'] = colors[idx_color]
-    #   self.addGateToLayout(layout, gate, config)
-    #   idx_color = ( idx_color + 1 ) % len(colors)
+    label.attemptMove(QgsLayoutPoint(config['x'], config['y'], QgsUnitTypes.LayoutMillimeters))
 
-    #[self.addGateToLayout(layout, gate, config)  for gate in Gates]
-    #self.addGateToLayout(layout, Gates["NWAP"], config)
-
-    # config['opacity'] = 100
-    #[self.addLabelToGateLayout(layout, gate, config) for gate in Gates]
+    
   
   def shpFileSetCrs(self, vlayer, crs_value):
     crs = vlayer.crs()
@@ -493,68 +517,17 @@ class BtsLoad:
     value = self.getGateValue(self.getStation(), gate, 'std')
     std = str(value)[1:-2] 
 
-    label = f'{gate.upper()}:{percent}% PM10= {mean} \u00B1{std} \u00B5g.m\u207B\N{SUPERSCRIPT THREE}'
+    #label = f'{gate.upper()}:{percent}% PM10= {mean} \u00B1{std} \u00B5g.m\u207B\N{SUPERSCRIPT THREE}'
+    label = f'{gate.upper()}:{percent}% PM10= {mean} \u00B1{std} \u00B5g.m\u207B\u00b3'
     self.addLabelPm10(gate, label)
 
     vlayer = self.getLayerFromPath(os.path.join(self.getBtsPathDir(), shp_file_path))
     vlayer = self.shpFileSetCrs(vlayer, self.getCrs())
 
     vlayer.renderer().symbol().setColor(color)
-    #vlayer.renderer().symbol().setWidth(0.5)
     vlayer.triggerRepaint()
 
     project.addMapLayer(vlayer, True)
-
-      # vlayer = iface.activeLayer()
-      #if vlayer.startEditing():
-      #vlayer.addAttribute(QgsField("percent", QVariant.Double))
-      #vlayer.addAttribute(QgsField('label', QVariant.String))
-      #if vlayer.changeAttributeValue(0,1,float(len(data_values))):
-      #vlayer.changeAttributeValue(0,1, label )
-      #vlayer.updateFields()
-      #vlayer.commitChanges()
-
-
-    # vlayer = iface.activeLayer()
-    # settings = QgsPalLayerSettings()
-    # settings.placement = QgsPalLayerSettings.Horizontal # Horizontal
-    # settings.fieldName = 'label'
-    # text_format = QgsTextFormat()
-
-    # text_format.setFont(QFont('Arial', 48))
-    # #text_format.setSize(24)
-
-    # # get ranndomly assigned color from loading
-    # single_symbol_renderer = vlayer.renderer()
-    # symbol = single_symbol_renderer.symbol()
-    # symbol.setColor(color)
-    # text_format.setColor(color)
-    # settings.setFormat(text_format)
-
-    # pc = QgsPropertyCollection("dataDefinedProperties")
-    # # position the label à the end of the trajectory (source)
-    # prop=QgsProperty()
-    # prop.setField("X")
-    # prop.setExpressionString("x_at(-1)")
-    # pc.setProperty(9, prop)
-
-    # prop.setField("Y")
-    # prop.setExpressionString("y_at(-1)")
-    # pc.setProperty(10, prop)
-
-    # #settings.setDataDefinedProperties(pc)
-
-    # settings.enabled = True
-    # root = QgsRuleBasedLabeling.Rule(QgsPalLayerSettings())
-    # rule = QgsRuleBasedLabeling.Rule(settings)
-    # rule.setDescription("label with data_values")
-    # root.appendChild(rule)
-    # vlayer.startEditing()
-    # vlayer.setLabelsEnabled(True)
-    # rules = QgsRuleBasedLabeling(root)
-    # vlayer.setLabeling(rules)
-    # vlayer.triggerRepaint()
-    # vlayer.commitChanges()
 
   def createLayout(self):
     pass

@@ -3,10 +3,10 @@ from PyQt5.QtGui import QColor
 class BtsColors:
   colors = {}
   colors['north'] = QColor("darkRed")
-  colors['neap'] = QColor("darkBlue")
-  colors['nwap'] = QColor("darkGreen")
+  colors['neap'] = QColor("darkGreen")
+  colors['nwap'] = QColor("red")
   colors['sa'] = QColor("black")
-  colors['swap'] = QColor("magenta")
+  colors['swap'] = QColor("darkBlue")
   colors['black'] = QColor("black")
 
   @staticmethod
