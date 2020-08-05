@@ -1,9 +1,46 @@
+from qgis.core import (
+  QgsApplication,
+  QgsDataSourceUri,
+  QgsCategorizedSymbolRenderer,
+  QgsClassificationRange,
+  QgsPointXY,
+  QgsProject,
+  QgsExpression,
+  QgsField,
+  QgsFields,
+  QgsFeature,
+  QgsFeatureRequest,
+  QgsFeatureRenderer,
+  QgsGeometry,
+  QgsGraduatedSymbolRenderer,
+  QgsMarkerLineSymbolLayer,
+  QgsMarkerSymbol,
+  QgsSimpleMarkerSymbolLayer,
+  QgsSimpleMarkerSymbolLayerBase,
+  QgsSingleSymbolRenderer,
+  QgsMessageLog,
+  QgsRectangle,
+  QgsRendererCategory,
+  QgsRendererRange,
+  QgsSymbol,
+  QgsVectorDataProvider,
+  QgsVectorLayer,
+  QgsVectorFileWriter,
+  QgsWkbTypes,
+  QgsSpatialIndex,
+)
+
+from qgis.core.additions.edit import edit
+
+from qgis.PyQt.QtGui import (
+    QColor,
+)
 from qgis import *
 from qgis.core import QgsProject, QgsVectorLayer, QgsPalLayerSettings, QgsTextBufferSettings, QgsLayoutPoint
 from qgis.core import QgsRuleBasedLabeling,QgsTextFormat,QgsField, QgsProperty, QgsPropertyCollection, QgsExpression
 from qgis.core import QgsPrintLayout, QgsLayoutItemMap, QgsLayoutSize, QgsUnitTypes, QgsRectangle, QgsLayoutItemMapGrid
 from qgis.core import QgsLayoutItemShape, QgsPoint, QgsLayoutMeasurement, QgsLayoutObject, QgsLayoutItemLabel
-from qgis.core import QgsMessageLog
+from qgis.core import QgsMessageLog, QgsMarkerSymbol, QgsLineSymbol
 
 import sqlite3
 
@@ -11,7 +48,7 @@ import string
 
 
 
-from PyQt5.QtCore import QVariant
+from PyQt5.QtCore import QVariant, Qt
 import qgis.utils
 import os, sys, re
 
@@ -20,28 +57,30 @@ from qgis.utils import iface
 import PyQt5
 from PyQt5.QtGui import QFont, QColor
 
-data_dir = '/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/retros/src/retrostat/data/puer/pm10_sup_28_synth'
 country_world_shp_file_path = "/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/retros/src/retrostat/data/retros_path/Countries_WGS84/Countries_WGS84.shp"
 #canvas = qgis.utils.iface.mapCanvas()
 # print(canvas.size())
 sys.path.append("Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/retros/src/retrostat/main/pyqgis")
 from colors import BtsColors
+from shapes import BtsShapes
 from gates import Gate, Gates
 
 class BtsLoad:
   def __init__(self, data_dir):
     """ build BtsLoad with a path directory """
     self.__initBts(data_dir)
+    self.data_dir = data_dir
   
   def __initBts(self, data_dir):
     self.setBtsPathDir(data_dir)
     station = self.setStation(data_dir)
     shp_files_paths = self.__retrieveShpFilesPaths(data_dir)
     if (len(shp_files_paths) < 1): 
-      raise AssertionError("No sha/picnpe files in the path directory provided.")
+      raise AssertionError("No shape files in the path directory provided.")
     self.setShpFilesPaths(shp_files_paths)
     project = QgsProject.instance()
     self.setColors(BtsColors.getColors())
+    self.setShapes(BtsShapes.getShapes())
     self.labels = {}
     # initialize crs system (WSG84)
     self.setCrs(4326)
@@ -55,7 +94,7 @@ class BtsLoad:
 
   def __initProject(self, project):
     self.setProject(project)
-    self.loadShpFile(self.getProject(), country_world_shp_file_path, QColor("black")) 
+    self.loadShpFile(self.getProject(), country_world_shp_file_path, QColor("black"), None, None) 
     vlayer = iface.activeLayer()
     self.setVectorLayorColorToValue(vlayer, 0)
     self.setVectorLayerOpacityToValue(vlayer, 0.3)
@@ -107,6 +146,12 @@ class BtsLoad:
   def getProject(self):
     return self.project
 
+  def setShapes(self, shapes):
+    self.shapes = shapes
+
+  def getShapes(self):
+    return self.shapes
+
   def setColors(self, colors):
     self.colors = colors
     #if not(all([isinstance(color, QColor) for color in colors])):
@@ -123,12 +168,32 @@ class BtsLoad:
     idx = self.getColorIdx() + 1
     return (idx % (len(self.getColors())))
   
-  def loadAllShpFiles(self, project, shp_files_paths, colors):
+  def loadAllShpFiles(self, project, shp_files_paths, colors, shapes):
     for shp_file_path in shp_files_paths:
       #self.loadShpFile(self.getProject(), shp_file_path, colors[idx_color])
-      self.loadShpFile(self.getProject(), shp_file_path, colors[self.getShpName(shp_file_path)] )
+      self.loadShpFile(self.getProject(), shp_file_path, 
+      colors[self.getShpName(shp_file_path)], shapes[self.getShpName(shp_file_path)],
+      BtsShapes.getColors()[self.getShpName(shp_file_path)])
       # idx_color = ( idx_color + 1 ) % len(colors)
-  
+
+  def addLinesToSymbols(self, project, colors):
+      layer = project.mapLayersByName("nwap.shp") 
+      name = layer[0].name()
+      layer = layer[0]
+      gate = self.getShpName(name)
+      self.addLineToSymbol(layer, "nwap", BtsShapes.getColors()[gate])
+      # raise AssertionError(name)
+      # for key,value in layers.items():
+      #   gate = self.getShpName(layer.name())
+      #   if gate in self.getGates():
+      #     self.addLineToSymbol(layer, gate, BtsShapes.getColors()[gate])
+
+  def addLineToSymbol(self, layer, gate, colorShape):
+    # Add a simple line
+    line_simple = QgsLineSymbol.createSimple({ 'color': colorShape })
+    layer.renderer().symbol().insertSymbolLayer(1, line_simple.symbolLayer(0))
+    layer.triggerRepaint()
+    
   def getShpBasename(self, shp_file_path):
     return(os.path.basename(shp_file_path))
 
@@ -441,7 +506,6 @@ class BtsLoad:
       'swap': {
         'x'    : 140.775,
         'y'    : 121.874,
-        'color': 'darkBlue'
       }
     }
     [ self.addLabelToLayout(layout, gate, config_for_labels[gate]) for gate in self.getGates()]
@@ -457,7 +521,7 @@ class BtsLoad:
     #set what the text will be
     label.setText(self.getLabelPm10(gate))
     #change font style and size (optional)
-    label.setFont(QFont("Arial", 22))
+    label.setFont(QFont("Arial", 12))
     label.setFontColor(self.getColor(gate))
 
     #set size of label item. this step seems a little pointless to me but it doesn't work without it
@@ -505,7 +569,10 @@ class BtsLoad:
   def getLabelPm10(self, key):
     return self.labels[key]
 
-  def loadShpFile(self, project, shp_file_path, color):
+  
+
+
+  def loadShpFile(self, project, shp_file_path, color, shape, colorShape):
 
     gate = self.getShpName(shp_file_path)
     value = self.getGateValue(self.getStation(), gate, 'percent')
@@ -521,33 +588,89 @@ class BtsLoad:
     label = f'{gate.upper()}:{percent}% PM10= {mean} \u00B1{std} \u00B5g.m\u207B\u00b3'
     self.addLabelPm10(gate, label)
 
-    vlayer = self.getLayerFromPath(os.path.join(self.getBtsPathDir(), shp_file_path))
-    vlayer = self.shpFileSetCrs(vlayer, self.getCrs())
+    layer = self.getLayerFromPath(os.path.join(self.getBtsPathDir(), shp_file_path))
+    layer = self.shpFileSetCrs(layer, self.getCrs())
 
-    vlayer.renderer().symbol().setColor(color)
-    vlayer.triggerRepaint()
 
-    project.addMapLayer(vlayer, True)
+    #symbol = QgsLineSymbol.createSimple({'name': 'square', 'color': 'blue',  'interval': '3'})
+    #layer.renderer().setSymbol(symbol)
+    # show the change
+    #layer.renderer().symbol().setColor(color)
+    # Base style.    
+
+    if gate in self.getGates():
+      line_symbol = QgsLineSymbol()
+
+      # Create an marker line_symbol 
+      marker_line = QgsMarkerLineSymbolLayer()
+      marker_line.setInterval(5)
+
+      # Configure the marker.
+      simple_marker = QgsSimpleMarkerSymbolLayer()
+      simple_marker.setShape(shape)
+      simple_marker.setSize(2)
+      simple_marker.setAngle(180)
+      simple_marker.setColor(color)
+      # The marker has its own symbol layer.
+      marker = QgsMarkerSymbol()
+      marker.changeSymbolLayer(0, simple_marker)
+
+      # Add the layer to the marker layer.
+      marker_line.setSubSymbol(marker)
+
+      # Add a ligne to the symbols
+      line_simple = QgsLineSymbol.createSimple({ 'color': 'black' })
+
+      # Finally replace the symbol layer in the base style.
+      line_symbol.changeSymbolLayer(0, marker_line)
+      #line_symbol.insertSymbolLayer(1, line_simple.symbolLayer(0))
+      #line_symbol.insertSymbolLayer(1, line_simple.symbolLayer(0))
+
+      # Add the style to the line_symbol layer.        
+      renderer = QgsSingleSymbolRenderer(line_symbol) 
+      layer.setRenderer(renderer)
+      layer.triggerRepaint()
+
+      # Add a simple line
+      #layer = iface.activeLayer()
+      #line_simple = QgsLineSymbol.createSimple({ 'color': 'black' })
+      #line_simple = QgsLineSymbol()
+      #line_simple.setColor(color)
+      #renderer = QgsLineSymbolRenderer(line_simple) 
+      #layer.setRenderer(renderer)
+      #layer.triggerRepaint()
+      simple_line = QgsApplication.symbolLayerRegistry().symbolLayerMetadata("SimpleLine").createSymbolLayer({
+        'color': colorShape,
+        'line_color': colorShape,
+        'width' : '2.5'
+      })
+      layer.renderer().symbol().appendSymbolLayer(simple_line)
+      #layer.renderer().symbol().appendSymbolLayer(line_simple.symbolLayer(0))
+      layer.triggerRepaint()
+      #iface.layerTreeView().refreshLayerSymbology(layer.id())
+
+    project.addMapLayer(layer, True)
 
   def createLayout(self):
     pass
 
 
   def saveProject(self, project):
-    project.write(os.path.join(data_dir,f"pm10_sup_28_synth_{self.getStation()}.qgs"))
+    project.write(os.path.join(self.data_dir,f"pm10_sup_28_synth_{self.getStation()}.qgs"))
 
 
 def main():
   """ import bts with custom label color and position"""
 
-  btsLoader = BtsLoad("/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/retros/src/retrostat/data/puer/pm10_sup_28_synth")
+  btsLoader = BtsLoad("/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/retros/src/retrostat/data/mada/pm10_sup_28_synth")
   # execute once the sql prepration
   # btsLoader.setPm10Values()
   # btsLoader.loadShpFile(btsLoader.getProject(), btsLoader.getShpFilesPaths()[0], QColor("blue"))
-  btsLoader.loadAllShpFiles(btsLoader.getProject(), btsLoader.getShpFilesPaths(), btsLoader.getColors())
+  btsLoader.loadAllShpFiles(btsLoader.getProject(), btsLoader.getShpFilesPaths(), btsLoader.getColors(), btsLoader.getShapes())
+  #btsLoader.addLinesToSymbols(btsLoader.getProject(), BtsShapes.getColors())
   btsLoader.createMap(btsLoader.getProject())
   btsLoader.createLayout()
-  btsLoader.saveProject(btsLoader.getProject())
+  #btsLoader.saveProject(btsLoader.getProject())
 
 main()
 
