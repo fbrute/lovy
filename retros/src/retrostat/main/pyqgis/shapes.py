@@ -4,7 +4,7 @@ class BtsShapes:
   shapes = {}
   shapes['north'] = QgsSimpleMarkerSymbolLayerBase.Circle
   shapes['neap'] =  QgsSimpleMarkerSymbolLayerBase.Diamond
-  shapes['nwap'] =  QgsSimpleMarkerSymbolLayerBase.Triangle
+  shapes['nwap'] =  QgsSimpleMarkerSymbolLayerBase.Square
   shapes['sa']   =  QgsSimpleMarkerSymbolLayerBase.Star
   shapes['swap'] =  QgsSimpleMarkerSymbolLayerBase.ArrowHeadFilled
 

@@ -10,8 +10,12 @@ from qgis.core import (
   QgsFields,
   QgsFeature,
   QgsFeatureRequest,
+  QgsFillSymbol,
   QgsFeatureRenderer,
   QgsGeometry,
+  QgsLayoutItemPolygon,
+  QgsLayoutItemLabel,
+  QgsLayoutItemMarker,
   QgsGraduatedSymbolRenderer,
   QgsMarkerLineSymbolLayer,
   QgsMarkerSymbol,
@@ -46,7 +50,10 @@ import sqlite3
 
 import string
 
+import math
 
+
+from PyQt5.QtWidgets import QApplication, QWidget, QInputDialog, QLineEdit
 
 from PyQt5.QtCore import QVariant, Qt
 import qgis.utils
@@ -73,6 +80,7 @@ class BtsLoad:
   
   def __initBts(self, data_dir):
     self.setBtsPathDir(data_dir)
+    self.stations = {"mada","puer","karu"}
     station = self.setStation(data_dir)
     shp_files_paths = self.__retrieveShpFilesPaths(data_dir)
     if (len(shp_files_paths) < 1): 
@@ -82,6 +90,8 @@ class BtsLoad:
     self.setColors(BtsColors.getColors())
     self.setShapes(BtsShapes.getShapes())
     self.labels = {}
+    self.setConfigForLabels()
+    self.setConfigForStations()
     # initialize crs system (WSG84)
     self.setCrs(4326)
     self.__initProject(project)
@@ -108,6 +118,9 @@ class BtsLoad:
 
   def getStation(self):
     return self.station
+
+  def getStations(self):
+    return self.stations
 
 
   def setVectorLayorColorToValue(self, vlayer, value):
@@ -176,24 +189,6 @@ class BtsLoad:
       BtsShapes.getColors()[self.getShpName(shp_file_path)])
       # idx_color = ( idx_color + 1 ) % len(colors)
 
-  def addLinesToSymbols(self, project, colors):
-      layer = project.mapLayersByName("nwap.shp") 
-      name = layer[0].name()
-      layer = layer[0]
-      gate = self.getShpName(name)
-      self.addLineToSymbol(layer, "nwap", BtsShapes.getColors()[gate])
-      # raise AssertionError(name)
-      # for key,value in layers.items():
-      #   gate = self.getShpName(layer.name())
-      #   if gate in self.getGates():
-      #     self.addLineToSymbol(layer, gate, BtsShapes.getColors()[gate])
-
-  def addLineToSymbol(self, layer, gate, colorShape):
-    # Add a simple line
-    line_simple = QgsLineSymbol.createSimple({ 'color': colorShape })
-    layer.renderer().symbol().insertSymbolLayer(1, line_simple.symbolLayer(0))
-    layer.triggerRepaint()
-    
   def getShpBasename(self, shp_file_path):
     return(os.path.basename(shp_file_path))
 
@@ -486,31 +481,140 @@ class BtsLoad:
     item_map.updateBoundingRect()
     
     layout.addLayoutItem(item_map)
-    config_for_labels = {
+
+    [ self.addLabelToLayout(layout, gate, self.getConfigForLabels(self.getStation(), gate)) for gate in self.getGates()]
+
+    [ self.addStationShapeToLayout(layout, self.getConfigForStations(station)) for station in [self.getStation()]]
+
+    [ self.addStationShapeToLayout(layout, self.getConfigForStations(station)) for station in [self.getStation()]]
+
+    [ self.addStationLabelToLayout(layout, self.getConfigForStations(station)) for station in [self.getStation()]]
+  
+  def setConfigForStations(self):
+    mada = {
+        'x_shape'    : 77.22,
+        'y_shape'    : 99.15,
+        'offset_horizontal': 16,
+        'offset_vertical': 3,
+        'name' : 'MAR',
+        'color': 'magenta',
+        'text_color': 'magenta',
+        'shape': 'diamond',
+        'opacity': 100,
+        'size': '8' 
+      }
+    mada['x_label'] =     mada['x_shape'] - mada['offset_horizontal']
+    mada['y_label'] =     mada['y_shape'] - mada['offset_vertical'] 
+
+    puer = {
+        'x_shape'    : 61.23,
+        'y_shape'    : 88.64,
+        'offset_horizontal': 12,
+        'offset_vertical': 3,
+        'name' : 'PR',
+        'color': 'yellow',
+        'text_color': 'black',
+        'shape': 'square',
+        'opacity': 100,
+        'size': '6' 
+      }
+    puer['x_label'] =  puer['x_shape'] - puer['offset_horizontal']
+    puer['y_label'] =  puer['y_shape'] - puer['offset_vertical']
+
+    karu = {
+        'x_shape'    : 75.85,
+        'y_shape'    : 95.04,
+        'offset_horizontal': 15,
+        'offset_vertical': 3,
+        'name' : 'GPE',
+        'color': 'orange',
+        'text_color': 'orange',
+        'shape': 'circle',
+        'opacity': 100,
+        'size': '6' 
+      }
+    karu['x_label'] =     karu['x_shape'] - karu['offset_horizontal']
+    karu['y_label'] =     karu['y_shape'] - karu['offset_vertical']
+    self.config_for_stations = {'mada': mada, 'karu': karu, 'puer': puer}
+  
+  def getConfigForStations(self,station):
+    return self.config_for_stations[station]
+
+  def setConfigForLabels(self):
+    mada = {
       'north': {
-        'x'    : 20.134,
-        'y'    : 34.356,
+        'x'    : 38.83,
+        'y'    : 34.64,
       },
       'neap': {
-        'x'    : 109.201,
-        'y'    : 53.802,
+        'x'    : 89.90,
+        'y'    : 58.94,
       },
       'nwap': {
-        'x'    : 135.667,
-        'y'    : 83.455,
+        'x'    : 184.39,
+        'y'    : 67.36,
       },
       'sa': {
-        'x'    : 98.805,
-        'y'    : 145.067,
+        'x'    : 45.22,
+        'y'    : 136.63,
       },
       'swap': {
-        'x'    : 140.775,
-        'y'    : 121.874,
+        'x'    : 142.56,
+        'y'    : 125.48,
       }
     }
-    [ self.addLabelToLayout(layout, gate, config_for_labels[gate]) for gate in self.getGates()]
+    karu = {
+      'north': {
+        'x'    : 23.91,
+        'y'    : 36.38,
+      },
+      'neap': {
+        'x'    : 92.68,
+        'y'    : 55.45,
+      },
+      'nwap': {
+        'x'    : 128.82,
+        'y'    : 96.08,
+      },
+      'sa': {
+        'x'    : 84,
+        'y'    : 150,
+      },
+      'swap': {
+        'x'    : 128,
+        'y'    : 117,
+        
+      }
+    }
+    puer = {
+      'north': {
+        'x'    : 27.47,
+        'y'    : 38.01,
+      },
+      'neap': {
+        'x'    : 91.38,
+        'y'    : 55.74,
+      },
+      'nwap': {
+        'x'    : 115.82,
+        'y'    : 99.08,
+      },
+      'sa': {
+        'x'    : 32.58,
+        'y'    : 127.48,
+      },
+      'swap': {
+        'x'    : 142.10,
+        'y'    : 122.74,
+      }
+    }
+    
+    self.config_for_labels = {'mada': mada, 'puer': puer, 'karu': karu}
 
     
+  def getConfigForLabels(self, station, gate):
+    return self.config_for_labels[station][gate]
+
 
   def getGates(self):
     return ['nwap','swap','neap','north', 'sa']
@@ -521,7 +625,9 @@ class BtsLoad:
     #set what the text will be
     label.setText(self.getLabelPm10(gate))
     #change font style and size (optional)
-    label.setFont(QFont("Arial", 12))
+    font = QFont("Arial", 14)
+    font.setBold(True)
+    label.setFont(font)
     label.setFontColor(self.getColor(gate))
 
     #set size of label item. this step seems a little pointless to me but it doesn't work without it
@@ -532,8 +638,6 @@ class BtsLoad:
 
     #another thing you probably want to do is specify where your label is on the print layout
     label.attemptMove(QgsLayoutPoint(config['x'], config['y'], QgsUnitTypes.LayoutMillimeters))
-
-    
   
   def shpFileSetCrs(self, vlayer, crs_value):
     crs = vlayer.crs()
@@ -568,9 +672,6 @@ class BtsLoad:
   
   def getLabelPm10(self, key):
     return self.labels[key]
-
-  
-
 
   def loadShpFile(self, project, shp_file_path, color, shape, colorShape):
 
@@ -608,7 +709,9 @@ class BtsLoad:
       # Configure the marker.
       simple_marker = QgsSimpleMarkerSymbolLayer()
       simple_marker.setShape(shape)
-      simple_marker.setSize(2)
+      #size = math.ceil(float(percent)/100*8)
+      size = 3 
+      simple_marker.setSize(size)
       simple_marker.setAngle(180)
       simple_marker.setColor(color)
       # The marker has its own symbol layer.
@@ -619,11 +722,10 @@ class BtsLoad:
       marker_line.setSubSymbol(marker)
 
       # Add a ligne to the symbols
-      line_simple = QgsLineSymbol.createSimple({ 'color': 'black' })
+      #line_simple = QgsLineSymbol.createSimple({ 'color': 'black' })
 
       # Finally replace the symbol layer in the base style.
       line_symbol.changeSymbolLayer(0, marker_line)
-      #line_symbol.insertSymbolLayer(1, line_simple.symbolLayer(0))
       #line_symbol.insertSymbolLayer(1, line_simple.symbolLayer(0))
 
       # Add the style to the line_symbol layer.        
@@ -639,11 +741,16 @@ class BtsLoad:
       #renderer = QgsLineSymbolRenderer(line_simple) 
       #layer.setRenderer(renderer)
       #layer.triggerRepaint()
+      width =float(percent)/100*3
+      if width < 0.2:
+        width = 0.2
       simple_line = QgsApplication.symbolLayerRegistry().symbolLayerMetadata("SimpleLine").createSymbolLayer({
         'color': colorShape,
         'line_color': colorShape,
-        'width' : '2.5'
+        'width' : f'{width}'
       })
+
+      
       layer.renderer().symbol().appendSymbolLayer(simple_line)
       #layer.renderer().symbol().appendSymbolLayer(line_simple.symbolLayer(0))
       layer.triggerRepaint()
@@ -651,8 +758,114 @@ class BtsLoad:
 
     project.addMapLayer(layer, True)
 
-  def createLayout(self):
-    pass
+  def addStationShapeToLayout(self,layout, config):
+    item_shape = QgsLayoutItemMarker.create(layout)
+    # # Configure the marker.
+    # simple_marker = QgsSimpleMarkerSymbolLayer()
+    # simple_marker.setShape(config['shape'])
+    # #size = math.ceil(float(percent)/100*8)
+    # size = 10 
+    # simple_marker.setSize(size)
+    # simple_marker.setAngle(180)
+    # simple_marker.setColor(config['color'])
+    # #item_shape.changeSymbolLayer(0, simple_marker)
+    marker_symbol = QgsMarkerSymbol.createSimple({'name': config['shape'], 'color': config['color'], 'size': config['size']})
+
+    item_shape.setSymbol(marker_symbol)
+    #item_shape.setReferencePoint(210,52)
+
+    symbol = item_shape.symbol()
+
+    #symbol.setColor(config['color'])
+
+    pc = QgsPropertyCollection("dataDefinedProperties")
+    # position the label à the end of the trajectory (source)
+    prop=QgsProperty()
+    prop.setField("X")
+
+    x =config['x_shape']
+    x = prop.setStaticValue(x)
+    pc.setProperty(QgsLayoutObject.PositionX, prop)
+
+    prop.setField("Y")
+    y = config['y_shape']
+    prop.setStaticValue(y)
+    pc.setProperty(QgsLayoutObject.PositionY, prop)
+
+    prop.setField("Width")
+    prop.setStaticValue(6)
+    pc.setProperty(QgsLayoutObject.ItemWidth, prop)
+
+    prop.setField("Height")
+    prop.setStaticValue(6)
+    pc.setProperty(QgsLayoutObject.ItemHeight, prop)
+
+    prop.setField("Opacity")
+    prop.setStaticValue(config['opacity'])
+    pc.setProperty(QgsLayoutObject.Opacity, prop)
+
+    #item_shape.refreshDataDefinedProperty(prop)
+
+    item_shape.setDataDefinedProperties(pc)
+    item_shape.refreshDataDefinedProperty(QgsLayoutObject.PositionX)
+    item_shape.refreshDataDefinedProperty(QgsLayoutObject.PositionY)
+    item_shape.refreshDataDefinedProperty(QgsLayoutObject.ItemWidth)
+    item_shape.refreshDataDefinedProperty(QgsLayoutObject.ItemHeight)
+    item_shape.refreshDataDefinedProperty(QgsLayoutObject.Opacity)
+
+    #item_shape.refreshDataDefinedProperty(item_shape.dataDefinedProperties())
+
+    #item_shape.setCornerRadius(QgsLayoutMeasurement(3))
+
+    #item_shape.updateBoundingRect()
+
+    layout.addLayoutItem(item_shape)
+  
+  def addStationLabelToLayout(self, layout, config):
+    item_label = QgsLayoutItemLabel.create(layout)
+    item_label.setText(config['name'])
+    item_label.setFontColor(QColor(config['text_color']))
+    font = QFont("Arial", 14)
+    font.setBold(True)
+    item_label.setFont(font)
+    #set size of label item. this step seems a little pointless to me but it doesn't work without it
+    item_label.adjustSizeToText() 
+    #symbol = item_label.symbol()
+    #symbol.setColor(QColor(255,0,0,10))
+
+    pc = QgsPropertyCollection("dataDefinedProperties")
+    # position the label à the end of the trajectory (source)
+    prop=QgsProperty()
+    prop.setField("X")
+    x = config['x_label']
+    prop.setStaticValue(x)
+    pc.setProperty(QgsLayoutObject.PositionX, prop)
+
+    prop.setField("Y")
+    y = config['y_label']
+    prop.setStaticValue(y)
+    pc.setProperty(QgsLayoutObject.PositionY, prop)
+
+    prop.setField("Width")
+    prop.setStaticValue(12)
+    pc.setProperty(QgsLayoutObject.ItemWidth, prop)
+
+    prop.setField("Height")
+    prop.setStaticValue(7)
+    pc.setProperty(QgsLayoutObject.ItemHeight, prop)
+
+    prop.setField("Opacity")
+    prop.setStaticValue(config['opacity'])
+    pc.setProperty(QgsLayoutObject.Opacity, prop)
+
+    item_label.setDataDefinedProperties(pc)
+    item_label.refreshDataDefinedProperty(QgsLayoutObject.PositionX)
+    item_label.refreshDataDefinedProperty(QgsLayoutObject.PositionY)
+    item_label.refreshDataDefinedProperty(QgsLayoutObject.ItemWidth)
+    item_label.refreshDataDefinedProperty(QgsLayoutObject.ItemHeight)
+    item_label.refreshDataDefinedProperty(QgsLayoutObject.Opacity)
+
+    layout.addLayoutItem(item_label)
 
 
   def saveProject(self, project):
@@ -662,17 +875,16 @@ class BtsLoad:
 def main():
   """ import bts with custom label color and position"""
 
-  btsLoader = BtsLoad("/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/retros/src/retrostat/data/mada/pm10_sup_28_synth")
-  # execute once the sql prepration
-  # btsLoader.setPm10Values()
-  # btsLoader.loadShpFile(btsLoader.getProject(), btsLoader.getShpFilesPaths()[0], QColor("blue"))
-  btsLoader.loadAllShpFiles(btsLoader.getProject(), btsLoader.getShpFilesPaths(), btsLoader.getColors(), btsLoader.getShapes())
+  btsLoader = BtsLoad(f"/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/retros/src/retrostat/data/karu/pm10_sup_28_synth")
+  # execute once the sql prepration # btsLoader.setPm10Values() # btsLoader.loadShpFile(btsLoader.getProject(), btsLoader.getShpFilesPaths()[0], QColor("blue")) btsLoader.loadAllShpFiles(btsLoader.getProject(), btsLoader.getShpFilesPaths(), btsLoader.getColors(), btsLoader.getShapes())
   #btsLoader.addLinesToSymbols(btsLoader.getProject(), BtsShapes.getColors())
   btsLoader.createMap(btsLoader.getProject())
-  btsLoader.createLayout()
+  #btsLoader.createLayout()
   #btsLoader.saveProject(btsLoader.getProject())
 
-main()
 
-if __name__ == '__main__':
   main()
+
+# if __name__ == '__main__':
+
+#   main()
