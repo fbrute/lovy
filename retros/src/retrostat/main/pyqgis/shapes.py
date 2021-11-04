@@ -8,6 +8,9 @@ class BtsShapes:
   shapes['sa']   =  QgsSimpleMarkerSymbolLayerBase.Star
   shapes['swap'] =  QgsSimpleMarkerSymbolLayerBase.ArrowHeadFilled
 
+  stations_shapes = {}
+  stations_shapes['mada'] = QgsSimpleMarkerSymbolLayerBase.Circle
+
   colors = {}
   colors['north'] = "darkRed"
   colors['neap'] = "darkGreen"
@@ -24,8 +27,13 @@ class BtsShapes:
   @staticmethod
   def getShapes():
     return BtsShapes.shapes
+  
+  @staticmethod
+  def getStationShapes():
+    return BtsShapes.stations_shapes
 
   @staticmethod
   def getColors():
     return BtsShapes.colors
+
   

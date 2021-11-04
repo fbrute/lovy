@@ -1,0 +1,2226 @@
+
+    78866 TNCM Juliana Airport Observations at 12Z 01 Dec 1977
+
+-----------------------------------------------------------------------------
+   PRES   HGHT   TEMP   DWPT   RELH   MIXR   DRCT   SKNT   THTA   THTE   THTV
+    hPa     m      C      C      %    g/kg    deg   knot     K      K      K 
+-----------------------------------------------------------------------------
+ 1014.0      3   26.4   21.4     74  16.10     85     15  298.4  345.4  301.2
+ 1000.0    122   26.0   19.0     65  14.03     85     16  299.1  340.3  301.7
+  939.0    673   20.6   16.7     78  12.90     87     17  299.1  336.9  301.4
+  850.0   1530   17.0    7.0     52   7.44     90     19  303.9  326.6  305.3
+  842.0   1611   16.4   12.3     77  10.78     91     19  304.1  336.6  306.1
+  739.0   2714   10.2    8.2     87   9.32    112     17  308.9  337.6  310.7
+  700.0   3164    7.4    2.7     72   6.68    120     16  310.6  331.6  311.9
+  671.0   3513    6.6  -23.4     10   0.87    111     17  313.5  316.6  313.7
+  644.0   3850    7.2  -22.8     10   0.96    103     18  317.9  321.3  318.1
+  547.0   5178    0.2  -29.8      8   0.59     69     23  324.8  327.0  324.9
+  500.0   5890   -6.3  -36.3      7   0.35     50     25  325.3  326.6  325.4
+  448.0   6740   -9.9  -39.9      7   0.27     57     21  331.1  332.2  331.2
+  400.0   7600  -16.5  -46.5      6   0.15     65     16  333.5  334.1  333.5
+  300.0   9700  -32.1  -62.1      3   0.03     40     16  340.0  340.2  340.0
+  250.0  10960  -42.5                           5     12  342.7         342.7
+  200.0  12420  -55.5                         360     10  344.7         344.7
+  150.0  14200  -69.5                         315     10  350.2         350.2
+  108.0  16106  -80.1                         345     15  364.6         364.6
+  100.0  16540  -80.3                         360     17  372.3         372.3
+   70.0  18580  -75.7                          40     21  422.1         422.1
+   53.0  20227  -65.5                          57     17  480.6         480.6
+   50.0  20580  -66.3                          60     16  486.8         486.8
+   30.0  23760  -55.1                         210     13  593.8         593.8
+   26.0  24676  -55.1                         236     18  618.6         618.6
+   20.0  26400  -43.7                         285     27  701.6         701.6
+   17.0  27487  -44.9                                     731.1         731.1
+   13.0  29290  -41.5                                     801.1         801.1
+   12.0  29829  -43.5                                     812.6         812.6
+   10.0  31060  -40.9                                     865.7         865.7
+
+
+      Station information and sounding indices
+
+                         Station identifier: TNCM
+                             Station number: 78866
+                           Observation time: 771201/1200
+                           Station latitude: 18.05
+                          Station longitude: -63.12
+                          Station elevation: 3.0
+                            Showalter index: 6.71
+                               Lifted index: 0.62
+    LIFT computed using virtual temperature: -0.06
+                                SWEAT index: 147.00
+                                    K index: 25.60
+                         Cross totals index: 13.30
+                      Vertical totals index: 23.30
+                        Totals totals index: 36.60
+      Convective Available Potential Energy: 0.11
+             CAPE using virtual temperature: 12.16
+                      Convective Inhibition: -95.53
+             CINS using virtual temperature: -64.15
+                           Equilibrum Level: 696.08
+ Equilibrum Level using virtual temperature: 498.82
+                   Level of Free Convection: 707.12
+             LFCT using virtual temperature: 723.62
+                     Bulk Richardson Number: 0.22
+          Bulk Richardson Number using CAPV: 25.45
+  Temp [K] of the Lifted Condensation Level: 290.45
+Pres [hPa] of the Lifted Condensation Level: 903.26
+   Equivalent potential temp [K] of the LCL: 339.88
+     Mean mixed layer potential temperature: 299.04
+              Mean mixed layer mixing ratio: 13.99
+              1000 hPa to 500 hPa thickness: 5768.00
+Precipitable water [mm] for entire sounding: 36.95
+
+
+    78866 TNCM Juliana Airport Observations at 12Z 02 Dec 1977
+
+-----------------------------------------------------------------------------
+   PRES   HGHT   TEMP   DWPT   RELH   MIXR   DRCT   SKNT   THTA   THTE   THTV
+    hPa     m      C      C      %    g/kg    deg   knot     K      K      K 
+-----------------------------------------------------------------------------
+ 1015.0      3   26.2   21.8     77  16.50    105     16  298.1  346.2  301.0
+ 1000.0    134   25.2   20.2     74  15.14    110     18  298.4  342.6  301.1
+  980.7    304   23.9   19.4     76  14.65    110     20  298.7  341.6  301.3
+  947.0    609   21.6   17.9     80  13.80    110     24  299.3  339.8  301.8
+  914.4    914   19.2   16.4     84  12.99    110     24  299.9  338.2  302.3
+  906.0    995   18.6   16.0     85  12.78    110     24  300.1  337.7  302.4
+  850.0   1541   15.2   12.7     85  10.97    110     23  302.1  334.7  304.1
+  821.7   1828   13.8   10.3     80   9.69    105     21  303.5  332.6  305.2
+  792.6   2133   12.2    7.8     75   8.47    105     20  305.0  330.7  306.5
+  792.0   2140   12.2    7.8     74   8.45    105     20  305.0  330.7  306.6
+  700.0   3172    9.6  -20.4     10   1.08     85     16  313.1  316.9  313.3
+  500.0   5900   -3.5  -33.5      8   0.46     80     27  328.7  330.5  328.8
+  400.0   7620  -16.1  -46.2      6   0.15     50     17  334.0  334.6  334.0
+  300.0   9710  -32.5  -62.5      3   0.03    360     17  339.4  339.6  339.5
+  250.0  10970  -42.1                         355     21  343.3         343.3
+  200.0  12440  -53.9                         350     15  347.2         347.2
+  150.0  14230  -68.1                         350     11  352.6         352.6
+  116.0  15740  -77.9                         350     13  361.3         361.3
+  100.0  16590  -78.1                          30     10  376.6         376.6
+   70.0  18654  -71.9                         340     16  430.2         430.2
+   50.0  20610  -64.5                          60     19  491.1         491.1
+   30.0  23810  -52.7                         200     19  600.4         600.4
+   20.0  26440  -45.9                         275     17  694.9         694.9
+   10.0  31140  -42.7                         260     30  859.0         859.0
+
+
+      Station information and sounding indices
+
+                         Station identifier: TNCM
+                             Station number: 78866
+                           Observation time: 771202/1200
+                           Station latitude: 18.05
+                          Station longitude: -63.12
+                          Station elevation: 3.0
+                            Showalter index: 5.65
+                               Lifted index: 2.51
+    LIFT computed using virtual temperature: 1.79
+                                SWEAT index: 225.40
+                                    K index: 1.40
+                         Cross totals index: 16.20
+                      Vertical totals index: 18.70
+                        Totals totals index: 34.90
+      Convective Available Potential Energy: 19.60
+             CAPE using virtual temperature: 62.76
+                      Convective Inhibition: -17.13
+             CINS using virtual temperature: -10.67
+                           Equilibrum Level: 756.32
+ Equilibrum Level using virtual temperature: 686.48
+                   Level of Free Convection: 873.59
+             LFCT using virtual temperature: 891.49
+                     Bulk Richardson Number: 6.33
+          Bulk Richardson Number using CAPV: 20.28
+  Temp [K] of the Lifted Condensation Level: 291.83
+Pres [hPa] of the Lifted Condensation Level: 923.06
+   Equivalent potential temp [K] of the LCL: 342.14
+     Mean mixed layer potential temperature: 298.59
+              Mean mixed layer mixing ratio: 14.94
+              1000 hPa to 500 hPa thickness: 5766.00
+Precipitable water [mm] for entire sounding: 34.75
+
+
+    78866 TNCM Juliana Airport Observations at 12Z 03 Dec 1977
+
+-----------------------------------------------------------------------------
+   PRES   HGHT   TEMP   DWPT   RELH   MIXR   DRCT   SKNT   THTA   THTE   THTV
+    hPa     m      C      C      %    g/kg    deg   knot     K      K      K 
+-----------------------------------------------------------------------------
+ 1015.0      3   25.8   21.7     78  16.39    110     15  297.7  345.4  300.6
+ 1000.0    137   25.2   20.5     75  15.43    110     16  298.4  343.4  301.1
+  850.0   1544   14.8   12.3     85  10.68    125     20  301.6  333.4  303.6
+  772.0   2356   11.0    9.1     88   9.48    113     21  305.9  334.8  307.7
+  741.0   2698   10.0    5.0     71   7.43    107     21  308.5  331.5  309.9
+  720.0   2937    9.2    8.4     95   9.70    104     21  310.1  340.1  311.9
+  710.0   3053    8.2  -21.8     10   0.95    102     21  310.3  313.6  310.4
+  700.0   3171   11.8  -18.2     11   1.31    100     21  315.5  320.1  315.8
+  500.0   5910   -5.1  -35.1      7   0.39    115     17  326.8  328.3  326.8
+  400.0   7620  -16.1  -46.1      6   0.15    140     10  334.0  334.6  334.0
+  300.0   9720  -33.3                         120     10  338.3         338.3
+  250.0  10970  -41.9                         110      8  343.6         343.6
+  200.0  12450  -53.7                         355      7  347.6         347.6
+  150.0  14230  -67.5                         340     10  353.6         353.6
+  100.0  16600  -78.5                         360      9  375.8         375.8
+
+
+      Station information and sounding indices
+
+                         Station identifier: TNCM
+                             Station number: 78866
+                           Observation time: 771203/1200
+                           Station latitude: 18.05
+                          Station longitude: -63.12
+                          Station elevation: 3.0
+                            Showalter index: 4.64
+                               Lifted index: 0.78
+    LIFT computed using virtual temperature: 0.04
+                                SWEAT index: 204.61
+                                    K index: 2.20
+                         Cross totals index: 17.40
+                      Vertical totals index: 19.90
+                        Totals totals index: 37.30
+      Convective Available Potential Energy: 76.08
+             CAPE using virtual temperature: 123.06
+                      Convective Inhibition: -20.39
+             CINS using virtual temperature: -12.96
+                           Equilibrum Level: 284.12
+ Equilibrum Level using virtual temperature: 285.03
+                   Level of Free Convection: 879.71
+             LFCT using virtual temperature: 891.84
+                     Bulk Richardson Number: 85.46
+          Bulk Richardson Number using CAPV: 138.23
+  Temp [K] of the Lifted Condensation Level: 291.98
+Pres [hPa] of the Lifted Condensation Level: 924.90
+   Equivalent potential temp [K] of the LCL: 342.46
+     Mean mixed layer potential temperature: 298.59
+              Mean mixed layer mixing ratio: 15.06
+              1000 hPa to 500 hPa thickness: 5773.00
+Precipitable water [mm] for entire sounding: 37.60
+
+
+    78866 TNCM Juliana Airport Observations at 12Z 05 Dec 1977
+
+-----------------------------------------------------------------------------
+   PRES   HGHT   TEMP   DWPT   RELH   MIXR   DRCT   SKNT   THTA   THTE   THTV
+    hPa     m      C      C      %    g/kg    deg   knot     K      K      K 
+-----------------------------------------------------------------------------
+ 1014.0      3   26.0   21.5     76  16.20    100     19  298.0  345.2  300.9
+ 1000.0    127   25.0   20.0     74  14.95    100     20  298.1  341.8  300.8
+  979.8    304   23.8   19.2     76  14.53    100     22  298.7  341.1  301.3
+  945.9    609   21.6   17.9     79  13.82    105     24  299.5  340.1  302.0
+  913.2    914   19.5   16.5     83  13.13    110     26  300.4  339.1  302.7
+  881.6   1219   17.4   15.2     87  12.47    110     24  301.2  338.1  303.5
+  850.0   1536   15.2   13.8     91  11.80    110     23  302.1  337.1  304.2
+  821.2   1828   15.1    5.5     53   6.92    120     21  304.9  326.1  306.2
+  792.2   2133   15.0   -3.2     28   3.82    125     13  307.9  320.1  308.7
+  764.2   2438   14.8  -12.0     15   2.01    130     16  311.0  317.7  311.4
+  754.0   2552   14.8  -15.2     11   1.56    126     15  312.1  317.5  312.4
+  737.0   2743   13.4  -16.6     11   1.43    120     14  312.7  317.6  313.0
+  700.0   3174   10.4  -19.6     10   1.16    105     14  314.0  318.0  314.2
+  659.9   3657    7.0  -23.0     10   0.92     95     18  315.5  318.7  315.6
+  612.5   4267    2.7  -27.3      9   0.67    100     28  317.3  319.7  317.4
+  599.0   4450    1.4  -28.6      9   0.61     97     25  317.8  320.1  318.0
+  567.8   4876   -0.3  -30.3      8   0.54     90     18  320.7  322.7  320.8
+  500.0   5890   -4.5  -34.5      8   0.41     70     13  327.5  329.1  327.6
+  486.8   6096   -5.9  -35.9      7   0.37     60     14  328.2  329.7  328.3
+  400.0   7610  -16.5  -46.5      6   0.15     90     15  333.5  334.1  333.5
+  399.4   7620  -16.6  -46.6      6   0.15     90     15  333.5  334.1  333.5
+  323.9   9144  -28.7  -58.7      4   0.04     80     24  337.4  337.6  337.4
+  300.0   9700  -33.1  -63.1      3   0.03     60     23  338.6  338.7  338.6
+  260.5  10668  -39.6                          40     22  343.0         343.0
+  250.0  10950  -41.5                          30     18  344.2         344.2
+  200.0  12420  -54.9                          10     13  345.7         345.7
+  150.0  14210  -67.1                         360     20  354.3         354.3
+  110.0  16034  -77.9                         355     15  366.8         366.8
+  100.0  16580  -77.1                         350     10  378.5         378.5
+   75.0  18222  -79.3                          22      4  406.3         406.3
+   70.0  18620  -72.5                          30      2  428.9         428.9
+   50.0  20640  -63.5                          65      6  493.4         493.4
+   40.0  22008  -64.7                          65      7  522.9         522.9
+   37.0  22488  -61.9                          65      7  541.9         541.9
+   33.0  23212  -52.5                          65      8  584.8         584.8
+   30.0  23830  -51.7                          65      8  603.1         603.1
+   20.0  26500  -44.7                         230      5  698.6         698.6
+   10.0  31200  -38.9                         310     23  873.2         873.2
+    9.0  31926  -36.9                                     907.6         907.6
+
+
+      Station information and sounding indices
+
+                         Station identifier: TNCM
+                             Station number: 78866
+                           Observation time: 771205/1200
+                           Station latitude: 18.05
+                          Station longitude: -63.12
+                          Station elevation: 3.0
+                            Showalter index: 3.59
+                               Lifted index: 1.73
+    LIFT computed using virtual temperature: 1.01
+                                SWEAT index: 224.59
+                                    K index: 3.50
+                         Cross totals index: 18.30
+                      Vertical totals index: 19.70
+                        Totals totals index: 38.00
+      Convective Available Potential Energy: 2.59
+             CAPE using virtual temperature: 54.36
+                      Convective Inhibition: -28.20
+             CINS using virtual temperature: -21.69
+                           Equilibrum Level: 581.38
+ Equilibrum Level using virtual temperature: 298.77
+                   Level of Free Convection: 861.06
+             LFCT using virtual temperature: 870.21
+                     Bulk Richardson Number: 2.92
+          Bulk Richardson Number using CAPV: 61.45
+  Temp [K] of the Lifted Condensation Level: 291.64
+Pres [hPa] of the Lifted Condensation Level: 921.63
+   Equivalent potential temp [K] of the LCL: 341.59
+     Mean mixed layer potential temperature: 298.53
+              Mean mixed layer mixing ratio: 14.77
+              1000 hPa to 500 hPa thickness: 5763.00
+Precipitable water [mm] for entire sounding: 30.56
+
+
+    78866 TNCM Juliana Airport Observations at 12Z 06 Dec 1977
+
+-----------------------------------------------------------------------------
+   PRES   HGHT   TEMP   DWPT   RELH   MIXR   DRCT   SKNT   THTA   THTE   THTV
+    hPa     m      C      C      %    g/kg    deg   knot     K      K      K 
+-----------------------------------------------------------------------------
+ 1014.0      3   26.0   21.8     78  16.51    105     15  298.0  346.1  300.9
+ 1000.0    122   25.0   20.6     77  15.53    105     16  298.1  343.4  300.9
+  979.4    304   23.5   19.9     80  15.21    110     17  298.4  342.9  301.1
+  945.8    609   21.0   18.8     87  14.69    115     21  298.9  341.9  301.5
+  930.0    756   19.8   18.3     91  14.44    117     23  299.1  341.4  301.7
+  913.0    914   19.0   17.0     88  13.50    120     26  299.9  339.6  302.3
+  881.1   1219   17.5   14.4     82  11.84    125     26  301.4  336.5  303.5
+  850.0   1528   16.0   11.8     76  10.33    125     24  302.9  333.8  304.8
+  820.4   1828   14.1   10.9     81  10.08    120     22  304.0  334.3  305.8
+  791.4   2133   12.2   10.0     86   9.83    115     20  305.1  334.9  306.9
+  785.0   2201   11.8    9.8     88   9.78    114     20  305.4  335.0  307.1
+  763.1   2438   11.7   -2.8     36   4.08    110     20  307.7  320.7  308.5
+  737.0   2730   11.6  -18.4     11   1.22    105     19  310.7  314.9  310.9
+  735.8   2743   11.5  -18.1     11   1.25    105     19  310.8  315.1  311.0
+  700.0   3158    9.2   -9.8     25   2.61    105     17  312.6  321.3  313.1
+  690.0   3277    7.4    4.1     80   7.50    106     17  311.9  335.4  313.3
+  658.2   3657    5.8   -1.4     60   5.26    110     19  314.3  331.2  315.3
+  610.1   4267    3.2  -10.3     36   2.87    110     13  318.2  327.9  318.8
+  565.7   4876    0.6  -19.2     21   1.49    120     12  322.1  327.4  322.4
+  500.0   5870   -3.7  -33.7      8   0.45    125     15  328.5  330.2  328.6
+  485.6   6096   -5.5  -35.5      7   0.38    130     10  329.0  330.5  329.0
+  400.0   7590  -17.7  -47.7      5   0.13    130     16  331.9  332.4  331.9
+  398.4   7620  -17.9  -47.9      5   0.13    125     16  332.0  332.5  332.0
+  323.0   9144  -29.0  -59.0      4   0.04     85     26  337.2  337.4  337.2
+  300.0   9680  -32.9  -62.9      3   0.03     90     28  338.9  339.0  338.9
+  260.0  10668  -40.3                         100     29  342.2         342.2
+  250.0  10940  -42.3                          95     26  343.0         343.0
+  226.8  11582  -47.4                          70     21  345.0         345.0
+  200.0  12410  -53.9                          20     17  347.2         347.2
+  197.2  12496  -54.5                          20     17  347.6         347.6
+  150.0  14200  -67.3                         360     17  354.0         354.0
+  100.0  16570  -75.5                         345     30  381.6         381.6
+
+
+      Station information and sounding indices
+
+                         Station identifier: TNCM
+                             Station number: 78866
+                           Observation time: 771206/1200
+                           Station latitude: 18.05
+                          Station longitude: -63.12
+                          Station elevation: 3.0
+                            Showalter index: 5.86
+                               Lifted index: 1.88
+    LIFT computed using virtual temperature: 1.13
+                                SWEAT index: 204.61
+                                    K index: 12.50
+                         Cross totals index: 15.50
+                      Vertical totals index: 19.70
+                        Totals totals index: 35.20
+      Convective Available Potential Energy: 156.53
+             CAPE using virtual temperature: 273.68
+                      Convective Inhibition: -12.97
+             CINS using virtual temperature: -5.96
+                           Equilibrum Level: 274.15
+ Equilibrum Level using virtual temperature: 273.81
+                   Level of Free Convection: 846.17
+             LFCT using virtual temperature: 894.49
+                     Bulk Richardson Number: 189.66
+          Bulk Richardson Number using CAPV: 331.60
+  Temp [K] of the Lifted Condensation Level: 292.50
+Pres [hPa] of the Lifted Condensation Level: 933.19
+   Equivalent potential temp [K] of the LCL: 343.22
+     Mean mixed layer potential temperature: 298.34
+              Mean mixed layer mixing ratio: 15.40
+              1000 hPa to 500 hPa thickness: 5748.00
+Precipitable water [mm] for entire sounding: 39.25
+
+
+    78866 TNCM Juliana Airport Observations at 12Z 07 Dec 1977
+
+-----------------------------------------------------------------------------
+   PRES   HGHT   TEMP   DWPT   RELH   MIXR   DRCT   SKNT   THTA   THTE   THTV
+    hPa     m      C      C      %    g/kg    deg   knot     K      K      K 
+-----------------------------------------------------------------------------
+ 1014.0      3   25.6   23.0     86  17.80    110     13  297.6  349.3  300.7
+ 1000.0    128   25.2   20.9     77  15.83    110     13  298.4  344.6  301.2
+  979.9    304   23.9   19.6     77  14.92    115     14  298.8  342.5  301.5
+  946.1    609   21.8   17.4     76  13.44    120     15  299.6  339.1  302.1
+  913.4    914   19.6   15.3     76  12.09    130     14  300.4  336.1  302.6
+  881.8   1219   17.5   13.1     75  10.84    140     11  301.2  333.4  303.2
+  850.0   1538   15.2   10.8     75   9.66    150     10  302.1  330.9  303.8
+  821.3   1828   13.5    9.1     75   8.90    140      8  303.2  330.0  304.9
+  792.1   2133   11.7    7.3     74   8.16    140      6  304.5  329.2  306.0
+  781.0   2252   11.0    6.6     74   7.89    142      7  304.9  328.9  306.4
+  763.7   2438    9.9    4.1     67   6.77    145      9  305.7  326.5  306.9
+  736.2   2743    8.0    0.0     57   5.24    150     13  306.9  323.2  307.8
+  736.0   2746    8.0    0.0     57   5.23    150     13  306.9  323.2  307.9
+  700.0   3159    5.8    4.0     88   7.33    130     16  308.9  331.6  310.2
+  668.0   3542    4.8    3.8     93   7.58    122     18  311.9  335.7  313.3
+  658.7   3657    6.7  -18.9     14   1.31    120     18  315.3  319.8  315.5
+  657.0   3678    7.0  -23.0     10   0.92    120     18  315.9  319.1  316.1
+  611.1   4267    5.2  -24.8      9   0.84    110      8  320.4  323.4  320.5
+  574.0   4778    3.6  -26.4      9   0.78    160     10  324.3  327.2  324.5
+  567.0   4876    2.9  -27.1      9   0.74    170     10  324.6  327.4  324.8
+  500.0   5880   -4.1  -34.1      8   0.43    125      8  328.0  329.6  328.1
+  486.2   6096   -5.8  -35.8      7   0.37    125     10  328.6  330.1  328.6
+  400.0   7600  -17.3  -47.3      5   0.13    120     20  332.4  333.0  332.4
+  398.9   7620  -17.4  -47.5      5   0.13    120     18  332.5  333.0  332.5
+  323.4   9144  -28.7  -58.7      4   0.04    130     22  337.5  337.7  337.5
+  300.0   9690  -32.7  -62.7      3   0.03    130     19  339.2  339.3  339.2
+  260.4  10668  -40.0                         150      6  342.4         342.4
+  250.0  10950  -42.1                         190      7  343.3         343.3
+  249.2  10972  -42.3                         230      8  343.4         343.4
+  200.0  12410  -55.3                         270     12  345.0         345.0
+  197.2  12496  -55.9                         270     11  345.5         345.5
+  187.8  12801  -57.8                         300     16  347.3         347.3
+  150.0  14200  -66.7                         330     14  355.0         355.0
+  126.0  15240  -73.0                         330     21  361.8         361.8
+  120.0  15529  -74.7                         336     21  363.7         363.7
+  113.0  15880  -73.7                         344     22  371.9         371.9
+  100.0  16590  -77.7                         360     23  377.4         377.4
+   97.0  16764  -78.1                         360     21  379.9         379.9
+   79.0  17928  -80.7                          20     20  397.4         397.4
+   70.0  18610  -80.1                          50     16  412.7         412.7
+   50.0  20600  -65.7                          90      7  488.2         488.2
+   30.0  23790  -53.9                         330      4  597.1         597.1
+   20.0  26440  -46.5                         295      9  693.1         693.1
+   10.0  31100  -42.5                         300     28  859.8         859.8
+    7.0  33560  -33.1                                     990.8         990.8
+
+
+      Station information and sounding indices
+
+                         Station identifier: TNCM
+                             Station number: 78866
+                           Observation time: 771207/1200
+                           Station latitude: 18.05
+                          Station longitude: -63.12
+                          Station elevation: 3.0
+                            Showalter index: 6.80
+                               Lifted index: 1.43
+    LIFT computed using virtual temperature: 0.68
+                                SWEAT index: 157.61
+                                    K index: 28.30
+                         Cross totals index: 14.90
+                      Vertical totals index: 19.30
+                        Totals totals index: 34.20
+      Convective Available Potential Energy: 246.98
+             CAPE using virtual temperature: 349.48
+                      Convective Inhibition: -21.51
+             CINS using virtual temperature: -11.50
+                           Equilibrum Level: 278.30
+ Equilibrum Level using virtual temperature: 277.66
+                   Level of Free Convection: 876.63
+             LFCT using virtual temperature: 896.61
+                     Bulk Richardson Number: 84.05
+          Bulk Richardson Number using CAPV: 118.93
+  Temp [K] of the Lifted Condensation Level: 292.33
+Pres [hPa] of the Lifted Condensation Level: 928.25
+   Equivalent potential temp [K] of the LCL: 343.35
+     Mean mixed layer potential temperature: 298.63
+              Mean mixed layer mixing ratio: 15.36
+              1000 hPa to 500 hPa thickness: 5752.00
+Precipitable water [mm] for entire sounding: 37.57
+
+
+    78866 TNCM Juliana Airport Observations at 12Z 08 Dec 1977
+
+-----------------------------------------------------------------------------
+   PRES   HGHT   TEMP   DWPT   RELH   MIXR   DRCT   SKNT   THTA   THTE   THTV
+    hPa     m      C      C      %    g/kg    deg   knot     K      K      K 
+-----------------------------------------------------------------------------
+ 1016.0      3   26.0   22.1     79  16.79     95     10  297.8  346.7  300.8
+ 1000.0    143   25.0   20.5     76  15.43     95     11  298.1  343.2  300.9
+  936.0    721   19.8   18.7     93  14.72     93     13  298.5  341.5  301.2
+  850.0   1548   14.6    9.6     72   8.90     90     16  301.4  328.0  303.0
+  776.0   2314   10.6   -1.4     43   4.47     78     12  305.1  319.0  305.9
+  705.0   3107    5.0   -9.0     36   2.76     66      7  307.4  316.3  307.9
+  700.0   3165    6.0  -10.0     31   2.57     65      7  309.1  317.5  309.6
+  686.0   3331    8.4  -21.6     10   1.00     68      7  313.6  317.1  313.8
+  584.0   4645    3.2  -26.8      9   0.73     89      9  322.2  325.0  322.4
+  500.0   5880   -6.1  -36.1      7   0.35    110     10  325.5  326.9  325.6
+  400.0   7590  -17.9  -47.9      5   0.13    140     18  331.6  332.2  331.7
+  300.0   9680  -32.7  -62.7      3   0.03    215     13  339.2  339.3  339.2
+  250.0  10940  -42.5                         210      9  342.7         342.7
+  200.0  12400  -54.9                         280     10  345.7         345.7
+  150.0  14190  -67.5                         295     24  353.6         353.6
+  100.0  16570  -78.1                          20     15  376.6         376.6
+   88.0  17326  -39.5                          44     17  467.9         467.9
+   81.0  17812  -81.5                          60     18  393.0         393.0
+   70.0  18590  -78.1                          90     15  417.0         417.0
+   50.0  20570  -65.5                          90      4  488.7         488.7
+   30.0  23770  -53.5                         110      8  598.2         598.2
+   27.0  24454  -47.5                         154     10  633.3         633.3
+   23.0  25504  -50.3                         221     13  654.8         654.8
+   20.0  26420  -46.5                         280     16  693.1         693.1
+   17.5  27310  -44.5                         286     17  726.4         726.4
+   14.0  28797  -46.7                         295     20  766.7         766.7
+   11.0  30420  -40.1                         306     22  845.4         845.4
+   10.0  31070  -40.5                         310     23  867.2         867.2
+
+
+      Station information and sounding indices
+
+                         Station identifier: TNCM
+                             Station number: 78866
+                           Observation time: 771208/1200
+                           Station latitude: 18.05
+                          Station longitude: -63.12
+                          Station elevation: 3.0
+                            Showalter index: 6.19
+                               Lifted index: -0.51
+    LIFT computed using virtual temperature: -1.28
+                                SWEAT index: 157.22
+                                    K index: 14.30
+                         Cross totals index: 15.70
+                      Vertical totals index: 20.70
+                        Totals totals index: 36.40
+      Convective Available Potential Energy: 329.05
+             CAPE using virtual temperature: 499.21
+                      Convective Inhibition: -3.07
+             CINS using virtual temperature: -1.58
+                           Equilibrum Level: 274.67
+ Equilibrum Level using virtual temperature: 274.36
+                   Level of Free Convection: 917.69
+             LFCT using virtual temperature: 927.58
+                     Bulk Richardson Number: 1210.08
+          Bulk Richardson Number using CAPV: 1835.88
+  Temp [K] of the Lifted Condensation Level: 292.61
+Pres [hPa] of the Lifted Condensation Level: 936.15
+   Equivalent potential temp [K] of the LCL: 343.21
+     Mean mixed layer potential temperature: 298.19
+              Mean mixed layer mixing ratio: 15.47
+              1000 hPa to 500 hPa thickness: 5737.00
+Precipitable water [mm] for entire sounding: 32.57
+
+
+    78866 TNCM Juliana Airport Observations at 12Z 09 Dec 1977
+
+-----------------------------------------------------------------------------
+   PRES   HGHT   TEMP   DWPT   RELH   MIXR   DRCT   SKNT   THTA   THTE   THTV
+    hPa     m      C      C      %    g/kg    deg   knot     K      K      K 
+-----------------------------------------------------------------------------
+ 1017.0      3   25.0   21.5     81  16.16     85     18  296.7  343.5  299.6
+ 1000.0    149   24.2   19.5     75  14.48     85     19  297.4  339.5  299.9
+  850.0   1551   14.2   11.2     82   9.92    110     26  301.0  330.5  302.8
+  830.0   1753   13.8    8.8     72   8.63    111     26  302.6  328.6  304.2
+  804.0   2021   12.0   11.1     94  10.42    111     25  303.5  334.8  305.4
+  748.0   2625   10.2    0.2     50   5.22    113     25  307.9  324.2  308.8
+  700.0   3175    7.2    2.7     73   6.68    115     24  310.4  331.4  311.7
+  500.0   5890   -5.9  -35.9      7   0.36     85     17  325.8  327.2  325.9
+  400.0   7600  -17.3  -47.3      5   0.13    140      6  332.4  333.0  332.4
+  300.0   9680  -33.3  -63.3      3   0.03    240      3  338.3  338.4  338.3
+  250.0  10940  -42.3                         285      9  343.0         343.0
+  200.0  12400  -54.9                         260     18  345.7         345.7
+  150.0  14190  -65.9                         285     29  356.4         356.4
+  100.0  16580  -78.3                          20     15  376.2         376.2
+   81.0  17771  -82.3                          60     14  391.3         391.3
+   70.0  18600  -76.5                          60     16  420.4         420.4
+   55.0  20023  -66.1                         107     12  474.2         474.2
+   50.0  20600  -66.5                         125     11  486.4         486.4
+   47.0  20980  -60.5                         126     11  509.4         509.4
+   37.0  22491  -54.5                         128      9  560.8         560.8
+   33.0  23221  -55.9                         129      9  575.8         575.8
+   30.0  23830  -53.9                         130      8  597.1         597.1
+   21.0  26149  -48.1                         262     15  678.6         678.6
+   20.0  26470  -48.9                         280     16  685.7         685.7
+   10.0  31140  -37.5                         340     16  878.4         878.4
+    8.2  32516  -34.9                                     939.9         939.9
+
+
+      Station information and sounding indices
+
+                         Station identifier: TNCM
+                             Station number: 78866
+                           Observation time: 771209/1200
+                           Station latitude: 18.05
+                          Station longitude: -63.12
+                          Station elevation: 3.0
+                            Showalter index: 5.19
+                               Lifted index: 1.39
+    LIFT computed using virtual temperature: 0.73
+                                SWEAT index: 203.38
+                                    K index: 26.80
+                         Cross totals index: 17.10
+                      Vertical totals index: 20.10
+                        Totals totals index: 37.20
+      Convective Available Potential Energy: 13.25
+             CAPE using virtual temperature: 68.05
+                      Convective Inhibition: -24.43
+             CINS using virtual temperature: -15.75
+                           Equilibrum Level: 680.00
+ Equilibrum Level using virtual temperature: 613.53
+                   Level of Free Convection: 871.60
+             LFCT using virtual temperature: 885.57
+                     Bulk Richardson Number: 2.52
+          Bulk Richardson Number using CAPV: 12.93
+  Temp [K] of the Lifted Condensation Level: 291.18
+Pres [hPa] of the Lifted Condensation Level: 926.81
+   Equivalent potential temp [K] of the LCL: 339.01
+     Mean mixed layer potential temperature: 297.59
+              Mean mixed layer mixing ratio: 14.28
+              1000 hPa to 500 hPa thickness: 5741.00
+Precipitable water [mm] for entire sounding: 40.63
+
+
+    78866 TNCM Juliana Airport Observations at 12Z 10 Dec 1977
+
+-----------------------------------------------------------------------------
+   PRES   HGHT   TEMP   DWPT   RELH   MIXR   DRCT   SKNT   THTA   THTE   THTV
+    hPa     m      C      C      %    g/kg    deg   knot     K      K      K 
+-----------------------------------------------------------------------------
+ 1016.0      3   26.6   21.6     74  16.27    100     12  298.4  345.9  301.3
+ 1000.0    143   24.6   18.6     69  13.67    100     13  297.8  337.6  300.2
+  939.0    693   20.0   18.4     91  14.39    102     16  298.5  340.5  301.0
+  850.0   1547   15.8    1.8     39   5.15    105     20  302.7  318.5  303.6
+  812.0   1933   12.0    8.1     77   8.41    106     19  302.6  327.9  304.2
+  761.0   2475    8.8   -6.2     34   3.18    108     17  304.8  314.9  305.4
+  750.0   2596   11.2  -18.8     10   1.16    108     16  308.7  312.7  308.9
+  700.0   3170   10.2  -19.8     10   1.14    110     14  313.8  317.7  314.0
+  500.0   5880   -6.9  -36.9      7   0.32    105     18  324.6  325.8  324.6
+  400.0   7590  -17.7  -47.7      5   0.13     30     10  331.9  332.4  331.9
+  300.0   9670  -33.7  -46.7     26   0.19    290     11  337.8  338.6  337.8
+  250.0  10920  -44.3                         280     13  340.1         340.1
+  200.0  12380  -54.7                         270     26  346.0         346.0
+  150.0  14190  -64.3                         300     35  359.1         359.1
+  100.0  16590  -77.7                         350     15  377.4         377.4
+   84.0  17577  -81.1                          50     13  389.7         389.7
+   70.0  18610  -77.7                          75     16  417.8         417.8
+   60.0  19515  -68.9                          96     12  456.3         456.3
+   50.0  20620  -65.1                         120      8  489.7         489.7
+   40.0  21988  -62.5                         116     10  528.4         528.4
+   35.0  22823  -56.5                         113     11  564.6         564.6
+   30.0  23800  -56.9                         110     13  588.9         588.9
+   27.0  24477  -50.5                          66     12  624.9         624.9
+   20.0  26450  -47.1                         300      9  691.2         691.2
+   10.0  31100  -40.9                         315     21  865.7         865.7
+    8.2  32461  -36.9                                     932.0         932.0
+
+
+      Station information and sounding indices
+
+                         Station identifier: TNCM
+                             Station number: 78866
+                           Observation time: 771210/1200
+                           Station latitude: 18.05
+                          Station longitude: -63.12
+                          Station elevation: 3.0
+                            Showalter index: 10.39
+                               Lifted index: 0.25
+    LIFT computed using virtual temperature: -0.42
+                                SWEAT index: 79.62
+                                    K index: -5.50
+                         Cross totals index: 8.70
+                      Vertical totals index: 22.70
+                        Totals totals index: 31.40
+      Convective Available Potential Energy: 33.79
+             CAPE using virtual temperature: 90.46
+                      Convective Inhibition: -34.96
+             CINS using virtual temperature: -12.11
+                           Equilibrum Level: 754.14
+ Equilibrum Level using virtual temperature: 434.31
+                   Level of Free Convection: 832.99
+             LFCT using virtual temperature: 869.26
+                     Bulk Richardson Number: 25.82
+          Bulk Richardson Number using CAPV: 69.12
+  Temp [K] of the Lifted Condensation Level: 290.99
+Pres [hPa] of the Lifted Condensation Level: 920.11
+   Equivalent potential temp [K] of the LCL: 339.32
+     Mean mixed layer potential temperature: 298.01
+              Mean mixed layer mixing ratio: 14.21
+              1000 hPa to 500 hPa thickness: 5737.00
+Precipitable water [mm] for entire sounding: 28.41
+
+
+    78866 TNCM Juliana Airport Observations at 12Z 11 Dec 1977
+
+-----------------------------------------------------------------------------
+   PRES   HGHT   TEMP   DWPT   RELH   MIXR   DRCT   SKNT   THTA   THTE   THTV
+    hPa     m      C      C      %    g/kg    deg   knot     K      K      K 
+-----------------------------------------------------------------------------
+ 1015.0      3   25.4   21.7     80  16.39     90     11  297.3  344.9  300.2
+ 1000.0    133   24.6   19.9     75  14.86     90     12  297.8  341.0  300.4
+  980.6    304   22.7   19.3     81  14.56     90     13  297.5  339.9  300.1
+  946.9    609   19.4   18.1     92  14.03     90     11  297.1  337.9  299.6
+  943.0    644   19.0   18.0     94  13.97     90     11  297.1  337.6  299.6
+  913.7    914   17.6   15.1     85  11.94     90     11  298.4  333.3  300.5
+  881.7   1219   16.0   11.8     76   9.94     90     12  299.8  329.2  301.6
+  850.0   1532   14.4    8.4     67   8.20     95     13  301.2  325.8  302.7
+  820.5   1828   13.3    2.9     49   5.78    110     15  303.1  320.8  304.1
+  791.1   2133   12.1   -2.8     35   3.96    110     15  305.0  317.5  305.7
+  762.8   2438   10.9   -8.4     25   2.67    110     16  306.9  315.6  307.4
+  735.6   2743    9.8  -14.1     17   1.76    110     17  308.9  314.8  309.2
+  700.0   3158    8.2  -21.8     10   0.96    110     19  311.5  314.9  311.7
+  657.7   3657    5.5  -24.5      9   0.81    105     18  314.1  317.0  314.3
+  609.4   4267    2.2  -27.8      9   0.64     90     19  317.2  319.6  317.4
+  564.7   4876   -1.1  -31.1      8   0.51    100     18  320.4  322.3  320.4
+  500.0   5850   -6.3  -36.3      7   0.35    115     13  325.3  326.6  325.4
+  484.2   6096   -8.0  -38.0      7   0.30    130     12  326.2  327.4  326.3
+  400.0   7560  -18.1  -48.1      5   0.12    235      4  331.4  331.9  331.4
+  396.7   7620  -18.5  -48.5      5   0.12    235      4  331.6  332.1  331.6
+  300.0   9640  -33.1  -63.1      3   0.03                338.6  338.7  338.6
+  250.0  10900  -42.7                                     342.4         342.4
+  200.0  12360  -54.7                                     346.0         346.0
+  150.0  14140  -69.1                                     350.9         350.9
+  100.0  16540  -76.7                                     379.3         379.3
+   75.0  18178  -80.5                                     403.8         403.8
+
+
+      Station information and sounding indices
+
+                         Station identifier: TNCM
+                             Station number: 78866
+                           Observation time: 771211/1200
+                           Station latitude: 18.05
+                          Station longitude: -63.12
+                          Station elevation: 3.0
+                            Showalter index: 7.11
+                               Lifted index: 0.35
+    LIFT computed using virtual temperature: -0.35
+                                SWEAT index: 139.79
+                                    K index: -0.90
+                         Cross totals index: 14.70
+                      Vertical totals index: 20.70
+                        Totals totals index: 35.40
+      Convective Available Potential Energy: 59.16
+             CAPE using virtual temperature: 265.13
+                      Convective Inhibition: -30.38
+             CINS using virtual temperature: 0.00
+                           Equilibrum Level: 334.86
+ Equilibrum Level using virtual temperature: 336.96
+                   Level of Free Convection: 469.14
+             LFCT using virtual temperature: 935.94
+                     Bulk Richardson Number: 29.93
+          Bulk Richardson Number using CAPV: 134.13
+  Temp [K] of the Lifted Condensation Level: 291.94
+Pres [hPa] of the Lifted Condensation Level: 935.94
+   Equivalent potential temp [K] of the LCL: 340.55
+     Mean mixed layer potential temperature: 297.52
+              Mean mixed layer mixing ratio: 14.82
+              1000 hPa to 500 hPa thickness: 5717.00
+Precipitable water [mm] for entire sounding: 28.36
+
+
+    78866 TNCM Juliana Airport Observations at 12Z 12 Dec 1977
+
+-----------------------------------------------------------------------------
+   PRES   HGHT   TEMP   DWPT   RELH   MIXR   DRCT   SKNT   THTA   THTE   THTV
+    hPa     m      C      C      %    g/kg    deg   knot     K      K      K 
+-----------------------------------------------------------------------------
+ 1015.0      3   25.0   22.2     84  16.91     75     10  296.9  345.9  299.9
+ 1000.0    130   24.6   21.0     80  15.93                297.8  344.1  300.6
+  960.0    489   22.4   20.3     88  15.89                299.0  345.5  301.9
+  850.0   1542   16.6   12.5     77  10.82                303.5  336.0  305.5
+  700.0   3172    7.6   -6.4     36   3.40                310.9  321.9  311.5
+  672.0   3508    6.8  -13.2     22   2.07                313.6  320.6  314.0
+  554.0   5074   -1.3   -1.3    100   6.32                321.8  342.6  323.1
+  516.0   5634   -7.9  -37.9      7   0.28                320.4  321.6  320.5
+  500.0   5880   -6.7  -36.7      7   0.33                324.8  326.1  324.9
+  400.0   7590  -17.3  -47.3      5   0.13                332.4  333.0  332.4
+  344.0   8697  -26.5  -56.5      4   0.05                334.6  334.8  334.6
+  300.0   9670  -33.3  -41.3     44   0.34                338.3  339.7  338.4
+
+
+      Station information and sounding indices
+
+                         Station identifier: TNCM
+                             Station number: 78866
+                           Observation time: 771212/1200
+                           Station latitude: 18.05
+                          Station longitude: -63.12
+                          Station elevation: 3.0
+                            Showalter index: 1.90
+                               Lifted index: -1.73
+    LIFT computed using virtual temperature: -2.54
+                                    K index: 21.80
+                         Cross totals index: 19.20
+                      Vertical totals index: 23.30
+                        Totals totals index: 42.50
+      Convective Available Potential Energy: 486.93
+             CAPE using virtual temperature: 676.04
+                      Convective Inhibition: -32.15
+             CINS using virtual temperature: -20.50
+                   Level of Free Convection: 826.83
+             LFCT using virtual temperature: 865.94
+  Temp [K] of the Lifted Condensation Level: 293.34
+Pres [hPa] of the Lifted Condensation Level: 945.24
+   Equivalent potential temp [K] of the LCL: 344.81
+     Mean mixed layer potential temperature: 298.12
+              Mean mixed layer mixing ratio: 16.04
+              1000 hPa to 500 hPa thickness: 5750.00
+Precipitable water [mm] for entire sounding: 42.40
+
+
+    78866 TNCM Juliana Airport Observations at 12Z 13 Dec 1977
+
+-----------------------------------------------------------------------------
+   PRES   HGHT   TEMP   DWPT   RELH   MIXR   DRCT   SKNT   THTA   THTE   THTV
+    hPa     m      C      C      %    g/kg    deg   knot     K      K      K 
+-----------------------------------------------------------------------------
+ 1016.0      3   25.4   21.4     79  16.07    100     13  297.2  343.9  300.1
+ 1000.0    140   24.4   18.4     69  13.50     95     14  297.6  336.9  300.0
+  981.4    304   23.1   18.2     74  13.56     95     16  297.8  337.3  300.2
+  947.6    609   20.5   17.7     84  13.66    100     22  298.2  338.1  300.7
+  930.0    772   19.2   17.5     90  13.72    100     23  298.5  338.6  300.9
+  914.8    914   18.5   15.4     82  12.20    100     23  299.2  335.0  301.4
+  895.0   1103   17.6   12.7     73  10.41    100     24  300.1  330.9  302.0
+  882.9   1219   16.9   12.4     75  10.35    100     25  300.6  331.3  302.4
+  850.0   1543   15.0   11.6     80  10.19    100     28  301.9  332.2  303.7
+  822.8   1828   13.2    9.8     80   9.33     95     26  302.8  330.8  304.5
+  805.0   2019   12.0    8.6     80   8.78     92     25  303.4  329.9  305.0
+  794.0   2133   -1.5  -18.7     26   1.11     90     24  290.1  293.6  290.3
+  784.0   2239  -14.1  -44.1      6   0.10     92     24  277.7  278.0  277.7
+  765.2   2438   -9.0  -39.0      7   0.17     95     25  285.1  285.7  285.2
+  737.4   2743   -1.2  -31.2      8   0.39     95     24  296.7  298.0  296.8
+  700.0   3172    9.8  -20.2     10   1.10     90     23  313.3  317.2  313.5
+  659.8   3657    6.3  -23.7     10   0.86     90     21  314.7  317.8  314.9
+  634.0   3984    4.0  -26.0      9   0.73     85     19  315.7  318.3  315.8
+  612.0   4267    1.4  -19.1     20   1.39     80     18  315.9  320.8  316.2
+  572.0   4809   -3.5   -5.9     83   4.33     84     13  316.3  330.4  317.1
+  567.2   4876   -3.4   -9.7     62   3.26     85     12  317.1  328.0  317.8
+  538.0   5294   -3.1  -33.1      8   0.44     87     10  322.4  324.1  322.5
+  500.0   5870   -5.7  -35.7      7   0.37     90      7  326.0  327.4  326.1
+  485.5   6096   -7.3  -35.0      9   0.41    330      4  326.8  328.4  326.9
+  400.0   7580  -18.1  -30.1     34   0.79    310     11  331.4  334.4  331.5
+  397.8   7620  -18.4  -30.7     33   0.75    310     10  331.5  334.4  331.7
+  322.5   9144  -29.0  -54.5      7   0.07    285     18  337.3  337.6  337.3
+  300.0   9670  -32.7  -62.7      3   0.03    285     19  339.2  339.3  339.2
+  259.7  10668  -40.5                         285     26  342.1         342.1
+  250.0  10930  -42.5                         285     27  342.7         342.7
+  200.0  12390  -55.3                         290     30  345.0         345.0
+  150.0  14170  -67.9                         265     37  352.9         352.9
+  125.0  15240  -72.4                         285     35  363.6         363.6
+  107.0  16154  -76.2                         300     25  372.9         372.9
+  100.0  16550  -77.9                         300     24  377.0         377.0
+   75.0  18186  -80.7                         335     14  403.4         403.4
+   70.0  18580  -76.7                         335     12  420.0         420.0
+   65.0  19011  -73.7                           3     13  435.5         435.5
+   61.0  19388  -67.5                          26     13  457.3         457.3
+   55.0  20013  -68.3                          65     14  469.2         469.2
+   50.0  20590  -65.3                         100     15  489.2         489.2
+   30.0  23790  -53.3                         350      6  598.7         598.7
+   28.0  24232  -54.7                         336      7  606.8         606.8
+   25.0  24962  -50.5                         312      7  638.8         638.8
+   20.0  26420  -48.7                         265      9  686.3         686.3
+   16.5  27698  -44.3                         275     16  739.3         739.3
+   12.5  29553  -45.9                         289     27  794.8         794.8
+   10.0  31050  -42.7                         300     36  859.0         859.0
+    8.8  31921  -38.3                                     908.0         908.0
+
+
+      Station information and sounding indices
+
+                         Station identifier: TNCM
+                             Station number: 78866
+                           Observation time: 771213/1200
+                           Station latitude: 18.05
+                          Station longitude: -63.12
+                          Station elevation: 3.0
+                            Showalter index: 4.58
+                               Lifted index: 1.98
+    LIFT computed using virtual temperature: 1.34
+                                SWEAT index: 202.18
+                                    K index: 2.30
+                         Cross totals index: 17.30
+                      Vertical totals index: 20.70
+                        Totals totals index: 38.00
+      Convective Available Potential Energy: 526.45
+             CAPE using virtual temperature: 619.00
+                      Convective Inhibition: -31.26
+             CINS using virtual temperature: -19.34
+                           Equilibrum Level: 550.70
+ Equilibrum Level using virtual temperature: 543.16
+                   Level of Free Convection: 827.48
+             LFCT using virtual temperature: 846.65
+                     Bulk Richardson Number: 234.76
+          Bulk Richardson Number using CAPV: 276.03
+  Temp [K] of the Lifted Condensation Level: 290.65
+Pres [hPa] of the Lifted Condensation Level: 919.73
+   Equivalent potential temp [K] of the LCL: 338.08
+     Mean mixed layer potential temperature: 297.70
+              Mean mixed layer mixing ratio: 13.91
+              1000 hPa to 500 hPa thickness: 5730.00
+Precipitable water [mm] for entire sounding: 30.33
+
+
+    78866 TNCM Juliana Airport Observations at 12Z 14 Dec 1977
+
+-----------------------------------------------------------------------------
+   PRES   HGHT   TEMP   DWPT   RELH   MIXR   DRCT   SKNT   THTA   THTE   THTV
+    hPa     m      C      C      %    g/kg    deg   knot     K      K      K 
+-----------------------------------------------------------------------------
+ 1016.0      3   25.4   20.8     76  15.47     80     13  297.2  342.1  299.9
+ 1000.0    145   24.0   19.5     76  14.48     80     14  297.1  339.2  299.7
+  981.9    304   22.6   19.2     81  14.47     80     15  297.4  339.4  299.9
+  948.1    609   20.1   18.6     91  14.44     80     20  297.7  339.7  300.3
+  937.0    712   19.2   18.4     95  14.43     80     21  297.8  339.9  300.4
+  915.1    914   18.2   16.6     90  13.12     80     23  298.8  337.2  301.2
+  883.1   1219   16.6   13.8     83  11.34     80     26  300.3  333.8  302.3
+  850.0   1546   15.0   10.8     76   9.66     80     25  301.9  330.7  303.6
+  822.0   1828   13.4    5.8     60   7.11     85     25  303.1  324.6  304.4
+  792.8   2133   11.8    0.5     46   5.03     85     24  304.4  320.0  305.4
+  787.0   2195   11.4   -0.6     43   4.68     84     25  304.7  319.3  305.6
+  776.0   2313   11.2    5.2     67   7.20     82     26  305.7  327.8  307.1
+  764.5   2438   11.5   -8.2     24   2.71     80     27  307.4  316.2  307.9
+  756.0   2532   11.8  -18.2     11   1.21     78     25  308.7  312.8  308.9
+  737.0   2743   10.9  -19.1     10   1.16     75     22  310.0  313.9  310.2
+  700.0   3172    9.2  -20.8     10   1.05     50     17  312.6  316.3  312.8
+  659.7   3657    5.8  -24.2      9   0.83     45     17  314.2  317.1  314.4
+  632.0   4009    3.4  -26.6      9   0.69     42     19  315.3  317.8  315.4
+  612.1   4267    3.3  -26.7      9   0.71     40     21  318.1  320.6  318.2
+  596.0   4483    3.2  -26.8      9   0.72     40     19  320.4  323.0  320.5
+  567.3   4876    0.5  -29.5      8   0.59     40     16  321.7  323.9  321.9
+  500.0   5880   -6.5  -36.5      7   0.34     40     15  325.1  326.4  325.1
+  486.2   6096   -7.6  -37.6      7   0.31     40     12  326.3  327.5  326.4
+  441.0   6852  -11.5  -41.5      6   0.23     22     10  330.6  331.5  330.6
+  400.0   7590  -18.3  -48.3      5   0.12      5      7  331.1  331.6  331.1
+  398.3   7620  -18.5                          10      7  331.2         331.2
+  322.6   9144  -29.7                         305     14  336.4         336.4
+  300.0   9670  -33.5                         310     18  338.0         338.0
+  259.7  10668  -41.0                         295     22  341.3         341.3
+  250.0  10930  -42.9                         300     25  342.1         342.1
+  200.0  12390  -55.1                         285     30  345.4         345.4
+  150.0  14170  -67.5                         280     45  353.6         353.6
+  133.0  14887  -72.9                         289     44  356.4         356.4
+  100.0  16540  -78.3                         310     40  376.2         376.2
+   87.0  17329  -81.5                         355     25  385.0         385.0
+   70.0  18560  -78.3                          20     13  416.6         416.6
+   58.0  19668  -64.9                          54     12  469.8         469.8
+   54.0  20102  -66.3                          66     12  476.2         476.2
+   50.0  20570  -63.5                          80     12  493.4         493.4
+   43.0  21495  -64.5                          65     11  512.7         512.7
+   37.0  22427  -58.9                          51      9  549.5         549.5
+   30.0  23750  -56.9                          30      7  588.9         588.9
+   25.0  24893  -48.9                         350      8  643.4         643.4
+   20.0  26271  -63.5                         300      9  641.1         641.1
+   17.0  27298  -51.1                                     711.3         711.3
+   15.5  27904  -46.7                                     744.8         744.8
+   12.5  29326  -47.9                                     787.8         787.8
+
+
+      Station information and sounding indices
+
+                         Station identifier: TNCM
+                             Station number: 78866
+                           Observation time: 771214/1200
+                           Station latitude: 18.05
+                          Station longitude: -63.12
+                          Station elevation: 3.0
+                            Showalter index: 4.51
+                               Lifted index: 0.49
+    LIFT computed using virtual temperature: -0.19
+                                SWEAT index: 194.60
+                                    K index: 2.30
+                         Cross totals index: 17.30
+                      Vertical totals index: 21.50
+                        Totals totals index: 38.80
+      Convective Available Potential Energy: 16.66
+             CAPE using virtual temperature: 78.72
+                      Convective Inhibition: -10.80
+             CINS using virtual temperature: -6.05
+                           Equilibrum Level: 347.07
+ Equilibrum Level using virtual temperature: 363.78
+                   Level of Free Convection: 849.46
+             LFCT using virtual temperature: 895.26
+                     Bulk Richardson Number: 4.04
+          Bulk Richardson Number using CAPV: 19.08
+  Temp [K] of the Lifted Condensation Level: 291.72
+Pres [hPa] of the Lifted Condensation Level: 935.73
+   Equivalent potential temp [K] of the LCL: 339.72
+     Mean mixed layer potential temperature: 297.32
+              Mean mixed layer mixing ratio: 14.61
+              1000 hPa to 500 hPa thickness: 5735.00
+Precipitable water [mm] for entire sounding: 30.50
+
+
+    78866 TNCM Juliana Airport Observations at 12Z 15 Dec 1977
+
+-----------------------------------------------------------------------------
+   PRES   HGHT   TEMP   DWPT   RELH   MIXR   DRCT   SKNT   THTA   THTE   THTV
+    hPa     m      C      C      %    g/kg    deg   knot     K      K      K 
+-----------------------------------------------------------------------------
+ 1015.0      3   25.8   19.8     69  14.54     75     23  297.7  340.0  300.3
+ 1000.0    130   24.6   17.6     65  12.82     75     24  297.8  335.2  300.0
+  980.3    304   23.1   17.3     70  12.84     80     25  297.9  335.4  300.2
+  946.6    609   20.4   16.8     79  12.87     80     23  298.2  335.8  300.5
+  941.0    661   20.0   16.7     81  12.87     82     23  298.3  335.9  300.6
+  913.6    914   18.1   13.8     76  10.95     90     23  298.9  331.1  300.9
+  881.6   1219   15.9   10.2     69   8.95     95     21  299.6  326.2  301.3
+  850.0   1532   13.6    6.6     63   7.24     90     20  300.4  322.1  301.7
+  820.6   1828   12.9   -3.6     32   3.58     90     20  302.6  313.9  303.3
+  810.0   1938   12.6   -7.4     24   2.72     90     20  303.5  312.1  304.0
+  796.0   2084   11.6    3.6     58   6.26     90     21  303.9  323.1  305.1
+  791.4   2133   11.5    0.3     46   4.96     90     21  304.3  319.7  305.3
+  765.0   2416   11.0  -19.0     10   1.12     90     21  306.8  310.6  307.0
+  763.0   2438   10.9  -19.1     10   1.12     90     21  306.9  310.7  307.1
+  735.5   2743   10.1  -19.9     10   1.08     85     20  309.2  313.0  309.4
+  700.0   3154    9.0  -21.0     10   1.03     85     18  312.4  316.0  312.6
+  658.4   3657    7.1  -22.9     10   0.93     55     15  315.8  319.1  316.0
+  611.3   4267    4.9  -25.1      9   0.82     65     23  320.0  323.0  320.1
+  602.0   4393    4.4  -25.6      9   0.80     65     24  320.9  323.8  321.0
+  566.8   4876    1.4  -28.6      9   0.64     65     26  322.9  325.3  323.0
+  500.0   5880   -4.9  -34.9      7   0.40     40     20  327.0  328.5  327.1
+  486.1   6096   -6.6  -35.0      8   0.41     50     20  327.6  329.1  327.6
+  400.0   7590  -18.3  -35.3     21   0.48     20     18  331.1  333.0  331.2
+  398.3   7620  -18.5  -35.7     21   0.46     20     19  331.2  333.0  331.3
+  322.6   9144  -29.1  -55.8      6   0.06    345     29  337.2  337.5  337.2
+  300.0   9670  -32.7  -62.7      3   0.03    335     30  339.2  339.3  339.2
+  259.7  10668  -40.6                         325     31  341.8         341.8
+  250.0  10930  -42.7                         325     32  342.4         342.4
+  200.0  12390  -55.7                         300     37  344.4         344.4
+  196.6  12496  -56.5                         305     37  344.9         344.9
+  169.8  13411  -63.1                         280     47  348.6         348.6
+  166.0  13553  -64.1                         282     46  349.2         349.2
+  150.0  14170  -66.5                         290     42  355.3         355.3
+  139.0  14628  -70.5                         298     40  356.1         356.1
+  132.0  14937  -70.1                         304     38  362.1         362.1
+  125.3  15240  -71.7                         310     37  364.7         364.7
+  101.7  16459  -78.0                         330     33  375.0         375.0
+  100.0  16560  -78.5                         340     33  375.8         375.8
+   91.4  17068  -79.3                         345     31  384.0         384.0
+   75.0  18181  -81.1                         356     23  402.6         402.6
+   70.0  18570  -78.1                         360     20  417.0         417.0
+   50.0  20560  -64.1                          30     16  492.0         492.0
+   46.0  21077  -60.7                          42     14  512.1         512.1
+   41.0  21795  -61.5                          59     11  527.2         527.2
+   30.0  23760  -57.3                         105      2  587.8         587.8
+   20.0  26370  -47.7                         285      8  689.4         689.4
+   12.0  29745  -47.3                         281     29  799.1         799.1
+   10.0  30960  -43.9                         280     37  854.5         854.5
+    9.4  31375  -44.5                                     867.5         867.5
+
+
+      Station information and sounding indices
+
+                         Station identifier: TNCM
+                             Station number: 78866
+                           Observation time: 771215/1200
+                           Station latitude: 18.05
+                          Station longitude: -63.12
+                          Station elevation: 3.0
+                            Showalter index: 10.44
+                               Lifted index: 3.71
+    LIFT computed using virtual temperature: 3.13
+                                SWEAT index: 139.22
+                                    K index: -4.90
+                         Cross totals index: 11.50
+                      Vertical totals index: 18.50
+                        Totals totals index: 30.00
+      Convective Available Potential Energy: 1.32
+             CAPE using virtual temperature: 31.61
+                      Convective Inhibition: -19.70
+             CINS using virtual temperature: -10.63
+                           Equilibrum Level: 834.49
+ Equilibrum Level using virtual temperature: 751.80
+                   Level of Free Convection: 861.33
+             LFCT using virtual temperature: 883.11
+                     Bulk Richardson Number: 0.75
+          Bulk Richardson Number using CAPV: 17.98
+  Temp [K] of the Lifted Condensation Level: 289.43
+Pres [hPa] of the Lifted Condensation Level: 904.26
+   Equivalent potential temp [K] of the LCL: 335.90
+     Mean mixed layer potential temperature: 297.88
+              Mean mixed layer mixing ratio: 13.06
+              1000 hPa to 500 hPa thickness: 5750.00
+Precipitable water [mm] for entire sounding: 25.59
+
+
+    78866 TNCM Juliana Airport Observations at 12Z 16 Dec 1977
+
+-----------------------------------------------------------------------------
+   PRES   HGHT   TEMP   DWPT   RELH   MIXR   DRCT   SKNT   THTA   THTE   THTV
+    hPa     m      C      C      %    g/kg    deg   knot     K      K      K 
+-----------------------------------------------------------------------------
+ 1014.0      3   25.0   20.6     77  15.31     90     12  297.0  341.4  299.7
+ 1000.0    120   24.0   19.7     77  14.67     90     13  297.1  339.8  299.8
+  978.9    304   22.6   18.6     78  13.99     95     16  297.6  338.3  300.1
+  944.8    609   20.4   16.8     80  12.93    105     22  298.3  336.1  300.6
+  912.0    914   18.1   15.1     82  11.93    110     22  299.0  334.1  301.2
+  880.2   1219   15.8   13.3     85  10.99    115     21  299.7  332.1  301.7
+  850.0   1520   13.6   11.5     87  10.12    115     19  300.4  330.4  302.2
+  819.4   1828   12.5    9.6     83   9.24    110     14  302.3  330.0  304.0
+  790.2   2133   11.3    7.7     79   8.43    110     17  304.3  329.8  305.8
+  767.0   2383   10.4    6.2     75   7.81    110     19  305.9  329.8  307.3
+  762.0   2438   10.1    5.0     71   7.21    110     19  306.1  328.2  307.4
+  746.0   2614    9.0    1.0     57   5.55    110     21  306.8  324.1  307.8
+  734.5   2743    8.3    2.2     66   6.17    110     22  307.4  326.6  308.6
+  700.0   3140    6.2    6.1     99   8.51     95     18  309.3  335.6  310.9
+  687.0   3294    5.4  -24.6      9   0.76     94     17  310.1  312.8  310.2
+  657.3   3657    7.9  -22.1     10   1.00     90     15  316.9  320.4  317.0
+  654.0   3699    8.2  -21.8     10   1.03     90     15  317.6  321.3  317.8
+  609.6   4267    5.0  -25.0      9   0.83     90     19  320.4  323.4  320.5
+  565.4   4876    1.5  -28.5      9   0.65     90     15  323.3  325.7  323.4
+  500.0   5870   -4.1  -34.1      8   0.43     65     17  328.0  329.6  328.1
+  485.5   6096   -6.0  -36.0      7   0.37     70     12  328.4  329.8  328.4
+  400.0   7580  -18.7  -48.7      5   0.11    360      9  330.6  331.1  330.6
+  397.8   7620  -19.0  -49.0      5   0.11    355      5  330.8  331.2  330.8
+  322.2   9144  -29.5  -59.5      4   0.04     10      2  336.7  336.9  336.7
+  300.0   9660  -33.1  -63.1      3   0.03    330      9  338.6  338.7  338.6
+  259.0  10668  -40.7                         315     20  342.0         342.0
+  250.0  10910  -42.5                         310     22  342.7         342.7
+  200.0  12380  -55.5                         285     35  344.7         344.7
+  150.0  14160  -68.1                         285     23  352.6         352.6
+  100.0  16530  -77.7                         345     32  377.4         377.4
+
+
+      Station information and sounding indices
+
+                         Station identifier: TNCM
+                             Station number: 78866
+                           Observation time: 771216/1200
+                           Station latitude: 18.05
+                          Station longitude: -63.12
+                          Station elevation: 3.0
+                            Showalter index: 7.05
+                               Lifted index: 3.29
+    LIFT computed using virtual temperature: 2.65
+                                SWEAT index: 192.99
+                                    K index: 29.10
+                         Cross totals index: 15.60
+                      Vertical totals index: 17.70
+                        Totals totals index: 33.30
+      Convective Available Potential Energy: 57.76
+             CAPE using virtual temperature: 110.88
+                      Convective Inhibition: -15.42
+             CINS using virtual temperature: -9.70
+                           Equilibrum Level: 382.52
+ Equilibrum Level using virtual temperature: 371.32
+                   Level of Free Convection: 887.25
+             LFCT using virtual temperature: 899.12
+                     Bulk Richardson Number: 77.29
+          Bulk Richardson Number using CAPV: 148.39
+  Temp [K] of the Lifted Condensation Level: 291.15
+Pres [hPa] of the Lifted Condensation Level: 927.71
+   Equivalent potential temp [K] of the LCL: 338.76
+     Mean mixed layer potential temperature: 297.47
+              Mean mixed layer mixing ratio: 14.22
+              1000 hPa to 500 hPa thickness: 5750.00
+Precipitable water [mm] for entire sounding: 35.66
+
+
+    78866 TNCM Juliana Airport Observations at 12Z 17 Dec 1977
+
+-----------------------------------------------------------------------------
+   PRES   HGHT   TEMP   DWPT   RELH   MIXR   DRCT   SKNT   THTA   THTE   THTV
+    hPa     m      C      C      %    g/kg    deg   knot     K      K      K 
+-----------------------------------------------------------------------------
+ 1014.0      3   25.2   19.2     69  14.01    110     12  297.2  337.9  299.7
+ 1000.0    121   24.2   17.2     65  12.50    110     13  297.4  333.8  299.6
+  979.2    304   22.6   16.9     70  12.54    110     14  297.6  334.1  299.8
+  945.5    609   20.1   16.5     80  12.61    110     17  297.9  334.8  300.2
+  927.0    781   18.6   16.2     86  12.65    110     16  298.1  335.1  300.4
+  912.6    914   17.9   14.8     82  11.75    110     16  298.7  333.2  300.8
+  880.7   1219   16.2   11.7     75   9.90     95     15  300.1  329.4  301.9
+  850.0   1522   14.6    8.6     67   8.31     90     13  301.4  326.3  302.9
+  823.0   1795   12.2    7.3     72   7.85     90     10  301.7  325.3  303.1
+  819.7   1828   12.1    5.9     66   7.14     90     10  301.9  323.5  303.2
+  790.4   2133   11.2   -7.1     27   2.86     75      7  304.2  313.3  304.7
+  763.0   2428   10.4  -19.6     10   1.07     61      8  306.3  310.0  306.5
+  762.1   2438   10.4  -19.6     10   1.07     60      8  306.5  310.1  306.7
+  734.7   2743   11.0  -19.0     10   1.17     70      9  310.3  314.3  310.6
+  700.0   3147   11.8  -18.2     11   1.31    120      9  315.5  320.1  315.8
+  658.2   3657    9.2  -20.8     10   1.11    105     11  318.2  322.1  318.4
+  616.0   4206    6.4  -23.6     10   0.93     83     11  321.1  324.4  321.2
+  611.3   4267    6.0  -24.1      9   0.90     80     11  321.2  324.5  321.4
+  566.6   4876    1.5  -28.5      9   0.65     90      7  323.0  325.4  323.1
+  500.0   5880   -5.9  -35.9      7   0.36     40      6  325.8  327.2  325.9
+  486.0   6096   -7.6  -37.6      7   0.31     35     10  326.3  327.5  326.4
+  400.0   7580  -19.5  -49.5      5   0.10    350      6  329.6  330.0  329.6
+  397.8   7620  -19.8  -49.8      5   0.10    350      6  329.7  330.1  329.7
+  321.5   9144  -31.6  -61.6      4   0.03    290      8  334.0  334.1  334.0
+  300.0   9640  -35.5  -65.5      3   0.02    265     11  335.2  335.3  335.2
+  257.9  10668  -43.6                         265     19  338.1         338.1
+  250.0  10880  -45.3                         265     21  338.6         338.6
+  235.3  11277  -47.7                         260     29  340.9         340.9
+  200.0  12340  -54.1                         270     38  346.9         346.9
+  195.1  12496  -55.2                         260     37  347.6         347.6
+  172.0  13296  -61.1                         265     33  350.6         350.6
+  150.0  14140  -65.7                         270     28  356.7         356.7
+  145.4  14325  -66.6                         260     27  358.4         358.4
+  124.5  15240  -71.0                         285     22  366.7         366.7
+  106.6  16154  -75.3                         315     16  375.1         375.1
+  100.0  16530  -77.1                         320     16  378.5         378.5
+   86.3  17373  -78.6                         340     14  391.7         391.7
+   81.0  17737  -79.3                         358     12  397.5         397.5
+   70.0  18570  -78.5                          40      7  416.1         416.1
+   50.0  20560  -64.1                         230      4  492.0         492.0
+   36.0  22592  -59.3                         269      5  552.8         552.8
+   30.0  23750  -52.5                         290      5  600.9         600.9
+   20.0  26400  -48.5                         275     26  687.0         687.0
+   10.0  31000  -44.7                                     851.6         851.6
+
+
+      Station information and sounding indices
+
+                         Station identifier: TNCM
+                             Station number: 78866
+                           Observation time: 771217/1200
+                           Station latitude: 18.05
+                          Station longitude: -63.12
+                          Station elevation: 3.0
+                            Showalter index: 7.23
+                               Lifted index: 3.34
+    LIFT computed using virtual temperature: 2.79
+                                SWEAT index: 135.19
+                                    K index: -0.90
+                         Cross totals index: 14.50
+                      Vertical totals index: 20.50
+                        Totals totals index: 35.00
+      Convective Available Potential Energy: 0.03
+             CAPE using virtual temperature: 15.24
+                      Convective Inhibition: -40.80
+             CINS using virtual temperature: -28.62
+                           Equilibrum Level: 819.77
+ Equilibrum Level using virtual temperature: 758.57
+                   Level of Free Convection: 824.40
+             LFCT using virtual temperature: 837.43
+                     Bulk Richardson Number: 0.01
+          Bulk Richardson Number using CAPV: 4.84
+  Temp [K] of the Lifted Condensation Level: 289.01
+Pres [hPa] of the Lifted Condensation Level: 903.71
+   Equivalent potential temp [K] of the LCL: 334.47
+     Mean mixed layer potential temperature: 297.51
+              Mean mixed layer mixing ratio: 12.72
+              1000 hPa to 500 hPa thickness: 5759.00
+Precipitable water [mm] for entire sounding: 26.68
+
+
+    78866 TNCM Juliana Airport Observations at 12Z 19 Dec 1977
+
+-----------------------------------------------------------------------------
+   PRES   HGHT   TEMP   DWPT   RELH   MIXR   DRCT   SKNT   THTA   THTE   THTV
+    hPa     m      C      C      %    g/kg    deg   knot     K      K      K 
+-----------------------------------------------------------------------------
+ 1012.0      3   25.8   21.2     76  15.93    135     12  297.9  344.4  300.8
+ 1000.0    104   24.4   19.7     75  14.67    135     12  297.6  340.2  300.2
+  977.4    304   22.8   18.5     76  13.90    135     13  297.9  338.5  300.4
+  943.8    609   20.5   16.6     79  12.79    130     12  298.5  335.9  300.8
+  943.0    617   20.4   16.6     79  12.76    130     12  298.5  335.9  300.8
+  911.1    914   19.5   11.9     61   9.67    120      8  300.5  329.3  302.3
+  908.0    943   19.4   11.4     60   9.40    121      8  300.7  328.7  302.4
+  879.2   1219   17.2    9.2     59   8.40    130      5  301.3  326.4  302.8
+  850.0   1508   15.0    7.0     59   7.44    145      4  301.9  324.3  303.2
+  818.2   1828   12.8    5.2     60   6.81    195      6  302.8  323.5  304.0
+  789.1   2133   10.7    3.5     61   6.25    195      9  303.7  322.8  304.8
+  775.0   2284    9.6    2.6     62   5.99    190     10  304.1  322.5  305.2
+  760.8   2438    9.3   -0.2     51   4.97    185     12  305.4  320.9  306.4
+  753.0   2523    9.2   -1.8     46   4.47    182     13  306.2  320.2  307.0
+  735.0   2726   14.8  -15.2     11   1.60    176     15  314.4  319.9  314.7
+  733.5   2743   14.7  -15.3     11   1.60    175     15  314.5  320.0  314.8
+  700.0   3137   13.2  -16.8     11   1.47    200      7  317.1  322.2  317.4
+  656.4   3657    9.4  -20.6     10   1.14    225      4  318.7  322.7  318.9
+  608.8   4267    4.9  -25.1      9   0.83    200      2  320.5  323.5  320.6
+  564.6   4876    0.5  -29.5      8   0.59    165      1  322.2  324.4  322.3
+  500.0   5860   -6.7  -36.7      7   0.33    125      2  324.8  326.1  324.9
+  484.8   6096   -8.5  -38.5      7   0.28     75      1  325.5  326.6  325.5
+  400.0   7560  -19.7  -49.7      5   0.10    295     13  329.3  329.7  329.3
+  396.7   7620  -20.2  -49.6      5   0.10    305     12  329.4  329.8  329.4
+  320.6   9144  -34.2  -47.2     25   0.17    240     17  330.8  331.5  330.8
+  300.0   9620  -38.5  -46.5     43   0.20    240     20  331.0  331.8  331.0
+  286.0   9947  -40.5                         251     22  332.7         332.7
+  280.0  10092  -40.1                         256     24  335.3         335.3
+  257.2  10668  -42.8                         275     28  339.5         339.5
+  250.0  10860  -43.7                         275     32  341.0         341.0
+  200.0  12320  -55.3                         280     36  345.0         345.0
+  185.2  12801  -59.2                         270     38  346.4         346.4
+  166.0  13482  -64.7                                     348.2         348.2
+  150.0  14100  -65.1                                     357.7         357.7
+  146.0  14264  -66.7                                     357.7         357.7
+  135.0  14738  -65.3                                     368.3         368.3
+  100.0  16520  -74.5                                     383.5         383.5
+
+
+      Station information and sounding indices
+
+                         Station identifier: TNCM
+                             Station number: 78866
+                           Observation time: 771219/1200
+                           Station latitude: 18.05
+                          Station longitude: -63.12
+                          Station elevation: 3.0
+                            Showalter index: 7.48
+                               Lifted index: 0.51
+    LIFT computed using virtual temperature: -0.15
+                                SWEAT index: 94.00
+                                    K index: -1.30
+                         Cross totals index: 13.70
+                      Vertical totals index: 21.70
+                        Totals totals index: 35.40
+      Convective Available Potential Energy: 375.33
+             CAPE using virtual temperature: 455.81
+                      Convective Inhibition: -40.34
+             CINS using virtual temperature: -20.22
+                           Equilibrum Level: 266.95
+ Equilibrum Level using virtual temperature: 267.00
+                   Level of Free Convection: 843.74
+             LFCT using virtual temperature: 871.16
+                     Bulk Richardson Number: 45.20
+          Bulk Richardson Number using CAPV: 54.89
+  Temp [K] of the Lifted Condensation Level: 291.02
+Pres [hPa] of the Lifted Condensation Level: 921.76
+   Equivalent potential temp [K] of the LCL: 339.18
+     Mean mixed layer potential temperature: 297.89
+              Mean mixed layer mixing ratio: 14.21
+              1000 hPa to 500 hPa thickness: 5756.00
+Precipitable water [mm] for entire sounding: 28.21
+
+
+    78866 TNCM Juliana Airport Observations at 12Z 20 Dec 1977
+
+-----------------------------------------------------------------------------
+   PRES   HGHT   TEMP   DWPT   RELH   MIXR   DRCT   SKNT   THTA   THTE   THTV
+    hPa     m      C      C      %    g/kg    deg   knot     K      K      K 
+-----------------------------------------------------------------------------
+ 1013.0      3   25.2   21.8     81  16.53    115      4  297.2  345.3  300.2
+ 1000.0    118   25.4   22.3     83  17.28    120      4  298.6  349.0  301.6
+  951.0    559   22.6   15.6     65  11.85     71      4  300.0  335.0  302.2
+  850.0   1525   15.4    9.4     67   8.78    320      4  302.3  328.6  303.9
+  739.0   2704    7.6    6.8     95   8.46    252      6  306.1  331.9  307.6
+  728.0   2829    6.4  -23.6     10   0.79    244      6  306.1  308.8  306.2
+  722.0   2897   11.4  -18.6     11   1.23    240      7  312.3  316.6  312.5
+  700.0   3157   11.6  -18.4     11   1.29    225      7  315.3  319.8  315.5
+  500.0   5880   -6.7  -36.7      7   0.33    305     10  324.8  326.1  324.9
+  400.0   7580  -19.5  -49.5      5   0.10    300     16  329.6  330.0  329.6
+  300.0   9650  -33.7  -63.7      3   0.02    250     29  337.8  337.9  337.8
+  250.0  10910  -42.7                         265     35  342.4         342.4
+  200.0  12380  -55.3                         255     47  345.0         345.0
+  150.0  14160  -66.1                         250     50  356.0         356.0
+  100.0  16590  -72.9                         255     32  386.6         386.6
+
+
+      Station information and sounding indices
+
+                         Station identifier: TNCM
+                             Station number: 78866
+                           Observation time: 771220/1200
+                           Station latitude: 18.05
+                          Station longitude: -63.12
+                          Station elevation: 3.0
+                            Showalter index: 5.30
+                               Lifted index: -1.13
+    LIFT computed using virtual temperature: -1.89
+                                SWEAT index: 130.81
+                                    K index: 1.50
+                         Cross totals index: 16.10
+                      Vertical totals index: 22.10
+                        Totals totals index: 38.20
+      Convective Available Potential Energy: 491.34
+             CAPE using virtual temperature: 634.99
+                      Convective Inhibition: -29.71
+             CINS using virtual temperature: -12.59
+                           Equilibrum Level: 259.32
+ Equilibrum Level using virtual temperature: 259.49
+                   Level of Free Convection: 866.76
+             LFCT using virtual temperature: 891.24
+                     Bulk Richardson Number: 73.13
+          Bulk Richardson Number using CAPV: 94.52
+  Temp [K] of the Lifted Condensation Level: 292.09
+Pres [hPa] of the Lifted Condensation Level: 922.84
+   Equivalent potential temp [K] of the LCL: 343.23
+     Mean mixed layer potential temperature: 298.89
+              Mean mixed layer mixing ratio: 15.34
+              1000 hPa to 500 hPa thickness: 5762.00
+Precipitable water [mm] for entire sounding: 32.70
+
+
+    78866 TNCM Juliana Airport Observations at 12Z 21 Dec 1977
+
+-----------------------------------------------------------------------------
+   PRES   HGHT   TEMP   DWPT   RELH   MIXR   DRCT   SKNT   THTA   THTE   THTV
+    hPa     m      C      C      %    g/kg    deg   knot     K      K      K 
+-----------------------------------------------------------------------------
+ 1014.0      3   25.4   21.3     78  16.00     75     10  297.4  343.9  300.2
+ 1000.0    124   24.4   19.4     74  14.39     75     11  297.6  339.4  300.1
+  979.6    304   23.0   17.4     71  12.96     70     10  297.9  335.7  300.2
+  963.0    454   21.8   15.8     69  11.86     65      9  298.1  332.8  300.3
+  945.8    609   20.7   15.3     71  11.71     60      8  298.6  332.9  300.7
+  913.0    914   18.6   14.4     77  11.43     65     10  299.4  333.1  301.5
+  895.0   1086   17.4   13.9     80  11.27     68     10  299.9  333.2  301.9
+  881.2   1219   16.9   10.8     67   9.28     70     10  300.8  328.4  302.4
+  877.0   1260   16.8    9.8     63   8.74     69     10  301.0  327.1  302.6
+  850.0   1526   15.6   11.0     74   9.79     65      9  302.5  331.8  304.3
+  812.0   1886  -57.7    9.2  46110   9.10     59      8  228.7  247.5  229.9
+  786.6   2133   -8.1    8.0    322   8.64     55      8  283.9  307.8  285.4
+  778.0   2218    9.0    7.6     91   8.49     67      7  303.1  328.7  304.7
+  759.0   2438   11.7   -6.6     27   3.10     95      5  308.2  318.2  308.8
+  746.0   2591   13.6  -16.4     11   1.43    115      4  311.8  316.7  312.1
+  733.3   2743   13.1  -16.9     11   1.39    135      3  312.7  317.5  313.0
+  700.0   3157   11.6  -18.4     11   1.29    305      3  315.3  319.8  315.5
+  657.9   3657    8.2  -21.8     10   1.02     55      7  317.1  320.7  317.3
+  610.0   4267    4.0  -26.0      9   0.76     80      2  319.2  322.0  319.4
+  565.6   4876   -0.1  -30.1      8   0.56     75      5  321.3  323.4  321.4
+  500.0   5870   -6.9  -36.9      7   0.32    345      2  324.6  325.8  324.6
+  400.0   7570  -19.7  -35.7     23   0.46    290     14  329.3  331.1  329.4
+  397.3   7620  -20.1  -36.6     22   0.42    300      3  329.4  331.1  329.5
+  328.0   9011  -31.1  -61.1      4   0.03    250     23  332.8  333.0  332.8
+  321.9   9144  -31.8  -58.0      6   0.05    245     25  333.7  333.9  333.7
+  300.0   9640  -34.3  -46.3     29   0.20    250     31  336.9  337.8  337.0
+  275.0  10244  -40.1  -44.8     61   0.26    250     29  337.0  338.1  337.1
+  258.3  10668  -43.4                         250     27  338.2         338.2
+  250.0  10890  -45.1                         250     27  338.9         338.9
+  200.0  12340  -57.5                         230     34  341.6         341.6
+  195.1  12496  -58.3                         240     36  342.7         342.7
+  190.0  12664  -59.1                         243     41  344.0         344.0
+  176.9  13106  -60.9                         250     53  348.2         348.2
+  150.0  14130  -64.9                         260     49  358.1         358.1
+  145.2  14325  -65.6                         260     45  360.2         360.2
+  100.0  16540  -74.1                         255     26  384.3         384.3
+
+
+      Station information and sounding indices
+
+                         Station identifier: TNCM
+                             Station number: 78866
+                           Observation time: 771221/1200
+                           Station latitude: 18.05
+                          Station longitude: -63.12
+                          Station elevation: 3.0
+                            Showalter index: 3.60
+                               Lifted index: 1.27
+    LIFT computed using virtual temperature: 0.66
+                                SWEAT index: 151.99
+                                    K index: 3.50
+                         Cross totals index: 17.90
+                      Vertical totals index: 22.50
+                        Totals totals index: 40.40
+      Convective Available Potential Energy: 1022.75
+             CAPE using virtual temperature: 1055.47
+                      Convective Inhibition: -42.31
+             CINS using virtual temperature: -28.60
+                           Equilibrum Level: 321.60
+ Equilibrum Level using virtual temperature: 320.10
+                   Level of Free Convection: 849.25
+             LFCT using virtual temperature: 849.47
+                     Bulk Richardson Number: 401.03
+          Bulk Richardson Number using CAPV: 413.86
+  Temp [K] of the Lifted Condensation Level: 290.01
+Pres [hPa] of the Lifted Condensation Level: 911.70
+   Equivalent potential temp [K] of the LCL: 336.91
+     Mean mixed layer potential temperature: 297.79
+              Mean mixed layer mixing ratio: 13.50
+              1000 hPa to 500 hPa thickness: 5746.00
+Precipitable water [mm] for entire sounding: 30.47
+
+
+    78866 TNCM Juliana Airport Observations at 12Z 22 Dec 1977
+
+-----------------------------------------------------------------------------
+   PRES   HGHT   TEMP   DWPT   RELH   MIXR   DRCT   SKNT   THTA   THTE   THTV
+    hPa     m      C      C      %    g/kg    deg   knot     K      K      K 
+-----------------------------------------------------------------------------
+ 1018.0      3   26.0   22.8     83  17.51     75     14  297.6  348.6  300.7
+ 1000.0    157   25.0   20.9     78  15.83     75     14  298.1  344.3  301.0
+  983.2    304   23.8   20.0     79  15.23     80     15  298.4  342.9  301.1
+  949.2    609   21.4   18.2     82  14.04     85     17  298.9  340.1  301.5
+  916.4    914   18.9   16.4     85  12.92     95     20  299.5  337.4  301.8
+  884.7   1219   16.5   14.5     88  11.88    100     18  299.9  335.0  302.1
+  871.0   1354   15.4   13.7     90  11.44    102     17  300.2  333.9  302.2
+  850.0   1561   14.2    9.6     74   8.90    105     16  301.0  327.6  302.6
+  823.5   1828   13.3   10.9     86  10.07    115     17  302.7  332.9  304.6
+  811.0   1957   12.8   11.6     92  10.69    117     19  303.6  335.6  305.5
+  794.2   2133   11.7   10.6     93  10.19    120     21  304.2  334.9  306.1
+  765.8   2438    9.7    8.8     94   9.37    130     17  305.3  333.7  307.0
+  764.0   2457    9.6    8.7     94   9.32    130     16  305.4  333.6  307.1
+  738.2   2743    9.9   -2.4     42   4.36    125      8  308.7  322.6  309.5
+  700.0   3185   10.4  -19.6     10   1.16    125      9  314.0  318.0  314.2
+  660.2   3657    7.4  -22.6     10   0.95    120     15  315.9  319.3  316.1
+  612.2   4267    3.6  -26.4      9   0.73    125     19  318.4  321.0  318.5
+  567.6   4876   -0.2  -30.2      8   0.55    120     20  320.8  322.9  320.9
+  500.0   5900   -6.7  -36.7      7   0.33    125     12  324.8  326.1  324.9
+  487.3   6096   -8.2  -38.2      7   0.29    130      9  325.4  326.5  325.4
+  400.0   7600  -19.7  -49.7      5   0.10    185     13  329.3  329.7  329.3
+  398.9   7620  -19.9  -49.6      5   0.10    190     13  329.4  329.8  329.4
+  322.8   9144  -31.9  -44.8     27   0.22    225     17  333.2  334.1  333.3
+  300.0   9670  -36.1  -43.1     48   0.28    230     18  334.4  335.5  334.4
+  259.1  10668  -43.8                         250     28  337.3         337.3
+  250.0  10910  -45.7                         250     35  338.0         338.0
+  205.5  12192  -51.0                         255     55  349.2         349.2
+  200.0  12370  -51.7                         255     58  350.7         350.7
+  186.0  12829  -54.9                         250     62  352.9         352.9
+  178.0  13106  -56.8                         250     62  354.2         354.2
+  150.0  14190  -64.3                         260     51  359.1         359.1
+  146.6  14325  -64.9                         260     51  360.4         360.4
+  125.6  15240  -69.2                         260     43  368.9         368.9
+  107.6  16154  -73.5                         260     30  377.5         377.5
+  100.0  16590  -75.5                         250     25  381.6         381.6
+   88.0  17321  -78.7                         240     17  389.4         389.4
+   70.0  18630  -75.7                          70      2  422.1         422.1
+   56.0  19953  -65.5                          97      7  473.1         473.1
+   50.0  20640  -66.7                         110      9  485.9         485.9
+   46.0  21143  -68.3                          90      9  493.8         493.8
+   33.0  23207  -53.9                           8     11  581.1         581.1
+   30.0  23820  -53.9                         345     12  597.1         597.1
+   22.0  25825  -50.9                         303     17  661.4         661.4
+   20.0  26450  -47.7                         290     18  689.4         689.4
+   16.5  27731  -43.7                                     741.3         741.3
+
+
+      Station information and sounding indices
+
+                         Station identifier: TNCM
+                             Station number: 78866
+                           Observation time: 771222/1200
+                           Station latitude: 18.05
+                          Station longitude: -63.12
+                          Station elevation: 3.0
+                            Showalter index: 5.82
+                               Lifted index: -1.31
+    LIFT computed using virtual temperature: -2.09
+                                SWEAT index: 159.22
+                                    K index: 0.50
+                         Cross totals index: 16.30
+                      Vertical totals index: 20.90
+                        Totals totals index: 37.20
+      Convective Available Potential Energy: 853.91
+             CAPE using virtual temperature: 1034.67
+                      Convective Inhibition: -8.01
+             CINS using virtual temperature: -3.96
+                           Equilibrum Level: 229.75
+ Equilibrum Level using virtual temperature: 229.70
+                   Level of Free Convection: 912.97
+             LFCT using virtual temperature: 923.32
+                     Bulk Richardson Number: 89.68
+          Bulk Richardson Number using CAPV: 108.66
+  Temp [K] of the Lifted Condensation Level: 292.75
+Pres [hPa] of the Lifted Condensation Level: 936.80
+   Equivalent potential temp [K] of the LCL: 343.71
+     Mean mixed layer potential temperature: 298.28
+              Mean mixed layer mixing ratio: 15.62
+              1000 hPa to 500 hPa thickness: 5743.00
+Precipitable water [mm] for entire sounding: 36.51
+
+
+    78866 TNCM Juliana Airport Observations at 12Z 23 Dec 1977
+
+-----------------------------------------------------------------------------
+   PRES   HGHT   TEMP   DWPT   RELH   MIXR   DRCT   SKNT   THTA   THTE   THTV
+    hPa     m      C      C      %    g/kg    deg   knot     K      K      K 
+-----------------------------------------------------------------------------
+ 1019.0      3   24.4   21.8     85  16.43     70     20  295.9  343.4  298.9
+ 1000.0    165   23.4   20.2     82  15.14     70     20  296.6  340.4  299.2
+  984.0    304   22.4   19.1     81  14.32     75     19  296.9  338.5  299.5
+  949.9    609   20.3   16.6     79  12.66     80     18  297.8  334.7  300.0
+  917.0    914   18.1   14.1     78  11.16     85     18  298.6  331.3  300.6
+  886.0   1211   16.0   11.7     76   9.84     90     19  299.3  328.4  301.1
+  885.2   1219   15.9   11.7     76   9.86     90     19  299.3  328.5  301.1
+  850.0   1563   13.4   12.5     94  10.82     90     17  300.2  332.2  302.1
+  823.5   1828   12.1   11.1     94  10.20     95     16  301.5  331.9  303.4
+  794.1   2133   10.6    9.6     93   9.51     95     21  303.1  331.6  304.8
+  765.7   2438    9.1    8.0     93   8.86    115     22  304.6  331.4  306.2
+  757.0   2533    8.6    7.5     93   8.66    115     21  305.1  331.4  306.7
+  738.0   2743    5.9    1.8     75   5.94    115     19  304.3  322.6  305.4
+  736.0   2765    5.6    1.2     73   5.70    115     19  304.3  321.8  305.3
+  726.0   2878    8.6  -21.4     10   0.96    113     17  308.7  312.1  308.9
+  700.0   3179    8.2  -21.8     10   0.96    110     13  311.5  314.9  311.7
+  660.5   3657    6.9  -23.1     10   0.91    100     11  315.3  318.5  315.5
+  657.0   3701    6.8  -23.2     10   0.90     99     11  315.6  318.9  315.8
+  612.2   4267    3.4  -26.6      9   0.71     90      7  318.1  320.7  318.3
+  567.4   4876   -0.3  -30.3      8   0.54    125      5  320.8  322.8  320.9
+  500.0   5890   -6.5  -36.5      7   0.34    185      8  325.1  326.4  325.1
+  486.8   6096   -8.3  -38.3      7   0.29    180      9  325.4  326.5  325.4
+  428.0   7082  -16.9  -46.9      6   0.13    259     17  326.6  327.1  326.6
+  400.0   7590  -17.7  -47.7      5   0.13    300     21  331.9  332.4  331.9
+  398.3   7620  -17.9  -47.9      5   0.13    300     20  332.0  332.5  332.0
+  322.6   9144  -29.5  -59.5      4   0.04    285     33  336.6  336.8  336.6
+  300.0   9670  -33.5  -63.5      3   0.02    280     29  338.0  338.2  338.1
+  259.7  10668  -41.3                         270     55  340.9         340.9
+  250.0  10930  -43.3                         270     29  341.6         341.6
+  226.5  11582  -49.2                         265     65  342.4         342.4
+  220.0  11775  -50.9                         263     66  342.6         342.6
+  207.0  12168  -52.9                         260     69  345.4         345.4
+  200.0  12390  -54.1                         265     64  346.9         346.9
+  186.0  12851  -58.1                         267     62  347.7         347.7
+  170.0  13411  -60.2                         270     59  353.3         353.3
+  161.9  13716  -61.3                         265     48  356.4         356.4
+  150.0  14190  -63.1                         265     45  361.2         361.2
+  125.6  15240  -70.4                         290     57  366.8         366.8
+  113.3  15849  -74.6                         300     44  369.9         369.9
+  102.2  16459  -78.8                         290     32  372.9         372.9
+  100.0  16590  -79.7                         290     32  373.5         373.5
+   91.9  17068  -80.0                         270     15  382.1         382.1
+   78.0  17991  -80.5                           9     14  399.3         399.3
+   70.0  18600  -80.3                          75     13  412.3         412.3
+   58.0  19702  -66.3                          61     12  466.6         466.6
+   41.0  21826  -62.5                          34      9  524.7         524.7
+   30.0  23790  -54.9                          10      7  594.4         594.4
+   23.0  25491  -53.3                         321     23  646.0         646.0
+   20.0  26400  -47.9                         295     31  688.8         688.8
+   15.0  28299  -47.3                                     749.8         749.8
+   13.0  29257  -41.7                                     800.4         800.4
+
+
+      Station information and sounding indices
+
+                         Station identifier: TNCM
+                             Station number: 78866
+                           Observation time: 771223/1200
+                           Station latitude: 18.05
+                          Station longitude: -63.12
+                          Station elevation: 3.0
+                            Showalter index: 3.82
+                               Lifted index: 0.69
+    LIFT computed using virtual temperature: 0.02
+                                SWEAT index: 192.00
+                                    K index: 2.40
+                         Cross totals index: 19.00
+                      Vertical totals index: 19.90
+                        Totals totals index: 38.90
+      Convective Available Potential Energy: 151.64
+             CAPE using virtual temperature: 222.54
+                      Convective Inhibition: -12.03
+             CINS using virtual temperature: -5.62
+                           Equilibrum Level: 405.86
+ Equilibrum Level using virtual temperature: 402.51
+                   Level of Free Convection: 901.81
+             LFCT using virtual temperature: 920.77
+                     Bulk Richardson Number: 14.13
+          Bulk Richardson Number using CAPV: 20.73
+  Temp [K] of the Lifted Condensation Level: 291.94
+Pres [hPa] of the Lifted Condensation Level: 944.46
+   Equivalent potential temp [K] of the LCL: 339.25
+     Mean mixed layer potential temperature: 296.76
+              Mean mixed layer mixing ratio: 14.71
+              1000 hPa to 500 hPa thickness: 5725.00
+Precipitable water [mm] for entire sounding: 34.27
+
+
+    78866 TNCM Juliana Airport Observations at 12Z 24 Dec 1977
+
+-----------------------------------------------------------------------------
+   PRES   HGHT   TEMP   DWPT   RELH   MIXR   DRCT   SKNT   THTA   THTE   THTV
+    hPa     m      C      C      %    g/kg    deg   knot     K      K      K 
+-----------------------------------------------------------------------------
+ 1016.0      3   25.4   20.8     76  15.47     80     20  297.2  342.1  299.9
+ 1000.0    145   24.6   19.7     74  14.67     70     21  297.8  340.5  300.4
+  920.0    871   18.6   17.3     92  13.69     91     22  298.8  338.8  301.2
+  850.0   1548   14.2   12.6     90  10.90    110     22  301.0  333.3  303.0
+  800.0   2059   11.2    9.5     89   9.40    118     21  303.1  331.3  304.8
+  751.0   2588   10.6   -5.4     32   3.42    126     19  307.9  318.9  308.6
+  700.0   3170    7.4  -22.6     10   0.89    135     18  310.6  313.8  310.8
+  563.0   4939    0.4  -29.6      8   0.59    177     10  322.3  324.5  322.5
+  500.0   5880   -5.9  -35.9      7   0.36    200      6  325.8  327.2  325.9
+  451.0   6674  -13.3  -43.3      6   0.18    244     16  326.2  327.0  326.3
+  400.0   7580  -15.9  -45.9      6   0.16    295     27  334.2  334.9  334.3
+  346.0   8653  -25.3  -55.3      4   0.06    290     37  335.6  335.9  335.7
+  300.0   9670  -34.1  -41.1     49   0.35    285     47  337.2  338.6  337.3
+  275.0  10273  -38.5  -53.5     19   0.10    275     56  339.3  339.7  339.3
+  250.0  10920  -43.7                         265     66  341.0         341.0
+  208.0  12123  -52.4                         270     66  345.7         345.7
+  200.0  12380  -54.3                         280     67  346.6         346.6
+  150.0  14170  -66.1                         270     63  356.0         356.0
+  100.0  16550  -80.5                         280     38  371.9         371.9
+   88.0  17270  -80.7                         226     31  385.4         385.4
+   77.0  18028  -77.7                         170     24  406.6         406.6
+   70.0  18570  -80.1                         130     19  412.7         412.7
+   60.0  19465  -70.1                         107     15  453.6         453.6
+   50.0  20560  -66.3                          80     10  486.8         486.8
+   43.0  21484  -61.9                          59     11  519.1         519.1
+   30.0  23740  -56.5                          10     13  590.0         590.0
+   20.0  26330  -53.1                                     672.9         672.9
+
+
+      Station information and sounding indices
+
+                         Station identifier: TNCM
+                             Station number: 78866
+                           Observation time: 771224/1200
+                           Station latitude: 18.05
+                          Station longitude: -63.12
+                          Station elevation: 3.0
+                            Showalter index: 3.88
+                               Lifted index: 0.84
+    LIFT computed using virtual temperature: 0.14
+                                SWEAT index: 201.22
+                                    K index: 2.70
+                         Cross totals index: 18.50
+                      Vertical totals index: 20.10
+                        Totals totals index: 38.60
+      Convective Available Potential Energy: 79.82
+             CAPE using virtual temperature: 196.67
+                      Convective Inhibition: -9.67
+             CINS using virtual temperature: -7.31
+                           Equilibrum Level: 292.91
+ Equilibrum Level using virtual temperature: 291.55
+                   Level of Free Convection: 895.83
+             LFCT using virtual temperature: 904.15
+                     Bulk Richardson Number: 3.04
+          Bulk Richardson Number using CAPV: 7.49
+  Temp [K] of the Lifted Condensation Level: 291.58
+Pres [hPa] of the Lifted Condensation Level: 928.38
+   Equivalent potential temp [K] of the LCL: 340.34
+     Mean mixed layer potential temperature: 297.86
+              Mean mixed layer mixing ratio: 14.61
+              1000 hPa to 500 hPa thickness: 5735.00
+Precipitable water [mm] for entire sounding: 34.08
+
+
+    78866 TNCM Juliana Airport Observations at 12Z 25 Dec 1977
+
+-----------------------------------------------------------------------------
+   PRES   HGHT   TEMP   DWPT   RELH   MIXR   DRCT   SKNT   THTA   THTE   THTV
+    hPa     m      C      C      %    g/kg    deg   knot     K      K      K 
+-----------------------------------------------------------------------------
+ 1015.0      3   26.2   21.6     76  16.29    120     16  298.1  345.6  301.0
+ 1000.0    136   25.2   20.6     76  15.53    120     16  298.4  343.7  301.1
+  981.1    304   24.0   20.7     82  15.90    115     19  298.8  345.3  301.6
+  972.0    386   23.4   20.7     85  16.09    112     20  299.0  346.0  301.8
+  947.1    609   21.8   18.8     83  14.59    105     22  299.5  342.4  302.2
+  850.0   1542   15.0   10.6     75   9.53    105     18  301.9  330.3  303.6
+  792.5   2133   12.0    8.8     81   9.02    115     13  304.7  332.0  306.4
+  782.0   2246   11.4    8.4     82   8.92    120     12  305.3  332.3  306.9
+  764.1   2438   10.2    6.2     76   7.85    130     11  306.0  330.0  307.4
+  736.6   2743    8.3    2.8     68   6.39    145      9  307.2  327.0  308.4
+  729.0   2830    7.8    1.8     66   6.01    147      9  307.5  326.2  308.6
+  700.0   3165    7.6   -1.4     53   4.96    155      9  310.9  326.6  311.8
+  659.2   3657    4.0   -7.5     43   3.31    195      8  312.1  322.9  312.8
+  651.0   3759    3.2   -8.8     41   3.03    199      8  312.4  322.4  313.0
+  633.0   3987    4.6  -25.4      9   0.77    208      7  316.5  319.3  316.7
+  611.2   4267    2.9  -27.1      9   0.68    220      6  317.8  320.3  317.9
+  566.3   4876   -0.7  -30.7      8   0.52    280      7  320.5  322.4  320.6
+  500.0   5870   -6.7  -36.7      7   0.33    275      9  324.8  326.1  324.9
+  485.6   6096   -8.2  -31.6     13   0.56    270     13  325.7  327.8  325.8
+  454.0   6619  -11.7  -19.7     52   1.78    279     22  327.6  334.0  328.0
+  425.0   7123  -14.7  -44.7      6   0.17    287     32  330.0  330.7  330.1
+  400.0   7580  -18.1  -48.1      5   0.12    295     40  331.4  331.9  331.4
+  397.8   7620  -18.4  -48.1      5   0.12    280     40  331.5  332.0  331.5
+  321.9   9144  -30.6  -48.5     16   0.15    290     33  335.3  335.9  335.3
+  300.0   9650  -34.7  -48.7     23   0.15    285     50  336.4  337.0  336.4
+  266.0  10487  -40.1  -70.1      3   0.01    281     73  340.2  340.3  340.2
+  259.0  10668  -41.6                         280     78  340.7         340.7
+  250.0  10910  -43.5                         280     80  341.3         341.3
+  225.6  11582  -48.7                         270     87  343.5         343.5
+  218.0  11806  -50.4                         320     87  344.2         344.2
+  200.0  12370  -54.7                         270     82  346.0         346.0
+  181.0  13001  -59.1                         270     80  348.8         348.8
+  161.2  13716  -62.6                         270     77  354.8         354.8
+  150.0  14160  -64.7                         270     70  358.4         358.4
+  145.9  14325  -65.6                         280     67  359.6         359.6
+  138.7  14630  -67.4                         250     57  361.8         361.8
+  125.2  15240  -70.9                         295     47  366.2         366.2
+  112.0  15907  -74.7                         293     49  370.9         370.9
+  100.0  16570  -73.3                         290     51  385.9         385.9
+
+
+      Station information and sounding indices
+
+                         Station identifier: TNCM
+                             Station number: 78866
+                           Observation time: 771225/1200
+                           Station latitude: 18.05
+                          Station longitude: -63.12
+                          Station elevation: 3.0
+                            Showalter index: 4.48
+                               Lifted index: -1.72
+    LIFT computed using virtual temperature: -2.53
+                                SWEAT index: 172.21
+                                    K index: 23.30
+                         Cross totals index: 17.30
+                      Vertical totals index: 21.70
+                        Totals totals index: 39.00
+      Convective Available Potential Energy: 787.77
+             CAPE using virtual temperature: 1003.38
+                      Convective Inhibition: -13.86
+             CINS using virtual temperature: -8.07
+                           Equilibrum Level: 221.00
+ Equilibrum Level using virtual temperature: 221.02
+                   Level of Free Convection: 894.33
+             LFCT using virtual temperature: 909.39
+                     Bulk Richardson Number: 60.48
+          Bulk Richardson Number using CAPV: 77.03
+  Temp [K] of the Lifted Condensation Level: 292.93
+Pres [hPa] of the Lifted Condensation Level: 934.71
+   Equivalent potential temp [K] of the LCL: 344.77
+     Mean mixed layer potential temperature: 298.65
+              Mean mixed layer mixing ratio: 15.81
+              1000 hPa to 500 hPa thickness: 5734.00
+Precipitable water [mm] for entire sounding: 38.81
+
+
+    78866 TNCM Juliana Airport Observations at 12Z 26 Dec 1977
+
+-----------------------------------------------------------------------------
+   PRES   HGHT   TEMP   DWPT   RELH   MIXR   DRCT   SKNT   THTA   THTE   THTV
+    hPa     m      C      C      %    g/kg    deg   knot     K      K      K 
+-----------------------------------------------------------------------------
+ 1014.0      3   25.8   21.0     75  15.70    125     19  297.8  343.5  300.6
+ 1000.0    124   25.0   20.0     74  14.95    120     19  298.1  341.8  300.8
+  979.7    304   23.6   19.8     79  15.07    120     19  298.6  342.6  301.2
+  970.0    391   23.0   19.7     82  15.13    121     19  298.7  343.0  301.4
+  946.0    609   21.4   16.9     75  12.93    125     18  299.3  337.3  301.6
+  921.0    842   19.8   13.8     68  10.88    125     19  299.9  332.1  301.9
+  913.2    914   19.2   13.7     70  10.87    125     19  300.1  332.2  302.0
+  881.3   1219   16.9   13.0     78  10.81    125     16  300.8  332.8  302.7
+  850.0   1528   14.6   12.4     87  10.75    130     14  301.4  333.4  303.4
+  829.0   1740   15.0    2.0     41   5.36    137     10  304.0  320.6  305.0
+  820.4   1828   14.6    1.9     42   5.38    140      8  304.4  321.1  305.4
+  791.2   2133   13.0    1.6     46   5.45    155      6  305.9  322.9  306.9
+  763.1   2438   11.4    1.2     50   5.52    160      6  307.4  324.7  308.5
+  759.0   2483   11.2    1.2     50   5.53    160      6  307.7  324.9  308.7
+  735.6   2743    9.7   -3.0     41   4.19    160      6  308.8  322.2  309.6
+  700.0   3155    7.4   -9.6     29   2.65    200      4  310.6  319.4  311.1
+  663.0   3603    7.4  -22.6     10   0.94    302      3  315.5  318.9  315.7
+  658.6   3657    7.1  -22.9     10   0.93    315      3  315.8  319.1  316.0
+  611.2   4267    4.0  -26.0      9   0.76     40      3  319.0  321.8  319.2
+  588.0   4582    2.4  -27.6      9   0.68    354      4  320.7  323.2  320.8
+  566.7   4876    0.1  -26.5     11   0.78    310      5  321.4  324.2  321.5
+  500.0   5870   -7.7  -22.7     29   1.24    270      8  323.6  328.1  323.8
+  485.4   6096   -9.1  -26.1     24   0.94    290     11  324.6  328.0  324.8
+  400.0   7570  -18.5  -48.5      5   0.12    330     10  330.9  331.4  330.9
+  397.2   7620  -18.9  -48.9      5   0.11    335     10  331.0  331.5  331.0
+  321.4   9144  -31.0  -61.0      4   0.03     10     14  334.9  335.1  335.0
+  300.0   9640  -34.9  -64.9      3   0.02    350     19  336.1  336.2  336.1
+  258.2  10668  -43.3                         305     27  338.4         338.4
+  250.0  10890  -45.1                         300     28  338.9         338.9
+  235.6  11277  -48.0                         290     36  340.3         340.3
+  214.6  11887  -52.5                         280     47  342.5         342.5
+  212.0  11967  -53.1                         279     49  342.8         342.8
+  200.0  12340  -54.1                         275     58  346.9         346.9
+  195.1  12496  -55.0                         275     59  348.0         348.0
+  169.0  13394  -60.2                         285     62  353.9         353.9
+  168.5  13411  -60.3                         285     63  354.0         354.0
+  150.0  14140  -64.5                         290     52  358.8         358.8
+  145.4  14325  -65.5                         295     51  360.2         360.2
+  131.2  14935  -68.8                         300     40  365.1         365.1
+  124.6  15240  -70.5                         300     34  367.5         367.5
+  101.4  16459  -77.1                         275     22  377.1         377.1
+  100.0  16540  -77.5                         275     21  377.7         377.7
+   77.8  17983  -76.7                         320     11  407.6         407.6
+   70.0  18590  -76.3                          75      5  420.8         420.8
+   62.0  19303  -68.9                          84      8  452.1         452.1
+   50.0  20600  -65.5                         100     14  488.7         488.7
+   38.0  22281  -62.7                          22     13  535.7         535.7
+   30.0  23760  -56.5                         315     12  590.0         590.0
+   20.0  26380  -49.9                         280     23  682.7         682.7
+   14.0  28711  -49.9                                     755.9         755.9
+   12.0  29725  -46.7                                     801.3         801.3
+
+
+      Station information and sounding indices
+
+                         Station identifier: TNCM
+                             Station number: 78866
+                           Observation time: 771226/1200
+                           Station latitude: 18.05
+                          Station longitude: -63.12
+                          Station elevation: 3.0
+                            Showalter index: 2.06
+                               Lifted index: -1.70
+    LIFT computed using virtual temperature: -2.29
+                                SWEAT index: 184.81
+                                    K index: 17.70
+                         Cross totals index: 20.10
+                      Vertical totals index: 22.30
+                        Totals totals index: 42.40
+      Convective Available Potential Energy: 438.24
+             CAPE using virtual temperature: 601.10
+                      Convective Inhibition: -18.81
+             CINS using virtual temperature: -7.98
+                           Equilibrum Level: 224.90
+ Equilibrum Level using virtual temperature: 224.84
+                   Level of Free Convection: 882.63
+             LFCT using virtual temperature: 902.88
+                     Bulk Richardson Number: 19.53
+          Bulk Richardson Number using CAPV: 26.79
+  Temp [K] of the Lifted Condensation Level: 291.97
+Pres [hPa] of the Lifted Condensation Level: 926.47
+   Equivalent potential temp [K] of the LCL: 342.15
+     Mean mixed layer potential temperature: 298.42
+              Mean mixed layer mixing ratio: 15.00
+              1000 hPa to 500 hPa thickness: 5746.00
+Precipitable water [mm] for entire sounding: 31.93
+
+
+    78866 TNCM Juliana Airport Observations at 12Z 27 Dec 1977
+
+-----------------------------------------------------------------------------
+   PRES   HGHT   TEMP   DWPT   RELH   MIXR   DRCT   SKNT   THTA   THTE   THTV
+    hPa     m      C      C      %    g/kg    deg   knot     K      K      K 
+-----------------------------------------------------------------------------
+ 1015.0      3   26.2   21.4     75  16.09    125     11  298.1  345.0  300.9
+ 1000.0    136   24.8   19.9     74  14.86    125     11  297.9  341.2  300.6
+  980.8    304   23.5   18.8     75  14.14    125     12  298.3  339.6  300.9
+  946.8    609   21.2   16.8     76  12.90    130     16  299.0  336.8  301.3
+  914.0    914   18.9   14.8     77  11.75    130     18  299.6  334.3  301.8
+  882.3   1219   16.6   12.9     79  10.69    130     17  300.3  331.9  302.2
+  864.0   1400   15.2   11.7     80  10.09    124     15  300.6  330.6  302.5
+  850.0   1539   14.2   10.0     76   9.15    120     13  301.0  328.3  302.7
+  831.0   1731   15.4    1.4     39   5.12     94     13  304.2  320.1  305.2
+  821.4   1828   14.9   -0.8     34   4.41     80     13  304.8  318.5  305.6
+  792.2   2133   13.5   -7.7     22   2.72     65     12  306.4  315.2  306.9
+  764.0   2438   12.1  -14.5     14   1.63     55     12  308.0  313.5  308.4
+  747.0   2627   11.2  -18.8     10   1.17     46      9  309.1  313.1  309.3
+  736.6   2743   11.0  -19.0     10   1.17     40      7  310.1  314.1  310.3
+  700.0   3168   10.4  -19.6     10   1.16    250      4  314.0  318.0  314.2
+  659.7   3657    8.0  -22.0     10   1.00    360      7  316.6  320.2  316.8
+  622.0   4142    5.6  -24.4      9   0.86    277      4  319.2  322.4  319.4
+  612.3   4267    4.6  -25.4      9   0.79    255      3  319.5  322.4  319.6
+  567.3   4876   -0.5  -30.5      8   0.54    180      7  320.6  322.6  320.7
+  510.0   5725   -7.5  -37.5      7   0.30    180      4  322.0  323.2  322.1
+  500.0   5880   -5.7  -35.7      7   0.37    180      4  326.0  327.4  326.1
+  486.0   6096   -7.3  -37.3      7   0.32    180      3  326.7  327.9  326.7
+  400.0   7580  -18.5  -48.5      5   0.12    170      3  330.9  331.4  330.9
+  397.8   7620  -18.8  -48.8      5   0.11    165      3  331.0  331.5  331.0
+  322.2   9144  -30.1  -60.1      4   0.04    310      8  335.9  336.1  335.9
+  300.0   9660  -33.9  -63.9      3   0.02    330     12  337.5  337.6  337.5
+  268.0  10440  -40.1  -70.1      3   0.01    307     24  339.5  339.6  339.5
+  259.1  10668  -41.9                         300     27  340.2         340.2
+  250.0  10910  -43.7                         295     28  341.0         341.0
+  211.0  12033  -52.9                         286     29  343.5         343.5
+  205.9  12192  -53.2                         285     29  345.5         345.5
+  200.0  12380  -53.5                         280     33  347.9         347.9
+  161.3  13716  -62.5                         275     43  354.8         354.8
+  150.0  14170  -65.5                         275     42  357.1         357.1
+  125.3  15240  -71.0                         280     36  365.8         365.8
+  112.0  15911  -74.5                         276     31  371.3         371.3
+  107.4  16154  -74.9                         275     29  374.9         374.9
+  100.0  16570  -75.7                         270     27  381.2         381.2
+   94.0  16926  -77.9                         270     24  383.7         383.7
+   82.4  17678  -78.2                         250     14  397.8         397.8
+   72.0  18449  -78.5                         155     11  412.8         412.8
+   70.0  18610  -77.1                         135     10  419.1         419.1
+   64.0  19127  -68.1                         123     12  449.7         449.7
+   50.0  20592  -65.5                          90     17  488.7         488.7
+   30.0  23810  -55.1                         155      5  593.8         593.8
+   22.0  25810  -50.5                         277     23  662.5         662.5
+   20.0  26430  -51.1                         315     28  679.0         679.0
+   16.0  27891  -50.3                         297     29  726.3         726.3
+   10.0  31050  -39.3                         260     30  871.7         871.7
+
+
+      Station information and sounding indices
+
+                         Station identifier: TNCM
+                             Station number: 78866
+                           Observation time: 771227/1200
+                           Station latitude: 18.05
+                          Station longitude: -63.12
+                          Station elevation: 3.0
+                            Showalter index: 6.47
+                               Lifted index: 1.04
+    LIFT computed using virtual temperature: 0.35
+                                SWEAT index: 149.99
+                                    K index: -0.10
+                         Cross totals index: 15.70
+                      Vertical totals index: 19.90
+                        Totals totals index: 35.60
+      Convective Available Potential Energy: 85.54
+             CAPE using virtual temperature: 177.96
+                      Convective Inhibition: -17.73
+             CINS using virtual temperature: -9.55
+                           Equilibrum Level: 299.57
+ Equilibrum Level using virtual temperature: 294.13
+                   Level of Free Convection: 881.55
+             LFCT using virtual temperature: 896.51
+                     Bulk Richardson Number: 17.05
+          Bulk Richardson Number using CAPV: 35.46
+  Temp [K] of the Lifted Condensation Level: 291.26
+Pres [hPa] of the Lifted Condensation Level: 920.33
+   Equivalent potential temp [K] of the LCL: 340.33
+     Mean mixed layer potential temperature: 298.27
+              Mean mixed layer mixing ratio: 14.45
+              1000 hPa to 500 hPa thickness: 5744.00
+Precipitable water [mm] for entire sounding: 27.07
+
+
+    78866 TNCM Juliana Airport Observations at 12Z 28 Dec 1977
+
+-----------------------------------------------------------------------------
+   PRES   HGHT   TEMP   DWPT   RELH   MIXR   DRCT   SKNT   THTA   THTE   THTV
+    hPa     m      C      C      %    g/kg    deg   knot     K      K      K 
+-----------------------------------------------------------------------------
+ 1014.0      3   26.4   21.4     74  16.10    130     10  298.4  345.4  301.2
+ 1000.0    128   25.0   20.7     77  15.63    130     10  298.1  343.7  300.9
+  980.0    304   23.6   20.0     80  15.27    130     10  298.5  343.1  301.2
+  946.4    609   21.2   18.8     86  14.65    135      9  299.0  341.9  301.6
+  930.0    762   20.0   18.2     89  14.35    140     10  299.3  341.4  301.9
+  913.7    914   19.0   15.4     80  12.20    145     10  299.8  335.7  302.0
+  901.0   1035   18.2   13.2     73  10.69    145     10  300.2  331.8  302.1
+  881.8   1219   16.9   12.6     76  10.50    145      9  300.6  331.8  302.5
+  850.0   1532   14.6   11.6     82  10.19    145      7  301.4  331.8  303.3
+  820.6   1828   13.0   10.5     85   9.83    135      7  302.8  332.2  304.6
+  791.4   2133   11.3    9.4     88   9.47    130      8  304.1  332.7  305.9
+  763.2   2438    9.7    8.4     92   9.12    120      8  305.5  333.2  307.2
+  759.0   2484    9.4    8.2     92   9.07    117      8  305.7  333.3  307.4
+  735.9   2743   11.3  -11.3     19   2.21    100      6  310.5  317.9  310.9
+  728.0   2833   12.0  -18.0     11   1.28    102      6  312.2  316.6  312.5
+  700.0   3160   10.6  -19.4     10   1.18    110      7  314.2  318.3  314.4
+  658.3   3657    7.8  -22.2     10   0.99     85      5  316.6  320.2  316.8
+  610.4   4267    4.5  -25.6      9   0.79    120      3  319.6  322.5  319.8
+  566.1   4876    1.1  -28.9      9   0.62    120      3  322.6  324.9  322.8
+  500.0   5880   -4.5  -34.5      8   0.41     15      8  327.5  329.1  327.6
+  486.2   6096   -6.2  -36.2      7   0.36    350     13  328.1  329.5  328.1
+  400.0   7600  -17.9  -47.9      5   0.13    350     21  331.6  332.2  331.7
+  398.9   7620  -18.1  -48.1      5   0.12    350     22  331.7  332.2  331.7
+  322.8   9144  -30.9  -60.9      4   0.03    350     33  334.7  334.8  334.7
+  300.0   9670  -35.3  -65.3      3   0.02    340     26  335.5  335.6  335.5
+  259.1  10668  -43.4                         305     22  338.0         338.0
+  250.0  10910  -45.3                         285     23  338.6         338.6
+  225.6  11582  -49.1                         275     33  342.9         342.9
+  200.0  12370  -53.5                         265     39  347.9         347.9
+  186.8  12801  -56.3                         265     43  350.3         350.3
+  161.5  13716  -62.1                         270     51  355.3         355.3
+  150.0  14180  -65.1                         285     50  357.7         357.7
+  138.9  14630  -67.8                         300     42  360.9         360.9
+  125.2  15240  -71.4                         300     31  365.2         365.2
+  100.0  16560  -79.3                         290     33  374.3         374.3
+   82.3  17678  -76.9                         320     21  400.6         400.6
+   70.0  18610  -74.9                          95      9  423.8         423.8
+   50.0  20610  -66.9                          70     10  485.4         485.4
+   42.0  21669  -64.1                          43      9  517.1         517.1
+   30.0  23780  -53.3                         350      8  598.7         598.7
+   20.0  26400  -52.3                         280     18  675.3         675.3
+   10.0  30960  -40.1                         275     30  868.7         868.7
+
+
+      Station information and sounding indices
+
+                         Station identifier: TNCM
+                             Station number: 78866
+                           Observation time: 771228/1200
+                           Station latitude: 18.05
+                          Station longitude: -63.12
+                          Station elevation: 3.0
+                            Showalter index: 6.00
+                               Lifted index: 1.04
+    LIFT computed using virtual temperature: 0.28
+                                SWEAT index: 161.19
+                                    K index: 0.70
+                         Cross totals index: 16.10
+                      Vertical totals index: 19.10
+                        Totals totals index: 35.20
+      Convective Available Potential Energy: 498.29
+             CAPE using virtual temperature: 587.43
+                      Convective Inhibition: -9.21
+             CINS using virtual temperature: -5.28
+                           Equilibrum Level: 227.86
+ Equilibrum Level using virtual temperature: 227.86
+                   Level of Free Convection: 897.33
+             LFCT using virtual temperature: 915.97
+                     Bulk Richardson Number: 204.31
+          Bulk Richardson Number using CAPV: 240.85
+  Temp [K] of the Lifted Condensation Level: 292.47
+Pres [hPa] of the Lifted Condensation Level: 931.96
+   Equivalent potential temp [K] of the LCL: 343.33
+     Mean mixed layer potential temperature: 298.43
+              Mean mixed layer mixing ratio: 15.40
+              1000 hPa to 500 hPa thickness: 5752.00
+Precipitable water [mm] for entire sounding: 34.75
+
+
+    78866 TNCM Juliana Airport Observations at 12Z 29 Dec 1977
+
+-----------------------------------------------------------------------------
+   PRES   HGHT   TEMP   DWPT   RELH   MIXR   DRCT   SKNT   THTA   THTE   THTV
+    hPa     m      C      C      %    g/kg    deg   knot     K      K      K 
+-----------------------------------------------------------------------------
+ 1015.0      3   25.0   21.1     79  15.79     80      7  296.9  342.7  299.7
+ 1000.0    133   24.2   19.5     75  14.48     80      7  297.4  339.5  299.9
+  980.4    304   23.1   18.2     74  13.60     85      8  297.9  337.5  300.3
+  946.4    609   21.0   15.9     72  12.12    100      9  298.8  334.4  301.0
+  913.5    914   19.0   13.5     71  10.78    115     10  299.8  331.6  301.7
+  881.8   1219   16.9   11.2     69   9.57    120      9  300.7  329.1  302.4
+  850.0   1536   14.8    8.8     67   8.43    110      9  301.6  326.9  303.2
+  833.0   1707   14.0    8.0     67   8.14    110     10  302.5  327.1  304.0
+  821.1   1828   12.8    8.1     73   8.34    110     11  302.5  327.6  304.0
+  791.8   2133    9.8    8.5     92   8.86     95     13  302.4  329.0  304.1
+  790.0   2152    9.6    8.5     93   8.89     93     13  302.4  329.1  304.1
+  779.0   2269   11.4  -18.6     11   1.14     84     14  305.6  309.4  305.8
+  763.5   2438   13.0  -17.0     11   1.33     70     15  309.1  313.6  309.4
+  758.0   2498   13.6  -16.4     11   1.41     67     15  310.4  315.2  310.6
+  736.2   2743   12.7  -17.3     11   1.35     55     16  312.0  316.6  312.3
+  700.0   3165   11.2  -18.8     10   1.24     45     16  314.9  319.2  315.1
+  659.3   3657    7.9  -22.1     10   1.00     30      8  316.6  320.2  316.8
+  612.0   4267    3.9  -26.1      9   0.75     45      8  318.8  321.5  318.9
+  589.0   4582    1.8  -28.2      9   0.64     53      6  319.8  322.2  320.0
+  567.8   4876    1.2  -28.8      9   0.63     60      4  322.5  324.9  322.6
+  553.0   5089    0.8  -29.2      9   0.62     89      5  324.5  326.8  324.6
+  500.0   5890   -5.1  -35.1      7   0.39    200     10  326.8  328.3  326.8
+  486.7   6096   -6.6  -36.6      7   0.34    195     11  327.4  328.8  327.5
+  400.0   7600  -17.5  -47.5      5   0.13    320     19  332.2  332.7  332.2
+  398.9   7620  -17.7  -47.7      5   0.13    320     19  332.2  332.8  332.2
+  323.1   9144  -29.8  -59.8      4   0.04    320     24  336.0  336.2  336.0
+  300.0   9680  -34.1  -64.1      3   0.02    325     22  337.2  337.3  337.2
+  273.0  10333  -40.1  -70.1      3   0.01    322     23  337.7  337.8  337.7
+  259.8  10668  -41.9                         320     24  339.9         339.9
+  250.0  10930  -43.3                         315     25  341.6         341.6
+  237.0  11287  -44.5                         307     27  345.0         345.0
+  206.4  12192  -50.8                         285     31  348.9         348.9
+  200.0  12400  -52.3                         275     37  349.8         349.8
+  162.1  13716  -62.5                         260     38  354.2         354.2
+  150.0  14200  -66.3                         275     37  355.7         355.7
+  125.9  15240  -72.4                         295     26  362.9         362.9
+  120.0  15527  -74.1                         298     23  364.8         364.8
+  107.7  16154  -76.6                         305     15  371.6         371.6
+  100.0  16580  -78.3                         310      9  376.2         376.2
+   94.0  16932  -81.1                         295      6  377.4         377.4
+   87.0  17373  -77.1                         236      4  393.9         393.9
+   82.5  17678  -78.4                         195      3  397.2         397.2
+   79.0  17925  -79.5                         166      7  399.9         399.9
+   70.0  18620  -75.5                          85     17  422.5         422.5
+   59.0  19632  -66.5                          90     12  463.9         463.9
+   50.0  20640  -63.5                          95      8  493.4         493.4
+   30.0  23830  -55.3                          15     11  593.3         593.3
+   20.0  26450  -48.7                         260     17  686.3         686.3
+   15.5  28122  -49.3                                     736.2         736.2
+   13.0  29290  -43.5                                     794.2         794.2
+
+
+      Station information and sounding indices
+
+                         Station identifier: TNCM
+                             Station number: 78866
+                           Observation time: 771229/1200
+                           Station latitude: 18.05
+                          Station longitude: -63.12
+                          Station elevation: 3.0
+                            Showalter index: 7.75
+                               Lifted index: 2.51
+    LIFT computed using virtual temperature: 1.87
+                                SWEAT index: 133.59
+                                    K index: -1.30
+                         Cross totals index: 13.90
+                      Vertical totals index: 19.90
+                        Totals totals index: 33.80
+      Convective Available Potential Energy: 18.66
+             CAPE using virtual temperature: 38.55
+                      Convective Inhibition: -39.83
+             CINS using virtual temperature: -22.02
+                           Equilibrum Level: 779.76
+ Equilibrum Level using virtual temperature: 769.55
+                   Level of Free Convection: 829.65
+             LFCT using virtual temperature: 868.73
+                     Bulk Richardson Number: 374.65
+          Bulk Richardson Number using CAPV: 773.89
+  Temp [K] of the Lifted Condensation Level: 290.72
+Pres [hPa] of the Lifted Condensation Level: 920.29
+   Equivalent potential temp [K] of the LCL: 338.24
+     Mean mixed layer potential temperature: 297.71
+              Mean mixed layer mixing ratio: 13.96
+              1000 hPa to 500 hPa thickness: 5757.00
+Precipitable water [mm] for entire sounding: 28.31
+
+
+    78866 TNCM Juliana Airport Observations at 12Z 30 Dec 1977
+
+-----------------------------------------------------------------------------
+   PRES   HGHT   TEMP   DWPT   RELH   MIXR   DRCT   SKNT   THTA   THTE   THTV
+    hPa     m      C      C      %    g/kg    deg   knot     K      K      K 
+-----------------------------------------------------------------------------
+ 1015.0      3   24.8   21.1     80  15.79     75     11  296.7  342.4  299.5
+ 1000.0    136   23.2   20.7     86  15.63     70     11  296.4  341.6  299.1
+  980.7    304   22.2   19.9     87  15.16     70     11  297.0  341.0  299.7
+  946.6    609   20.4   18.5     89  14.34     80     11  298.2  340.1  300.8
+  913.8    914   18.6   17.0     90  13.55     85     13  299.4  339.2  301.9
+  882.0   1219   16.9   15.6     92  12.80     75     13  300.6  338.4  302.9
+  850.0   1538   15.0   14.1     94  12.04     75     12  301.9  337.6  304.0
+  821.3   1828   13.8   12.8     94  11.46     80     13  303.5  337.8  305.6
+  792.1   2133   12.5   11.5     94  10.88     60     16  305.3  338.1  307.3
+  764.0   2438   11.2   10.2     94  10.32     55     21  307.1  338.5  308.9
+  752.0   2572   10.6    9.6     94  10.08     57     22  307.8  338.6  309.7
+  743.0   2672    8.0    4.2     77   7.01     59     23  306.1  327.6  307.4
+  736.7   2743    8.8    1.8     61   5.95     60     24  307.7  326.2  308.8
+  731.0   2807    9.6   -0.4     50   5.11     62     24  309.2  325.4  310.2
+  700.0   3166    7.0   -3.0     49   4.40     70     22  310.2  324.2  311.0
+  659.2   3657    5.2  -19.4     15   1.25     75     12  313.6  317.9  313.8
+  645.0   3835    4.6  -25.4      9   0.76     69     11  314.8  317.5  315.0
+  611.4   4267    1.2  -20.3     18   1.26     55     10  315.8  320.1  316.0
+  602.0   4391    0.2  -18.8     22   1.45     48     11  316.0  321.0  316.3
+  592.0   4526    0.8  -29.2      9   0.58     40     13  318.2  320.4  318.3
+  566.3   4876   -1.3  -31.3      8   0.50     20     16  319.8  321.7  319.9
+  500.0   5860   -7.1  -37.1      7   0.32    325     12  324.3  325.6  324.4
+  484.8   6096   -8.8  -38.8      7   0.28    310     12  325.1  326.2  325.2
+  400.0   7560  -19.3  -49.3      5   0.11    330     19  329.8  330.3  329.8
+  396.7   7620  -19.8  -49.8      5   0.10    330     19  330.0  330.4  330.0
+  321.0   9144  -31.7  -61.7      4   0.03    310     17  334.1  334.2  334.1
+  300.0   9630  -35.5  -65.5      3   0.02    285     19  335.2  335.3  335.2
+  257.9  10668  -42.1                         285     41  340.3         340.3
+  250.0  10880  -43.5                         285     46  341.3         341.3
+  235.4  11277  -46.1                         285     53  343.3         343.3
+  204.8  12192  -52.1                         280     67  347.8         347.8
+  200.0  12350  -53.1                         280     68  348.5         348.5
+  193.0  12572  -54.9                         280     70  349.3         349.3
+  186.0  12801  -56.7                         285     69  350.0         350.0
+  152.9  14020  -66.3                         290     60  353.6         353.6
+  150.0  14140  -67.3                         285     57  354.0         354.0
+  138.0  14630  -69.9                         290     48  357.9         357.9
+  124.4  15240  -73.1                         290     35  362.9         362.9
+  112.1  15849  -76.3                         300     21  367.8         367.8
+  101.0  16459  -79.6                         300     11  372.6         372.6
+  100.0  16520  -79.9                         300     10  373.1         373.1
+   87.0  17302  -82.9                         325     10  382.2         382.2
+   81.4  17678  -81.3                         350      8  392.8         392.8
+   70.0  18530  -77.7                          95      6  417.8         417.8
+   66.0  18871  -71.5                          92      7  438.4         438.4
+   63.0  19144  -72.7                          89      8  441.6         441.6
+   50.0  20520  -65.9                          75     11  487.8         487.8
+   30.0  23710  -54.9                          20      9  594.4         594.4
+   27.0  24391  -50.9                           7      9  623.8         623.8
+   20.0  26330  -54.9                         330     10  667.4         667.4
+   16.0  27783  -46.9                         304     17  737.4         737.4
+   10.0  30910  -45.1                         250     32  850.1         850.1
+
+
+      Station information and sounding indices
+
+                         Station identifier: TNCM
+                             Station number: 78866
+                           Observation time: 771230/1200
+                           Station latitude: 18.05
+                          Station longitude: -63.12
+                          Station elevation: 3.0
+                            Showalter index: 0.80
+                               Lifted index: -0.70
+    LIFT computed using virtual temperature: -1.42
+                                SWEAT index: 205.21
+                                    K index: 26.20
+                         Cross totals index: 21.20
+                      Vertical totals index: 22.10
+                        Totals totals index: 43.30
+      Convective Available Potential Energy: 398.60
+             CAPE using virtual temperature: 574.32
+                      Convective Inhibition: -15.54
+             CINS using virtual temperature: -11.78
+                           Equilibrum Level: 263.21
+ Equilibrum Level using virtual temperature: 263.22
+                   Level of Free Convection: 875.42
+             LFCT using virtual temperature: 886.72
+                     Bulk Richardson Number: 293.16
+          Bulk Richardson Number using CAPV: 422.40
+  Temp [K] of the Lifted Condensation Level: 292.67
+Pres [hPa] of the Lifted Condensation Level: 950.92
+   Equivalent potential temp [K] of the LCL: 341.18
+     Mean mixed layer potential temperature: 296.93
+              Mean mixed layer mixing ratio: 15.28
+              1000 hPa to 500 hPa thickness: 5724.00
+Precipitable water [mm] for entire sounding: 40.22
+
+Description of the data columns
+<http://weather.uwyo.edu/upperair/columns.html> or sounding indices
+<http://weather.uwyo.edu/upperair/indices.html>.
+
+------------------------------------------------------------------------
+/Interested in graduate studies in atmospheric science? Check out our
+program at the University of Wyoming
+<http://www.uwyo.edu/atsc/howtoapply/>/
+------------------------------------------------------------------------
+Questions about the weather data provided by this site can be addressed
+to Larry Oolman (ldoolman@uwyo.edu) <mailto:ldoolman@uwyo.edu>
+------------------------------------------------------------------------

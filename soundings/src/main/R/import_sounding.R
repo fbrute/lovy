@@ -15,13 +15,14 @@ getFileUrls <- function(years,months,rootPath) {
 
 mainAllYearsImport <- function(dbg = F) {
     #years <- as.character(c(2005:2012,2015))
-    years <- as.character(c(2005:2015))
+    years <- as.character(c(1973:2020))
     months <- c("janvier","fevrier","mars","avril","mai","juin","juillet","aout","septembre",
                 "octobre","novembre","decembre")
     #rootPath <- "/data/soundings"   
     #rootPath <- "/data/soundings/cape_san_juan"   
-    rootPath <- "~/lovy/soundings/src/main/data/"   
+    rootPath <- "~/lovy/soundings/src/main/data/pr"   
     setwd(rootPath)
+    print(rootPath)
     #fileUrls <- getFileUrls(years,months,rootPath)
     fileUrls <- Sys.glob("*.html")
     
@@ -102,6 +103,8 @@ mainByMonth <- function(fileurl) {
                 # pre contains the data (odd values) or the context (even values) 
                 # of the soundings
                 headstring <- xpathSApply(doc,"//h2", xmlValue)[i]
+                print("106:headstring=")
+                print(headstring)
                 datastring <- xpathSApply(doc,"//pre", xmlValue)[2*i-1]
                 contextstring <- xpathSApply(doc,"//pre", xmlValue)[2*i]
                 
@@ -338,6 +341,18 @@ getStationName  <- function(text) {
         str <- substr(text, 7 , 7 + attr(pos,"match.length") -1 -12 -7)
 }
 
+getStartRowOfData <- function(strings) {
+    for (i in 5:10) {
+        rowdata <- as.numeric(unlist(strsplit(unlist(strings)[i]," ")))
+        if (length(rowdata[!is.na(rowdata)])) {
+            print("indice:")
+            print(i)
+            return(i)
+        }
+    }
+    
+}
+
 getData <- function(datastrings, dateofsounding, timeofsounding) {
         # get a list of strings representing each an observation
         strings <- strsplit(datastrings, "\n")
@@ -346,8 +361,9 @@ getData <- function(datastrings, dateofsounding, timeofsounding) {
         nallrowsofdata <- length(unlist(strings))
         nrowsofdata <- 0
         datasounding <- numeric()
-        for (i in 5:nallrowsofdata){
-                #browser()
+        start_row_of_data <- getStartRowOfData(unlist(strings))
+        for (i in start_row_of_data:nallrowsofdata){
+                if (dbg) browser()
                 # each line is an observation at a different pressure
                 rowdata <- as.numeric(unlist(strsplit(unlist(strings)[i]," ")))
                 
@@ -386,6 +402,7 @@ importData <- function(headstring, datastrings, contextstring) {
         dateofsounding <- getDate(headstring)
         timeofsounding <- getTime(headstring)
         station_number <- getStationNumber(headstring)
+        print(station_number)
         station_name <- getStationName(headstring)
         cape <- getCape(contextstring)
         cape_virt <- getVirtualCape(contextstring)
@@ -396,14 +413,22 @@ importData <- function(headstring, datastrings, contextstring) {
         # data begins at line 5 since we need to skip 4 lines of header with names of columns
         nallrowsofdata <- length(unlist(strings))
         datasounding <- numeric()
-        for (i in 5:nallrowsofdata){
-                #browser()
+        start_row_of_data = getStartRowOfData(strings)
+        for (i in start_row_of_data:nallrowsofdata){
+                if (dbg) browser()
                 # each line is an observation at a different pressure
                 rowdata <- as.numeric(unlist(strsplit(unlist(strings)[i]," ")))
                 
                 # remove NAs
                 rowdata <- rowdata[!is.na(rowdata)]
-                
+                # for older html files since 1973, deg and knot not available
+                if (length(rowdata) == 9) {
+                    rowdata[11] = rowdata[9]
+                    rowdata[10] = rowdata[8]
+                    rowdata[8] = NA
+                    rowdata[9] = NA
+                    
+                }
                 if (length(rowdata) == 11){
                         # send row to database
                         injectRow2Db(rowdata, station_number, station_name,
@@ -435,7 +460,7 @@ injectRow2Db <- function(data, station_number,
         
         if (dbg) browser()
 
-        sqlstr <- paste("insert into sounding1", 
+        sqlstr <- paste("insert into sounding20162020", 
                         "(station_number, station_name ,date,time,cape,cape_virt,conv_inhib,cins,pressure,",
                         "height,temp, dwpt,",
                         "relhumidity, mixr, drct, snkt, thta, thte, thtv)",
