@@ -1,0 +1,13 @@
+
+†Tsrc/main/scala/importable/val%20filesHere%20=%20(new%20Java.io.File(%22.%22))..scala*S
+>importable/`val filesHere = (new Java.io.File(".")).$package`. *
+importable€*]
+Himportable/`val filesHere = (new Java.io.File(".")).$package`.filesHere. €*	filesHere€2
+ importable/2H
+>importable/`val filesHere = (new Java.io.File(".")).$package`.2V
+ Himportable/`val filesHere = (new Java.io.File(".")).$package`.filesHere.2'
+( 1java/io/File#listFiles().2(
+! !java/io/File#`<init>`(+2).2
+ !java/io/File#2
+ java/io/2
+ java/PZ 8BA9ED45760F559A6DBF01DE6C8B12E3

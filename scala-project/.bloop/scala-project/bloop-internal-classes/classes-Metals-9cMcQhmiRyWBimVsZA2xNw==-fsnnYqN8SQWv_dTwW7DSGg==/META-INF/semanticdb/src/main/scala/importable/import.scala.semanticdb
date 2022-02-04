@@ -1,0 +1,28 @@
+
+‡&src/main/scala/importable/import.scala*-
+importable/importTable.
+ *importTable€*+
+importable/importTable.main().*main€*1
+$importable/importTable.main().(args)*args€*
+local0 €*	filesHere€*
+local1*file€2
+ importable/2%
+ importable/importTable.2,
+ 
+importable/importTable.main().22
+ $importable/importTable.main().(args)2
+ scala/Array#2"
+ scala/Predef.String#2
+! %scala/Unit#2
+ local02'
+, 5java/io/File#listFiles().2(
+% %java/io/File#`<init>`(+2).2
+! %java/io/File#2
+  java/io/2
+ java/22
+ $scala/collection/ArrayOps#foreach().2)
+ scala/Predef.refArrayOps().2
+ local02
+ local12'
+ scala/Predef.println(+1).2
+ local1PZ 879174197778C61DAECDBF589C7301F3
