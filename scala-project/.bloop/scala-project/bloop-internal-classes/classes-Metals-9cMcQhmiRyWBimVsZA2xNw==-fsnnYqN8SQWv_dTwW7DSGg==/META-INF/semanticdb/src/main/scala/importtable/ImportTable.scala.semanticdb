@@ -1,0 +1,215 @@
+
+Ç3,src/main/scala/importtable/ImportTable.scala*.
+importtable/ImportTable.
+ *ImportTable€*,
+importtable/ImportTable.main().*main€*2
+%importtable/ImportTable.main().(args)*args€*
+local0 €*path€*
+local1 €*	filesHere€*
+local2*csvFiles€*
+local3*file€*
+local4*	fileLines€*
+local5*file€*
+local6*getFirstLine€*
+local7*file€*)
+local8*getFirstFourFieldsFromLine€*
+local9*line€*
+local10 €*headers€*
+local11*file€*
+local12*	getFields€*
+local13*line€*"
+local14 €*firstFourFields€*
+local15*header€*
+local16*x€*
+local17 €*firstFields€*
+local18 €*nTake€*
+local19*header€*
+local20 €*fields€*
+local21*header€*
+local22 €*Header€*
+local23*sqrtIter€*
+local24*guess€*
+local25*x€*
+local27*improve€*
+local28*guess€*
+local29*x€*
+local26*isGoodEnough€*
+local30*guess€*
+local31*x€*
+local32*sqrt€*
+local33*x€2
+ importtable/2
+ java/io/File#2
+ java/io/2
+ java/2&
+ importtable/ImportTable.2-
+ 
+importtable/ImportTable.main().23
+ %importtable/ImportTable.main().(args)2
+ scala/Array#2"
+ scala/Predef.String#2
+! %scala/Unit#2
+ local02 
+ scala/Int#`>`(+3).2#
+ scala/Array#length().23
+ %importtable/ImportTable.main().(args)2"
++ +scala/Array#apply().23
+' +%importtable/ImportTable.main().(args)2>
+' '0java/lang/IllegalArgumentException#`<init>`(+1).21
+ '#java/lang/IllegalArgumentException#2
+		 local12'
+		 (java/io/File#listFiles().2(
+		 java/io/File#`<init>`(+2).2
+		 java/io/File#2
+		 local02
+ local229
+( (+scala/collection/ArrayOps.WithFilter#map().25
+ 'scala/collection/ArrayOps#withFilter().2)
+ scala/Predef.refArrayOps().2
+ local12
+
+ local32*
+  java/lang/String#endsWith().2%
+ java/io/File#getName().2
+ local32
+ local32-
+ scala/reflect/ClassTag.apply().2
+ local42
+ local52
+ java/io/File#2
+ $scala/Array#2"
+% +scala/Predef.String#29
+0 7+scala/collection/IterableOnceOps#toArray().21
+% -#scala/io/BufferedSource#getLines().2+
+ scala/io/Source.fromFile(+4).2
+ scala/io/Source.2
+ 	scala/io/2
+ scala/2
+ #local52E
+$ $7scala/io/LowPriorityCodecImplicits#fallbackSystemCodec.2-
+7 7scala/reflect/ClassTag.apply().2
+ local62
+ local72
+ java/io/File#2"
+" (scala/Predef.String#2/
+ !scala/collection/ArrayOps#head().2)
+ scala/Predef.refArrayOps().2
+ local42
+ local72
+ "local82
+# 'local92"
+) /scala/Predef.String#2"
+2 8scala/Predef.String#2<
+ &.scala/collection/IterableOnceOps#mkString(+1).28
+ *scala/LowPriorityImplicits#wrapRefArray().2/
+ !scala/collection/ArrayOps#take().2)
+ scala/Predef.refArrayOps().2)
+ java/lang/String#split(+1).2
+ 
+local92
+ local102.
+  scala/collection/ArrayOps#map().2)
+ scala/Predef.refArrayOps().2
+ local22
+
+ local112
+ local62
+ local112-
+   scala/reflect/ClassTag.apply().2
+ local122
+ local132"
+ scala/Predef.String#2"
+! 'scala/Predef.String#2
+ 
+local132
+   local142.
+!!  scala/collection/ArrayOps#map().2)
+!! scala/Predef.refArrayOps().2
+!! local102
+!
+! local152
+"" (local82
+")" /local152-
+"0" 0scala/reflect/ClassTag.apply().22
+$$ $scala/collection/ArrayOps#foreach().2)
+$$ scala/Predef.refArrayOps().2
+$$ local142'
+$$ #scala/Predef.println(+1).2
+$$ local162
+&& local172
+'
+' local182.
+((  scala/collection/ArrayOps#map().2)
+(( scala/Predef.refArrayOps().2
+(( local102
+(( local192<
+(;( C.scala/collection/IterableOnceOps#mkString(+1).28
+(( *scala/LowPriorityImplicits#wrapRefArray().2/
+(/( 3!scala/collection/ArrayOps#take().2)
+(( scala/Predef.refArrayOps().2)
+($( )java/lang/String#split(+1).2
+(( #local192
+(4( 9local182-
+(I( Iscala/reflect/ClassTag.apply().2
+** local202.
+++  scala/collection/ArrayOps#map().2)
+++ scala/Predef.refArrayOps().2
+++ local102
++
++ local212<
+, , (.scala/collection/IterableOnceOps#mkString(+1).28
+,, *scala/LowPriorityImplicits#wrapRefArray().2)
+,, java/lang/String#split(+1).2
+,, local212-
+,-, -scala/reflect/ClassTag.apply().2
+.. local222"
+.. scala/Array.apply().2
+.. scala/Array.2/
+
+.±. ±scala/reflect/ClassTag.apply().2
+00 local232
+00 local242
+00 scala/Double#2
+0!0 "local252
+0$0 *scala/Double#2
+0.0 4scala/Double#2
+1	1 local262
+11 local242
+11 local252
+1$1 )local242
+22 local232
+22 local272
+22 !local242
+2"2 #local252
+2&2 'local252
+44 local272
+44 local282
+44 scala/Double#2
+44  local292
+4"4 (scala/Double#2
+4+4 1scala/Double#2#
+55 scala/Double#`/`(+3).2#
+55 scala/Double#`+`(+7).2
+55 local282#
+55 scala/Double#`/`(+6).2
+55 local292
+55 local282
+77 local262
+77 local302
+77 "scala/Double#2
+7$7 %local312
+7'7 -scala/Double#2#
+88 scala/Double#`<`(+6).2-
+88 scala/runtime/RichDouble#abs().29
+88 +scala/LowPriorityImplicits#doubleWrapper().2#
+88 scala/Double#`-`(+6).2#
+88 scala/Double#`*`(+6).2
+88 local302
+88 local302
+88 local312
+:: local322
+:: local332
+:: scala/Double#2
+:: "local232
+:(: )local332
+<< local32PZ CA045CB5A6CAB9D103CB5B5ECDAB60C6

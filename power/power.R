@@ -1,12 +1,49 @@
-mainpower <- function () {
+# power.R
+#
+# Paramètres initiaux de coupure
+# 850 hPa pour environ 1500m
+# 700 hPa pour environ 3000m
+
+library(DBI)
+library(RMariaDB)
+
+
+getParams <- function (dbg=FALSE) {
+    if (dbg) browser()
+    if (dbg) { 
+        return(
+            list(station_number=78526,lower_pressure=850, higher_pressure=700, start_date="1973-01-01", end_date="1973-02-01")
+        )
+    }
+    station_number = as.numeric(readline("Numéro de station?: "))
+    stopifnot(station_number %in% c(78526) )
+    
+    lower_pressure = as.numeric(readline("Coupure  basse de la sal?: "))
+    higher_pressure = as.numeric(readline("Coupure haute de la sal?: "))
+    stopifnot(lower_pressure > higher_pressure)
+    
+    start_date= readline("Date de début?: ")
+    end_date= readline("Date de fin?: ")
+    stopifnot( as.Date(start_date) < as.Date(end_date) )
+    
+    return(list(
+        station_number=station_number,
+        lower_pressure=lower_pressure, 
+        higher_pressure=higher_pressure, 
+        start_date=start_date, 
+        end_date=end_date)
+    )
+} 
+    
+mainpower <- function (dbg = FALSE) {
         
-        library(RMySQL)
+        library(RMariaDB)
         
-        library(shiny)
+        #library(shiny)
         
-        dbg <- 1
-        
-        soundingdata <- getData("sounding")
+        paramsList = getParams(dbg)
+       
+        soundingdata <- getData("sounding", paramsList, dbg)
         
         matrixadiab <- getAdiabTemps(soundingdata)
         #                 temps <- getAdiabTemps(soundingdata)
@@ -36,19 +73,43 @@ mainpower <- function () {
         
         colnames(df.powers) <- c("date", "power")
         colnames(df.powers2) <- c("date", "power")
+        fdataname <- paste("soundingdata_",
+                       as.character(paramsList$station_number),
+                       "_",
+                       paramsList$start_date,
+                       "_",
+                       paramsList$end_date,
+                       ".RData",
+                       sep="")
+        save(soundingdata, file= fdataname)
         
-        save(soundingdata, file="soundingdata.RData")
-        save(df.powers, file="df.powers.RData")
+        fpowersname <- paste("df.powers_",
+                       as.character(paramsList$station_number),
+                       "_",
+                       paramsList$start_date,
+                       "_",
+                       paramsList$end_date,
+                       ".RData",
+                       sep="")
+        save(df.powers, file=fpowersname)
         
-        View(soundingdata)  
+        # View(soundingdata)  
 
         
-        fname <- paste(as.character(input$daterange[1]),
+        powers_csv_name <- paste(as.character(paramsList$station_number),
+                                 "_powers_", as.character(paramsList$start_date),
                        "_",
-                       as.character(input$daterange[2]),
-                       ".pdf",
+                       as.character(paramsList$end_date),
+                       "_",
+                       as.character(paramsList$lower_pressure),
+                       "hPA",
+                       "_",
+                       as.character(paramsList$higher_pressure),
+                       "hPA",
+                       ".csv",
                        sep="")
         
+        write.csv(df.powers, powers_csv_name, row.names = FALSE)
         #ggsave(ppower, file=fname,scale=1.9)
         
         
@@ -171,31 +232,37 @@ calcAdiabTemp <- function (T1, P1, P2) {
         T2 - 273.15
 }
 
-getData <- function(datatype=""){
+getSoundinQueryString <- function (paramsList, dbg=F) {
+    QueryString <- paste( 
+        "select date, time , pressure, height, mixr, temp", 
+        "from soundingpr7320",
+        "where station_number=", paramsList$station_number,"and date between '", paramsList$start_date  , "' and '" ,
+        paramsList$end_date,"' " ,
+        "and time = '12:00:00'",
+        "and pressure between", paramsList$higher_pressure ,"and", 
+        paramsList$lower_pressure,
+        "order by date, pressure desc;"
+    )
+    return(QueryString)
+}
+
+getData <- function(datatype="", paramsList, dbg){
         # Init string to know if it is valid at the end of the function
         QueryString <- ""
         #                 if (dbg) browser()
         
-        if (datatype == "sounding")
-                QueryString <- paste( 
-                        "select date, time , pressure, height, mixr, temp", 
-                        "from sounding1",
-                        "where date between", "'", input$daterange[1], "'" ,
-                        "and" , "'", input$daterange[2], "'" ,
-                        "and time = '12:00:00'",
-                        "and pressure between", input$lowerpressure ,"and", input$higherpressure,
-                        "order by date, pressure desc;"
-                )
+        if (datatype == "sounding") {
+            QueryString = getSoundinQueryString(paramsList, dbg)
+        }
         
-        #if (dbg) browser()
         if (QueryString != "")
-                return(getMysqlData(QueryString))
+                return(getMysqlData(QueryString, dbg))
         
 }
 
-getMysqlData <- function(queryString=""){
+getMysqlData <- function(queryString="", dbg){
         #   View(queryString)
-        con = dbConnect(dbDriver("MySQL"), user="dbmeteodb", 
+        con = dbConnect(RMariaDB::MariaDB(), user="dbmeteodb", 
                         password="dbmeteodb",
                         dbname="dbmeteodb",
                         host="localhost")
@@ -205,12 +272,13 @@ getMysqlData <- function(queryString=""){
         queryResultsData <- dbSendQuery(con, queryString)
         
         
+        if (dbg) browser()
         #get the data
-        data <- fetch(queryResultsData, n=-1)
+        data <- dbFetch(queryResultsData, n=-1)
         # freeing resources
         dbClearResult(queryResultsData) 
         dbDisconnect(con)
-        View(data)  
+        # View(data)
         data
         
         

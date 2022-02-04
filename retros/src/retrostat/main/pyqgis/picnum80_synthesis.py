@@ -13,11 +13,11 @@ from qgis.utils import iface
 import PyQt5
 from PyQt5.QtGui import QFont, QColor
 
-data_dir = '/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/retros/src/retrostat/data/karu/picnums'
-country_world_shp_file_path = "/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/retros/src/retrostat/data/retros_path/Countries_WGS84/Countries_WGS84.shp"
+data_dir = '/home/kwabena/Documents/trafin/lovy/retros/src/retrostat/data/karu/picnums'
+country_world_shp_file_path = "/home/kwabena/Documents/trafin/lovy/retros/src/retrostat/data/retros_path/Countries_WGS84/Countries_WGS84.shp"
 #canvas = qgis.utils.iface.mapCanvas()
 # print(canvas.size())
-sys.path.append("Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/retros/src/retrostat/main/pyqgis")
+sys.path.append("/home/kwabena/Documents/trafin/lovy/retros/src/retrostat/main/pyqgis")
 from colors import BtsColors
 from gates import Gate, Gates
 
@@ -429,7 +429,7 @@ class BtsLoad:
 def main():
   """ import bts with custom label color and position"""
 
-  btsLoader = BtsLoad("/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/retros/src/retrostat/data/karu/picnums")
+  btsLoader = BtsLoad("/home/kwabena/Documents/trafin/fouyol/recherche/lovy/retros/src/retrostat/data/karu/picnums")
   # btsLoader.loadShpFile(btsLoader.getProject(), btsLoader.getShpFilesPaths()[0], QColor("blue"))
   btsLoader.loadAllShpFiles(btsLoader.getProject(), btsLoader.getShpFilesPaths(), btsLoader.getColors(), btsLoader.getColorIdx())
   btsLoader.createMap(btsLoader.getProject())

@@ -1,4 +1,4 @@
-# from qgis import *
+#from qgis import *
 # from qgis.core import QgsProject, QgsVectorLayer, QgsPalLayerSettings, QgsTextBufferSettings
 # from qgis.core import QgsRuleBasedLabeling,QgsTextFormat,QgsField, QgsProperty, QgsPropertyCollection, QgsExpression
 # from PyQt5.QtCore import QVariant
@@ -13,7 +13,7 @@ import os, sys
 # #canvas = qgis.utils.iface.mapCanvas()
 # # print(canvas.size())
 
-sys.path.append("Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/retros/src/retrostat/main/pyqgis")
+sys.path.append("/home/kwabena/Documents/trafin/lovy/retros/src/retrostat/main/pyqgis")
 import pm10_sup_28_synth
 
 

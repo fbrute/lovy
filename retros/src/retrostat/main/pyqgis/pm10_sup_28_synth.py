@@ -64,10 +64,10 @@ from qgis.utils import iface
 import PyQt5
 from PyQt5.QtGui import QFont, QColor
 
-country_world_shp_file_path = "/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/retros/src/retrostat/data/retros_path/Countries_WGS84/Countries_WGS84.shp"
+country_world_shp_file_path = "/home/kwabena/Documents/trafin/lovy/retros/src/retrostat/data/retros_path/Countries_WGS84/Countries_WGS84.shp"
 #canvas = qgis.utils.iface.mapCanvas()
 # print(canvas.size())
-sys.path.append("Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/retros/src/retrostat/main/pyqgis")
+sys.path.append("/home/kwabena/Documents/trafin/lovy/retros/src/retrostat/main/pyqgis")
 from colors import BtsColors
 from shapes import BtsShapes
 from gates import Gate, Gates
@@ -204,6 +204,7 @@ class BtsLoad:
     conn = sqlite3.connect('pm10_synth.db')
     c = conn.cursor()
     # Create table
+    c.execute('''DROP TABLE IF EXISTS pm10''')
     c.execute('''CREATE TABLE pm10 
               (gate text, station text, percent real, mean real, std real)''')
 
@@ -403,7 +404,7 @@ class BtsLoad:
       return self.getGateMadaConfig()
 
 
-  def createMap(self,project):
+  def createMap(self,project, layout_name):
     # get config per station
     #config = self.getGatesConfig(self.getStation()) 
     config = self.getDefaultGateConfig() 
@@ -414,12 +415,15 @@ class BtsLoad:
     #needs to call this according to API documentaiton
     layout.initializeDefaults()
     #cosmetic
-    layout.setName('console')
+    #layout.setName('console')
+    layout.setName(layout_name)
     #add layout to manager
     manager.addLayout(layout)
     #create a map item to add
-    item_map = QgsLayoutItemMap.create(layout)
+    #item_map = QgsLayoutItemMap.create(layout)
+    item_map = QgsLayoutItemMap(layout)
     #using ndawson's answer below, do this before setting extent
+    item_map.attemptMove(QgsLayoutPoint(5,5, QgsUnitTypes.LayoutMillimeters))
     item_map.attemptResize(QgsLayoutSize(260,190, QgsUnitTypes.LayoutMillimeters))
     # create rectangle for extent
     #rect = QgsRectangle(-82.583, -10.331, 8.813, 43.921)
@@ -481,7 +485,6 @@ class BtsLoad:
     item_map.updateBoundingRect()
     
     layout.addLayoutItem(item_map)
-
     [ self.addLabelToLayout(layout, gate, self.getConfigForLabels(self.getStation(), gate)) for gate in self.getGates()]
 
     [ self.addStationShapeToLayout(layout, self.getConfigForStations(station)) for station in [self.getStation()]]
@@ -623,6 +626,9 @@ class BtsLoad:
     #create a layout item (a label in this case)
     label = QgsLayoutItemLabel(layout)    
     #set what the text will be
+    print("#################################")
+    print(config)
+    print("#################################")
     label.setText(self.getLabelPm10(gate))
     #change font style and size (optional)
     font = QFont("Arial", 14)
@@ -659,7 +665,7 @@ class BtsLoad:
 
   def getGateValue(self, station, gate, column):
     import sqlite3
-    conn = sqlite3.connect('/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/retros/src/retrostat/data/pm10_synth.db')
+    conn = sqlite3.connect('/home/kwabena/Documents/trafin/lovy/retros/src/retrostat/data/pm10_synth.db')
     sql_values = (station, gate,)
     c = conn.cursor()
     c.execute(self.getSql(column), sql_values)
@@ -874,16 +880,24 @@ class BtsLoad:
 
 def main():
   """ import bts with custom label color and position"""
+  # set a unique id for layout
+  import time
+  layout_name = str(time.time())
 
-  btsLoader = BtsLoad(f"/Users/france-norbrute/Documents/trafin/fouyol/recherche/lovy/retros/src/retrostat/data/karu/pm10_sup_28_synth")
-  # execute once the sql prepration # btsLoader.setPm10Values() # btsLoader.loadShpFile(btsLoader.getProject(), btsLoader.getShpFilesPaths()[0], QColor("blue")) btsLoader.loadAllShpFiles(btsLoader.getProject(), btsLoader.getShpFilesPaths(), btsLoader.getColors(), btsLoader.getShapes())
+  btsLoader = BtsLoad(f"/home/kwabena/Documents/trafin/lovy/retros/src/retrostat/data/karu/pm10_sup_28_synth")
+  # execute once the sql prepration 
+  btsLoader.setPm10Values() 
+  #btsLoader.loadShpFile(btsLoader.getProject(), btsLoader.getShpFilesPaths()[0], QColor("blue")) 
+
+  btsLoader.loadAllShpFiles(btsLoader.getProject(), btsLoader.getShpFilesPaths(), btsLoader.getColors(), btsLoader.getShapes())
+
   #btsLoader.addLinesToSymbols(btsLoader.getProject(), BtsShapes.getColors())
-  btsLoader.createMap(btsLoader.getProject())
+  btsLoader.createMap(btsLoader.getProject(), layout_name)
   #btsLoader.createLayout()
-  #btsLoader.saveProject(btsLoader.getProject())
+  btsLoader.saveProject(btsLoader.getProject())
 
 
-  main()
+#  main()
 
 # if __name__ == '__main__':
 
