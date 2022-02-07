@@ -622,13 +622,25 @@ class BtsLoad:
   def getGates(self):
     return ['nwap','swap','neap','north', 'sa']
 
+  #@qgsfunction(self, args='auto', group='Custom')
+  #def subscr_num(inputText, feature, parent):
+  def subscr_num(self, inputText):
+    """ Converts any digits in the input text into their Unicode subscript equivalent.
+    Expects a single string argument, returns a string"""
+    outputText = ''
+
+    for char in inputText:
+      charPos = ord(char) - 48
+      if charPos <0 or charPos > 9:
+          outputText += char
+      else:
+          outputText += chr(charPos + 8320)
+    return outputText
+
   def addLabelToLayout(self, layout, gate, config):
     #create a layout item (a label in this case)
     label = QgsLayoutItemLabel(layout)    
     #set what the text will be
-    print("#################################")
-    print(config)
-    print("#################################")
     label.setText(self.getLabelPm10(gate))
     #change font style and size (optional)
     font = QFont("Arial", 14)
@@ -692,7 +704,8 @@ class BtsLoad:
     std = str(value)[1:-2] 
 
     #label = f'{gate.upper()}:{percent}% PM10= {mean} \u00B1{std} \u00B5g.m\u207B\N{SUPERSCRIPT THREE}'
-    label = f'{gate.upper()}:{percent}% PM10= {mean} \u00B1{std} \u00B5g.m\u207B\u00b3'
+    #label = f'{gate.upper()}:{percent}% PM10= {mean} \u00B1{std} \u00B5g.m\u207B\u00b3'
+    label = f'{gate.upper()}:{percent}% {self.subscr_num("PM10")}= {mean} \u00B1 {std} \u00B5g.m\u207B\u00b3'
     self.addLabelPm10(gate, label)
 
     layer = self.getLayerFromPath(os.path.join(self.getBtsPathDir(), shp_file_path))
@@ -878,13 +891,15 @@ class BtsLoad:
     project.write(os.path.join(self.data_dir,f"pm10_sup_28_synth_{self.getStation()}.qgs"))
 
 
-def main():
+def main(station_name="karu"):
   """ import bts with custom label color and position"""
   # set a unique id for layout
   import time
-  layout_name = str(time.time())
+  # get an absolute unique id for the layout name
+  # bugs if the layout alreaday exists
+  #layout_name = str(time.time())
 
-  btsLoader = BtsLoad(f"/home/kwabena/Documents/trafin/lovy/retros/src/retrostat/data/karu/pm10_sup_28_synth")
+  btsLoader = BtsLoad(f"/home/kwabena/Documents/trafin/lovy/retros/src/retrostat/data/{station_name}/pm10_sup_28_synth")
   # execute once the sql prepration 
   btsLoader.setPm10Values() 
   #btsLoader.loadShpFile(btsLoader.getProject(), btsLoader.getShpFilesPaths()[0], QColor("blue")) 
@@ -892,7 +907,7 @@ def main():
   btsLoader.loadAllShpFiles(btsLoader.getProject(), btsLoader.getShpFilesPaths(), btsLoader.getColors(), btsLoader.getShapes())
 
   #btsLoader.addLinesToSymbols(btsLoader.getProject(), BtsShapes.getColors())
-  btsLoader.createMap(btsLoader.getProject(), layout_name)
+  btsLoader.createMap(btsLoader.getProject(), station_name)
   #btsLoader.createLayout()
   btsLoader.saveProject(btsLoader.getProject())
 
