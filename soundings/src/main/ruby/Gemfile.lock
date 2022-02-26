@@ -2,7 +2,11 @@ GEM
   remote: https://rubygems.org/
   specs:
     diff-lcs (1.4.4)
-    nokogiri (1.12.5-x86_64-darwin)
+    mini_portile2 (2.8.0)
+    nokogiri (1.13.2)
+      mini_portile2 (~> 2.8.0)
+      racc (~> 1.4)
+    nokogiri (1.13.2-x86_64-darwin)
       racc (~> 1.4)
     racc (1.6.0)
     rspec (3.10.0)
