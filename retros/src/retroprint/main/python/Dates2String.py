@@ -5,7 +5,7 @@ def main(argv):
     dates2String = Dates2String(sys.argv[1])
     stringOfDates = dates2String.getStringOfDates()
     print(stringOfDates)
-    
+
 class Dates2String:
 
     """ Take a vector of dates in csv file, and convert them to a string """
