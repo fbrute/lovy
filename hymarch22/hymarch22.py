@@ -1,7 +1,7 @@
 # Karusphere 
 # Copyright April 2022 
 # 
-
+# Hysplit generated bts shp files (ESRI) are 4152 for CRS
 from qgis.core import (
   QgsApplication,
   QgsDataSourceUri,
@@ -97,11 +97,6 @@ class BtsLoad:
       raise AssertionError("No shape files in the path directory provided.")
     self.setShpFilesPaths(shp_files_paths)
     project = QgsProject.instance()
-    #self.setColors(BtsColors.getColors())
-    #self.setShapes(BtsShapes.getShapes())
-    #self.labels = {}
-    #self.setConfigForLabels()
-    #self.setConfigForStations()
     # initialize crs system (WSG84)
     self.setCrs(4326)
     self.__initProject(project)
@@ -114,7 +109,7 @@ class BtsLoad:
 
   def __initProject(self, project):
     self.setProject(project)
-    self.loadShpFile(self.getProject(), country_world_shp_file_path, QColor("black"), None, None) 
+    self.loadShpFile(self.getProject(), country_world_shp_file_path, QColor("black")) 
     vlayer = iface.activeLayer()
     self.setVectorLayorColorToValue(vlayer, 0)
     self.setVectorLayerOpacityToValue(vlayer, 0.3)
@@ -191,12 +186,9 @@ class BtsLoad:
     idx = self.getColorIdx() + 1
     return (idx % (len(self.getColors())))
   
-  def loadAllShpFiles(self, project, shp_files_paths, colors, shapes):
+  def loadAllShpFiles(self, project, shp_files_paths):
     for shp_file_path in shp_files_paths:
-      #self.loadShpFile(self.getProject(), shp_file_path, colors[idx_color])
-      self.loadShpFile(self.getProject(), shp_file_path, 
-      colors[self.getShpName(shp_file_path)], shapes[self.getShpName(shp_file_path)],
-      BtsShapes.getColors()[self.getShpName(shp_file_path)])
+      self.loadShpFile(self.getProject(), shp_file_path, color=QColor('black'))
       # idx_color = ( idx_color + 1 ) % len(colors)
 
   def getShpBasename(self, shp_file_path):
@@ -225,6 +217,7 @@ class BtsLoad:
       ('sa'   , 'puer',   8.0, 43.6, 19.7),
       ('north', 'puer',   4.9, 44.4, 16.9),
       ('nwap' , 'mada',  52.7, 47.5, 19.4),
+      a
       ('swap' , 'mada',  10.2, 48.9, 18.1),
       ('neap' , 'mada',  24.8, 40.5, 12.9),
       ('sa'   , 'mada',  10.2, 44.4, 14.2),
@@ -245,19 +238,7 @@ class BtsLoad:
   def getLayerFromPath(self,shp_file_path):
     return QgsVectorLayer(os.path.join(self.getBtsPathDir(), shp_file_path), self.getShpBasename(shp_file_path), "ogr")
 
-  # def shpFileAddAttribute(self,vlayer, attribute, attribute_value):
-
-  #   if vlayer.startEditing():
-  #     vlayer.addAttribute(QgsField("percent", QVariant.Double))
-  #     vlayer.addAttribute(QgsField("mean", QVariant.Double))
-  #     vlayer.addAttribute(QgsField("std", QVariant.Double))
-
-  #     QgsMessageLog.logMessage(layer)
-
-  #     if vlayer.changeAttributeValue(0,1,int(self.getPicnum(shp_file_path))):
-  #       vlayer.updateFields()
-  #       vlayer.commitChanges()
-  #   return vlayer
+ 
 
   def addLabelToGateLayout(self, layout, gate, config):
     item_label = QgsLayoutItemLabel.create(layout)
@@ -701,73 +682,19 @@ class BtsLoad:
   def getLabelPm10(self, key):
     return self.labels[key]
 
-  def loadShpFile(self, project, shp_file_path, color, shape, colorShape):
-
-    gate = self.getShpName(shp_file_path)
-    value = self.getGateValue(self.getStation(), gate, 'percent')
-    percent = str(value)[1:-2]
-
-    value = self.getGateValue(self.getStation(), gate, 'mean')
-    mean = str(value)[1:-2]
-
-    value = self.getGateValue(self.getStation(), gate, 'std')
-    std = str(value)[1:-2] 
-
-    #label = f'{gate.upper()}:{percent}% PM10= {mean} \u00B1{std} \u00B5g.m\u207B\N{SUPERSCRIPT THREE}'
-    #label = f'{gate.upper()}:{percent}% PM10= {mean} \u00B1{std} \u00B5g.m\u207B\u00b3'
-    label = f'{gate.upper()}:{percent}% {self.subscr_num("PM10")}= {mean} \u00B1 {std} \u00B5g.m\u207B\u00b3'
-    self.addLabelPm10(gate, label)
+  def loadShpFile(self, project, shp_file_path, color):
 
     layer = self.getLayerFromPath(os.path.join(self.getBtsPathDir(), shp_file_path))
     layer = self.shpFileSetCrs(layer, self.getCrs())
-
-    if gate in self.getGates():
-      line_symbol = QgsLineSymbol()
-
-      # Create an marker line_symbol 
-      marker_line = QgsMarkerLineSymbolLayer()
-      marker_line.setInterval(5)
-
-      # Configure the marker.
-      simple_marker = QgsSimpleMarkerSymbolLayer()
-      simple_marker.setShape(shape)
-      #size = math.ceil(float(percent)/100*8)
-      size = 3 
-      simple_marker.setSize(size)
-      simple_marker.setAngle(180)
-      simple_marker.setColor(color)
-      # The marker has its own symbol layer.
-      marker = QgsMarkerSymbol()
-      marker.changeSymbolLayer(0, simple_marker)
-
-      # Add the layer to the marker layer.
-      marker_line.setSubSymbol(marker)
-
-      # Finally replace the symbol layer in the base style.
-      line_symbol.changeSymbolLayer(0, marker_line)
-      #line_symbol.insertSymbolLayer(1, line_simple.symbolLayer(0))
-
-      # Add the style to the line_symbol layer.        
-      renderer = QgsSingleSymbolRenderer(line_symbol) 
-      layer.setRenderer(renderer)
-      layer.triggerRepaint()
-
-      width =float(percent)/100*3
-      if width < 0.2:
-        width = 0.2
-      simple_line = QgsApplication.symbolLayerRegistry().symbolLayerMetadata("SimpleLine").createSymbolLayer({
-        'color': colorShape,
-        'line_color': colorShape,
-        'width' : f'{width}'
-      })
-
-      
-      layer.renderer().symbol().appendSymbolLayer(simple_line)
-      #layer.renderer().symbol().appendSymbolLayer(line_simple.symbolLayer(0))
-      layer.triggerRepaint()
-      #iface.layerTreeView().refreshLayerSymbology(layer.id())
-
-    project.addMapLayer(layer, True)
+    try:
+      print(f"attempting to load layer from {shp_file_path}")
+      if layer.isValid():
+        project.addMapLayer(layer, True)
+    except:
+      print(f"problem with layer from {shp_file_path}")
+      return("interrupting loading ...")
+    finally:
+      self.saveProject(self.getProject())
 
   def addStationShapeToLayout(self,layout, config):
     item_shape = QgsLayoutItemMarker.create(layout)
@@ -880,7 +807,8 @@ class BtsLoad:
 
 
   def saveProject(self, project):
-    project.write(os.path.join(self.data_dir,f"pm10_sup_28_synth_{self.getStation()}.qgs"))
+    #project.write(os.path.join(self.data_dir,"hymarch22.qgs"))
+    project.write(os.path.join("/home/kwabena/Documents/trafin/lovy/hymarch22/hymarch22.qgs"))
 
 
 def main(station_name="karu"):
@@ -894,17 +822,18 @@ def main(station_name="karu"):
   #btsLoader = BtsLoad(f"/home/kwabena/Documents/trafin/lovy/retros/src/retrostat/data/{station_name}/pm10_sup_28_synth")
   #btsLoader = BtsLoad(f"/home/kwabena/Documents/trafin/lovy/retros/src/retrostat/data/{station_name}/pm10_sup_28_synth")
 
-  scenario_path = Config.get_res_root() / 'results' / 'background_air'
+  scenario_path = Config.get_project_root() / 'results' / 'background_air'
   print(f"scenario_path={scenario_path}")
   assert(scenario_path.is_dir())
 
-  btsLoader = BtsLoad(scenario_path)
+  btsLoader = BtsLoad(str(scenario_path))
   
   # execute once the sql prepration 
-  btsLoader.setPm10Values() 
+  #btsLoader.setPm10Values() 
   #btsLoader.loadShpFile(btsLoader.getProject(), btsLoader.getShpFilesPaths()[0], QColor("blue")) 
 
-  btsLoader.loadAllShpFiles(btsLoader.getProject(), btsLoader.getShpFilesPaths(), btsLoader.getColors(), btsLoader.getShapes())
+  #btsLoader.loadAllShpFiles(btsLoader.getProject(), btsLoader.getShpFilesPaths(), btsLoader.getColors(), btsLoader.getShapes())
+  btsLoader.loadAllShpFiles(btsLoader.getProject(), btsLoader.getShpFilesPaths())
 
   #btsLoader.addLinesToSymbols(btsLoader.getProject(), BtsShapes.getColors())
   btsLoader.createMap(btsLoader.getProject(), station_name)
