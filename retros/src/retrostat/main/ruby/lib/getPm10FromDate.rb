@@ -41,6 +41,32 @@ module GetPm10
     hash_pm10_by_dates
   end
 
+  def self.getPm10sSupInf(pm10_file_path, operator, threshold)
+    raise 'No PM10 threshold' if threshold.nil?
+
+    # pm10_file_path = "/Volumes/MODIS/trafin/it/sauvegardes/trafin/fouyol/recherche/lovy/data/pm10/pm10karu.csv"
+
+    hash_pm10_by_dates = {}
+    #CSV.foreach(File.expand_path(pm10_file_path)) do |row|
+    CSV.foreach(pm10_file_path) do |row|
+      str_date, strpm10 = row[0].split ';'
+      pm10 = strpm10.to_f
+      date = GetPm10.toDate str_date
+      next if date.nil?
+      next if pm10.nil?      
+
+      #next if pm10 < threshold
+      # now the threshold can be a roof!!! (april 2022)
+      # operator can be :>, :>=, :<= or :<
+      next if !eval("#{pm10} #{operator} #{threshold}")
+
+      # puts "#{date},#{pm10}"
+      hash_pm10_by_dates[date] = pm10
+    end
+    # return the hash of dates
+    hash_pm10_by_dates
+  end
+
   def self.getPm10s(pm10_file_path, threshold)
     raise 'No PM10 threshold' if threshold.nil?
 
@@ -62,6 +88,7 @@ module GetPm10
     # return the hash of dates
     hash_pm10_by_dates
   end
+
 
   # Date with "yyyy-mm-dd"
   def self.getPm10(pm10s, strDate)

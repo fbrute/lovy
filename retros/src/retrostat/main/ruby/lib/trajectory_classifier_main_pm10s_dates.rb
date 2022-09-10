@@ -1,7 +1,8 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
+
 require_relative 'trajectory_stat_d3_pm10s_dates'
 require 'descriptive_statistics'
-require 'descriptive-statistics'
 
 def contains_trajectories? folder
     !Dir.glob("#{folder}/**/*/tdump*").empty?
@@ -63,7 +64,7 @@ raise "Folder does not contain any trajectories, please check!!!" if !contains_t
 
 #raise "File containing dates does not exists!!!" if !File.exists?(file)
 
-tstat = TrajectoryStatD3Pm10sDates.new folder, pm10_csv_file, threshold
+tstat = TrajectoryStatD3Pm10sDates.new folder, pm10_csv_file, threshold, operator=  operator 
 #tstat = TrajectoryStat.new folder
 #tstat.count
 tstat.count_by_seasons_pm10s_dates
@@ -77,7 +78,6 @@ def pourcentage(gate_count, season_count)
 end
 
 File.open(File.basename(folder) + "_sup_#{threshold}" + "_stat.txt" ,"w+") do |output_file|
-
     CSV.open(File.basename(folder) +  "_sup_#{threshold}" + "_details.csv" ,"w+") do |csv|
         output_file.write "***********#{name(folder)} @ #{level(folder)}*************\n"
         [tstat.ndjf, tstat.ma, tstat.mjja, tstat.so].each do |tstat|
