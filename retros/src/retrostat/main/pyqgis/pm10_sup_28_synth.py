@@ -201,29 +201,52 @@ class BtsLoad:
 
   def setPm10Values(self):
     import sqlite3
-    conn = sqlite3.connect('pm10_synth.db')
+    print("#################################################################")
+    print(os.getcwd())
+    print("#################################################################")
+    conn = sqlite3.connect('/home/kwabena/Documents/trafin/lovy/retros/src/retrostat/data/pm10_synth.db')
     c = conn.cursor()
     # Create table
     c.execute('''DROP TABLE IF EXISTS pm10''')
     c.execute('''CREATE TABLE pm10 
               (gate text, station text, percent real, mean real, std real)''')
 
+    # seeds = [
+    #   ('nwap' , 'puer', 41.1, 44.2, 16.8),
+    #   ('swap' , 'puer',  8.7, 44.0, 21.0),
+    #   ('neap' , 'puer',  37.3, 37.8, 11.4),
+    #   ('sa'   , 'puer',   8.0, 43.6, 19.7),
+    #   ('north', 'puer',   4.9, 44.4, 16.9),
+    #   ('nwap' , 'mada',  52.7, 47.5, 19.4),
+    #   ('swap' , 'mada',  10.2, 48.9, 18.1),
+    #   ('neap' , 'mada',  24.8, 40.5, 12.9),
+    #   ('sa'   , 'mada',  10.2, 44.4, 14.2),
+    #   ('north', 'mada',   2.1, 37.1,  8.5),
+    #   ('nwap' , 'karu',  52.7, 44.4, 15.0),
+    #   ('swap' , 'karu',  8.5,  48.1, 14.9),
+    #   ('neap' , 'karu',  30.1, 40.7, 12.0),
+    #   ('sa'   , 'karu',   6.9, 41.8,  9.8),
+    #   ('north', 'karu',   1.8, 34.4,  5.6)
+    # ]
+    #
+
+    # for pm < 28, 13 avril 2022
     seeds = [
-      ('nwap' , 'puer', 41.1, 44.2, 16.8),
-      ('swap' , 'puer',  8.7, 44.0, 21.0),
-      ('neap' , 'puer',  37.3, 37.8, 11.4),
-      ('sa'   , 'puer',   8.0, 43.6, 19.7),
-      ('north', 'puer',   4.9, 44.4, 16.9),
-      ('nwap' , 'mada',  52.7, 47.5, 19.4),
-      ('swap' , 'mada',  10.2, 48.9, 18.1),
-      ('neap' , 'mada',  24.8, 40.5, 12.9),
-      ('sa'   , 'mada',  10.2, 44.4, 14.2),
-      ('north', 'mada',   2.1, 37.1,  8.5),
-      ('nwap' , 'karu',  52.7, 44.4, 15.0),
-      ('swap' , 'karu',  8.5,  48.1, 14.9),
-      ('neap' , 'karu',  30.1, 40.7, 12.0),
-      ('sa'   , 'karu',   6.9, 41.8,  9.8),
-      ('north', 'karu',   1.8, 34.4,  5.6)
+      ('nwap' , 'puer',  19.3, 18.6, 4.6),
+      ('swap' , 'puer',  2.0,  19.6, 4.8),
+      ('neap' , 'puer',  58.4, 18.2, 4.4),
+      ('sa'   , 'puer',  6.4,  18.2, 4.5),
+      ('north', 'puer',  13.9, 17.7, 4.0),
+      ('nwap' , 'mada',  26.0, 16.8, 6.9),
+      ('swap' , 'mada',  4.0 , 17.8, 7.0),
+      ('neap' , 'mada',  49.8, 16.5, 5.6),
+      ('sa'   , 'mada',  11.2, 16.5, 6.9),
+      ('north', 'mada',   9.1, 15.0, 5.3),
+      ('nwap' , 'karu',  23.5, 19.1, 4.2),
+      ('swap' , 'karu',  2.2 , 20.0, 4.4),
+      ('neap' , 'karu',  54.8, 18.1, 4.2),
+      ('sa'   , 'karu',   8.6, 17.8, 4.6),
+      ('north', 'karu',  11.0, 18.1, 3.8)
     ]
       
     c.executemany('INSERT INTO pm10 VALUES (?,?,?,?,?)', seeds)
@@ -705,7 +728,7 @@ class BtsLoad:
 
     #label = f'{gate.upper()}:{percent}% PM10= {mean} \u00B1{std} \u00B5g.m\u207B\N{SUPERSCRIPT THREE}'
     #label = f'{gate.upper()}:{percent}% PM10= {mean} \u00B1{std} \u00B5g.m\u207B\u00b3'
-    label = f'{gate.upper()}:{percent}% {self.subscr_num("PM10")}= {mean} \u00B1 {std} \u00B5g.m\u207B\u00b3'
+    label = f'{gate.upper()}: {percent}% {self.subscr_num("PM10")}= {mean} \u00B1 {std} \u00B5g.m\u207B\u00b3'
     self.addLabelPm10(gate, label)
 
     layer = self.getLayerFromPath(os.path.join(self.getBtsPathDir(), shp_file_path))

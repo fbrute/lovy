@@ -10,7 +10,7 @@ class TrajectoryStatD3Pm10sDates < TrajectoryStat
 
   def initialize(folder, pm10sFile, threshold)
     super(folder)
-
+    @operator = operator
     @pm10s = pm10sFile
     @threshold = threshold
 
