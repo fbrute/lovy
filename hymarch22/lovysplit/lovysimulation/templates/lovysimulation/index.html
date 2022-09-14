@@ -1,0 +1,19 @@
+{% extends "lovysimulation/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <h1>Simulations:</h1>
+    <ul>
+        {% for simulation in simulations %}
+            <li>
+                <a href="{% url 'simulations:view' simulation.id %}">
+                    Simulation #{{ simulation.id}} at folder {{ simulation.folder_name }}  with file {{ simulation.excel_file_path }}
+                </a>
+                <a href="{% url 'simulations:edit' simulation.id %}">
+                    Edit simulation {{ simulation.id}}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'simulations:add' %}">Add a new Simulation</a>
+{% endblock %}
