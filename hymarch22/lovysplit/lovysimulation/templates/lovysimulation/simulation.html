@@ -1,0 +1,11 @@
+{% extends 'lovysimulation/layout.html' %}
+{% load crispy_forms_tags %}
+
+{% block body%}
+    <h1> Simulation {{ simulation.id }} </h1>
+    <ul>
+        <li> Folder Name: {{ simulation.folder_name}}</li>
+        <li> Excel File: {{ simulation.excel_file_path}}</li>
+    </ul>
+    <a href="{% url 'simulations:index' %}" class="btn-success">All Simulations</a>
+{% endblock %}

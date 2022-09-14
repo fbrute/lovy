@@ -1,0 +1,23 @@
+{% extends "lovysimulation/layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block body %}
+<div class="row">
+    <h1>Modify a Simulation</h1>
+</div>
+<div class="row">
+    <form action="{% url 'simulations:edit' simulation.id %}", method="post", enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="col-sm">
+            {{ form.folder_name|as_crispy_field }}
+        </div>
+        <div class="col-sm">
+            {{ form.excel_file_path|as_crispy_field }}
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+<div class="row">
+    <a href="{% url 'simulations:index' %}">View Simulations</a>
+</div>
+{% endblock %}
