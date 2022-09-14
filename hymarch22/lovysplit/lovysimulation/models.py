@@ -13,3 +13,13 @@ class Simulation(models.Model):
 
     def __str__(self):
         return f"{self.id}: folder_name: {self.folder_name}, excel_file_path: {self.excel_file_path}"
+
+class BackTraj(models.Model):
+    pass
+
+class Scenario(models.Model):
+    scenario_name = models.CharField(
+        max_length=64,
+        unique=True,
+        blank=False
+    )
