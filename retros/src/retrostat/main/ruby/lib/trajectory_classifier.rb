@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'byebug'
-
 class TrajectoryClassifier
   def initialize(gates, traj)
     # We expect first gate to be nwap, second swap
@@ -10,7 +8,7 @@ class TrajectoryClassifier
 
     if @traj.first.class != String
       raise 'data should be an array of strings, with each string containing lat and lon, space separated'
-      end
+    end
   end
 
   def pathsaved
@@ -100,8 +98,8 @@ class TrajectoryClassifier
         lat, lon = latlon.split ' '
         next unless in_gate? lat.to_f, lon.to_f, gate
 
-        puts "gate.name = #{gate.name}"
-        puts "lat_lon=(#{lat},#{lon})"
+        #puts "gate.name = #{gate.name}"
+        #puts "lat_lon=(#{lat},#{lon})"
         return gate.name
       end
     end # gates.each
