@@ -2,9 +2,11 @@ GEM
   remote: https://rubygems.org/
   specs:
     diff-lcs (1.4.4)
-    nokogiri (1.12.5-x86_64-darwin)
+    nokogiri (1.14.3-x86_64-darwin)
       racc (~> 1.4)
-    racc (1.6.0)
+    nokogiri (1.14.3-x86_64-linux)
+      racc (~> 1.4)
+    racc (1.6.2)
     rspec (3.10.0)
       rspec-core (~> 3.10.0)
       rspec-expectations (~> 3.10.0)
@@ -21,8 +23,8 @@ GEM
     uri (0.11.0)
 
 PLATFORMS
-  ruby
   x86_64-darwin-19
+  x86_64-linux
 
 DEPENDENCIES
   nokogiri
